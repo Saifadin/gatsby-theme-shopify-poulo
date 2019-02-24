@@ -8,6 +8,6 @@ export const wrapRootElement = ({ element }) => {
   return <ThemeProvider theme={{ colors, layout }}>{element}</ThemeProvider>;
 };
 
-export const wrapPageElement = ({ element, props }) => {
+export const wrapPageElement = ({ element }) => {
   return <PageLayout>{element}</PageLayout>;
 };
