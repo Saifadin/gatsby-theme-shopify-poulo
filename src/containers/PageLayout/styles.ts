@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { IoIosClose } from 'react-icons/io';
 
 // @ts-ignore
-import { layout } from '$tokens';
+import { layout } from '../../components/tokens';
 
 const sidebarWidth = 280;
 
