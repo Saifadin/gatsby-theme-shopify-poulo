@@ -26,3 +26,30 @@ export const SectionContent = styled.div`
     return '';
   }};
 `;
+
+export const SectionTitle = styled.h2`
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.33;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: ${layout.spacing}px;
+`;
+
+export const SectionSubTitle = styled.h3`
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.33;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: ${layout.spacing * 8}px;
+`;
+
+export const SectionDescription = styled.p`
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1em;
+  line-height: 1.25;
+  margin-bottom: ${layout.spacing * 8}px;
+`;

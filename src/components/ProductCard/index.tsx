@@ -5,6 +5,7 @@ import { Card, ProductDetails, ProductTitle, ProductPrice } from './styles';
 
 interface Product {
   title: string;
+  handle: string;
   images: Array<any>;
   priceRange: {
     minVariantPrice: {
@@ -24,6 +25,7 @@ type ProductCard = {
 
 const ProductCard: React.FunctionComponent<ProductCard> = ({ product }) => {
   const {
+    handle,
     priceRange: { minVariantPrice, maxVariantPrice },
   } = product;
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
@@ -34,7 +36,7 @@ const ProductCard: React.FunctionComponent<ProductCard> = ({ product }) => {
   }).format(parseFloat(minVariantPrice.amount));
 
   return (
-    <Card>
+    <Card to={`/product/${handle}`}>
       <CardImage images={product.images} />
       <ProductDetails>
         <ProductTitle>{product.title}</ProductTitle>

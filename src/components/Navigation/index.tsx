@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
-import { Wrapper, BrandContainer, Brand, MenuIcon, CartIcon } from './styles';
+import { Wrapper, BrandContainer, HomeLink, Brand, MenuIcon, CartIcon } from './styles';
 
 const Navigation: React.FunctionComponent = () => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
@@ -27,7 +27,9 @@ const Navigation: React.FunctionComponent = () => {
     <Wrapper>
       {activeScreen === 'left' ? <div /> : <MenuIcon size={24} onClick={() => setScreen('left')} />}
       <BrandContainer>
-        <Brand src={logo} />
+        <HomeLink to="/">
+          <Brand src={logo} />
+        </HomeLink>
       </BrandContainer>
       {activeScreen === 'right' ? <div /> : <CartIcon size={24} onClick={() => setScreen('right')} />}
     </Wrapper>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionWrapper, SectionContent } from './styles';
+import { SectionWrapper, SectionContent, SectionDescription, SectionSubTitle, SectionTitle } from './styles';
 
 type SectionProps = {
   fullWidth?: boolean;
@@ -17,4 +17,5 @@ const Section: React.FunctionComponent<SectionProps> = ({ children, fullWidth, c
   );
 };
 
+export { SectionDescription, SectionSubTitle, SectionTitle };
 export default Section;

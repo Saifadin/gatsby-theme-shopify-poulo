@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import find from 'lodash/find';
-
-import SeoContainer from '../containers/SeoContainer';
 import { graphql } from 'gatsby';
 
 // @ts-ignore
 import Hero from '../components/Hero';
-import Section from '../components/Section';
+import SeoContainer from '../containers/SeoContainer';
+import Section, { SectionTitle, SectionSubTitle, SectionDescription } from '../components/Section';
 import { Promotion } from '../styles/hero-bgs';
 import { ColoredSection } from '../styles/page-styles';
 import ProductCardList from '../components/ProductCardList';
@@ -22,14 +20,18 @@ export default ({ data: { allShopifyProduct } }: any) => {
         <h3>What a shop</h3>
       </Hero>
       <Section fullWidth>
-        <h2>Wazzup, we have the best content</h2>
-        <h4>Look stylish all the time, believe us! We tried not to look good, but it just doesn't work!</h4>
+        <SectionTitle>Wazzup, we have the best content</SectionTitle>
+        <SectionDescription>
+          Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. I was part
+          of something special. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. God help us, we're
+          in the hands of engineers.
+        </SectionDescription>
         <ProductCardList products={products} handles={['hanra-shirt', 'henning-ss-crew', 'rise-crew', 'posie-crew']} />
       </Section>
       <ColoredSection>
-        <h2>Wazzup, we have the best content</h2>
-        <h4>Look stylish all the time, believe us! We tried not to look good, but it just doesn't work!</h4>
-        <ProductCardList products={products} handles={['hanra-shirt', 'henning-ss-crew', 'rise-crew', 'posie-crew']} />
+        <SectionTitle>Wazzup, we have the best content</SectionTitle>
+        <SectionSubTitle>Look stylish all the time, believe us! We tried not to look good, but it just doesn't work!</SectionSubTitle>
+        <ProductCardList products={products} handles={['rise-crew', 'posie-crew', 'hanra-shirt', 'henning-ss-crew']} />
       </ColoredSection>
     </div>
   );

@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 import { layout } from '../tokens';
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   overflow: hidden;
   display: block;
   width: 100%;
@@ -11,6 +12,11 @@ export const Card = styled.div`
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   color: #000;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-12px);
+  }
 `;
 
 export const ProductImageWrapper = styled.div``;

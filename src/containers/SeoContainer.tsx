@@ -47,7 +47,7 @@ const SEO = ({ description = '', lang = 'en', meta = [], keywords = [], title = 
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
         {
-          href: 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Roboto:300,400,700',
+          href: 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Roboto:300,400,700,900',
           rel: 'stylesheet',
         },
       ]}
