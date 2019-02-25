@@ -8,7 +8,7 @@ import { Product, ProductHeader, ProductHeaderContainer } from './styles';
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct;
-  console.log(product);
+
   return (
     <Product>
       <SeoContainer title={product.title} description={product.description} />

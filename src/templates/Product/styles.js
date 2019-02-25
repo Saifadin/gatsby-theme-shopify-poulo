@@ -80,6 +80,7 @@ export const ProductValue = styled.div`
   overflow: hidden;
   line-height: 16px;
   cursor: pointer;
+  ${({ active }) => (active ? 'background-color: rgba(255, 255, 255, 0.8);' : '')};
   &:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
