@@ -9,7 +9,7 @@ const ProductDetails = ({ product }) => {
     variants,
     priceRange: { minVariantPrice, maxVariantPrice },
   } = product;
-  const [variant, setVariant] = useState(variants[0]);
+  const [variant, setVariant] = useState({ ...variants[0] });
 
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
   const price = Intl.NumberFormat(undefined, {
@@ -27,7 +27,7 @@ const ProductDetails = ({ product }) => {
     const selectedVariant = find(variants, ({ selectedOptions }) => currentOptions === selectedOptions);
 
     console.log(selectedVariant);
-    setVariant(selectedVariant);
+    setVariant({ ...selectedVariant });
   };
   console.log(variant);
 
