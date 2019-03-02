@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SeoContainer from '../../containers/SeoContainer';
 import ImageSlider from './ProductImages';
 import ProductDetails from './ProductDetails';
-import { Product, ProductHeader, ProductHeaderContainer } from './styles';
+import { Product, ProductHeader, ProductHeaderContainer, ProductDescription } from './styles';
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct;
@@ -18,6 +18,9 @@ const ProductPage = ({ data }) => {
           <ProductDetails product={product} />
         </ProductHeaderContainer>
       </ProductHeader>
+      <ProductDescription>
+        <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+      </ProductDescription>
     </Product>
   );
 };
@@ -53,6 +56,7 @@ export const query = graphql`
         price
         availableForSale
         shopifyId
+        compareAtPrice
         selectedOptions {
           name
           value

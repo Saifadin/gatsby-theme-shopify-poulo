@@ -26,10 +26,8 @@ const ProductDetails = ({ product }) => {
     };
     const selectedVariant = find(variants, ({ selectedOptions }) => currentOptions === selectedOptions);
 
-    console.log(selectedVariant);
     setVariant({ ...selectedVariant });
   };
-  console.log(variant);
 
   return (
     <DetailsWrapper>

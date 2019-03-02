@@ -26,12 +26,16 @@ module.exports = ({ shopifyOptions, navigation }) => ({
       ...navigation,
     },
     // productCategories: [...shopifyOptions.productCategories],
+    footerDisclaimer:
+      '© 2019 | Made with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and <a href="https://github.com/Saifadin/test-shopify-gatsby" target="_blank">Poulo</a>',
     social: {
-      twitter: '@saifadin',
-      instagram: '',
-      facebook: '',
-      pinterest: '',
+      twitter: 'saifadin',
+      instagram: 'saifadin',
+      facebook: 'osamah.aldoaiss',
+      pinterest: 'saifadin',
+      snapchat: 'aldoaiss',
     },
+    paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
   },
   plugins: [
     'gatsby-plugin-typescript',

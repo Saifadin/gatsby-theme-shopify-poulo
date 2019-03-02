@@ -6,10 +6,10 @@ export const Product = styled.div``;
 
 export const ProductHeader = styled.section`
   min-height: 50vh;
-  padding: ${layout.spacing * 2}px;
+  padding: ${layout.spacing * 4}px;
   background: #eee;
-  @media (min-width: 600) {
-    padding: ${layout.spacing * 4}px ${layout.spacing * 3}px;
+  @media (min-width: 600px) {
+    padding: ${layout.spacing * 8}px ${layout.spacing * 5}px;
   }
 `;
 
@@ -26,7 +26,15 @@ export const ProductHeaderContainer = styled.div`
   }
 `;
 
-export const ProductDescription = styled.section``;
+export const ProductDescription = styled.section`
+  max-width: 512px;
+  width: 100%;
+  margin: 0 auto;
+  padding: ${layout.spacing * 2}px;
+  @media (min-width: 600px) {
+    padding: ${layout.spacing * 8}px ${layout.spacing * 5}px;
+  }
+`;
 
 /**
  * ProductDetails

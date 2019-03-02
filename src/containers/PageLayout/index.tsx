@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
 import Menu from './Menu';
 import { Wrapper, Main, Content, Overlay, RightCloseIcon, LeftCloseIcon } from './styles';
@@ -17,7 +18,10 @@ const PageLayout: React.FunctionComponent = ({ children }) => {
       <Menu />
       <Main active={activeScreen}>
         <Navigation />
-        <Content>{children}</Content>
+        <Content>
+          {children}
+          <Footer />
+        </Content>
       </Main>
       <div>Cart</div>
       {activeScreen === 'right' ? <RightCloseIcon size={40} onClick={() => setScreen('main')} /> : null}
