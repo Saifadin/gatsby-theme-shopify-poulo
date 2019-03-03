@@ -36,8 +36,8 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   overflow: ${({ active }: ScreenProps) => (active === 'main' ? 'auto' : 'hidden')};
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
 `;
 

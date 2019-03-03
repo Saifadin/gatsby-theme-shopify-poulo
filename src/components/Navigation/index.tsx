@@ -1,11 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
-import { Wrapper, BrandContainer, HomeLink, Brand, MenuIcon, CartIcon } from './styles';
+import ShopifyContext from '../../context/ShopifyContext';
+import { Wrapper, BrandContainer, HomeLink, Brand, MenuIcon, CartIcon, CartWrapper, CartCount } from './styles';
+
+const getCount = ({ lineItems = [] }: any) => {
+  let count = 0;
+  lineItems.forEach(({ quantity }: any) => {
+    count = count + parseFloat(quantity);
+  });
+
+  return count;
+};
 
 const Navigation: React.FunctionComponent = () => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
+  const { checkout = {} } = useContext(ShopifyContext);
+  const [count, setCount] = useState(getCount(checkout));
+
+  useEffect(() => {
+    setCount(getCount(checkout));
+  }, [checkout]);
+
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -31,7 +48,14 @@ const Navigation: React.FunctionComponent = () => {
           <Brand src={logo} />
         </HomeLink>
       </BrandContainer>
-      {activeScreen === 'right' ? <div /> : <CartIcon size={24} onClick={() => setScreen('right')} />}
+      {activeScreen === 'right' ? (
+        <div />
+      ) : (
+        <CartWrapper>
+          <CartIcon size={24} onClick={() => setScreen('right')} />
+          <CartCount>{count}</CartCount>
+        </CartWrapper>
+      )}
     </Wrapper>
   );
 };
