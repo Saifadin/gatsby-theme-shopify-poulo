@@ -41,6 +41,8 @@ export const ProductDescription = styled.section`
  */
 export const DetailsWrapper = styled.div`
   text-align: center;
+  z-index: 0;
+  position: relative;
   @media (min-width: 600px) {
     padding: ${layout.spacing * 4}px;
     text-align: left;
@@ -109,6 +111,7 @@ export const ProductQuantityLabel = styled.label`
 export const ProductQuantitySelect = styled.select``;
 
 export const AddToCart = styled.button`
+  position: relative;
   appearance: none;
   cursor: pointer;
   border: 1px solid #000;
@@ -121,10 +124,22 @@ export const AddToCart = styled.button`
   color: ${colors.colorOnPrimary};
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: ${layout.spacing}px;
+  z-index: 1;
   &:hover {
     transform: translateY(-1px);
     opacity: 0.95;
   }
+`;
+
+export const AddedMessage = styled.div`
+  position: relative;
+  font-size: 0.75rem;
+  line-height: 16px;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  z-index: 0;
+  ${({ added }) => (added ? 'transform: translateY(0); opacity: 1;' : 'transform: translateY(-32px); opacity: 0;')};
 `;
 
 /**

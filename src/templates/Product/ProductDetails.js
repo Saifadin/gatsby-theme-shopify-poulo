@@ -15,6 +15,7 @@ import {
   ProductQuantitySelect,
   ProductQuantityLabel,
   AddToCart,
+  AddedMessage,
 } from './styles';
 
 const ProductDetails = ({ product }) => {
@@ -26,6 +27,7 @@ const ProductDetails = ({ product }) => {
   } = product;
   const [variant, setVariant] = useState({ ...initialVariant });
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
   const { addVariantToCart } = useContext(ShopifyContext);
 
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
@@ -53,6 +55,10 @@ const ProductDetails = ({ product }) => {
 
   const addToCart = async () => {
     await addVariantToCart(variant.shopifyId, quantity);
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+    }, 2000);
   };
 
   return (
@@ -87,6 +93,7 @@ const ProductDetails = ({ product }) => {
       <AddToCart type="button" onClick={addToCart}>
         Add to Cart
       </AddToCart>
+      <AddedMessage added={added}>The item has been added to your Cart</AddedMessage>
     </DetailsWrapper>
   );
 };

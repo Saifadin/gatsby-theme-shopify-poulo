@@ -68,10 +68,12 @@ export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopNa
     return res;
   };
 
-  console.group('ShopifyContext');
-  console.log('ShopifyClient', client);
-  console.log('CheckoutStatus', checkout);
-  console.groupEnd();
+  if (process.env.NODE_ENV === 'development') {
+    console.group('ShopifyContext');
+    console.log('ShopifyClient', client);
+    console.log('CheckoutStatus', checkout);
+    console.groupEnd();
+  }
 
   return <ShopifyContext.Provider value={{ checkout, client, addVariantToCart, removeFromCart }}>{children}</ShopifyContext.Provider>;
 };
