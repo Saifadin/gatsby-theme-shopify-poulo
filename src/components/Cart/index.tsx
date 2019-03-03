@@ -1,7 +1,19 @@
 import React, { useContext } from 'react';
 
+// @ts-ignore
+import Empty from '../../images/empty-cart.svg';
 import ShopifyContext from '../../context/ShopifyContext';
-import { Wrapper, Title, LineItems, CheckoutPrice, CheckoutButton, CheckoutDisclaimer } from './styles';
+import {
+  Wrapper,
+  Title,
+  LineItems,
+  CheckoutPrice,
+  CheckoutButton,
+  CheckoutDisclaimer,
+  EmptyContainer,
+  EmptyText,
+  EmptyImage,
+} from './styles';
 import ProductItem from './Product';
 
 const Cart = () => {
@@ -19,15 +31,18 @@ const Cart = () => {
   return (
     <Wrapper>
       <Title>Your Cart</Title>
-      <LineItems>
-        {checkout && checkout!.lineItems.length > 0 ? (
-          checkout.lineItems.map((lineItem: any) => {
+      {checkout && checkout!.lineItems.length > 0 ? (
+        <LineItems>
+          {checkout.lineItems.map((lineItem: any) => {
             return <ProductItem key={lineItem.id} {...lineItem} currencyCode={checkout.currencyCode} removeFromCart={removeFromCart} />;
-          })
-        ) : (
-          <div>You did not add anything into your cart yet</div>
-        )}
-      </LineItems>
+          })}
+        </LineItems>
+      ) : (
+        <EmptyContainer>
+          <EmptyImage src={Empty} />
+          <EmptyText>You didn't add anything to your cart yet.</EmptyText>
+        </EmptyContainer>
+      )}
       <CheckoutPrice>Total Price: {price}</CheckoutPrice>
       <CheckoutDisclaimer>You will be redirected to the Checkout Page to complete the Purchase</CheckoutDisclaimer>
       <CheckoutButton onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)}>

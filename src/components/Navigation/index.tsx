@@ -53,7 +53,7 @@ const Navigation: React.FunctionComponent = () => {
       ) : (
         <CartWrapper>
           <CartIcon size={24} onClick={() => setScreen('right')} />
-          <CartCount>{count}</CartCount>
+          {count ? <CartCount>{count}</CartCount> : null}
         </CartWrapper>
       )}
     </Wrapper>

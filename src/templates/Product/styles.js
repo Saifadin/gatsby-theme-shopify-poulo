@@ -83,16 +83,17 @@ export const ProductValue = styled.div`
   min-width: 34px;
   text-align: center;
   border: 1px solid #222;
-  border-radius: 2px;
-  padding: ${layout.spacing}px;
+  border-radius: 17px;
+  padding: ${layout.spacing}px ${layout.spacing * 2}px;
   margin-right: ${layout.spacing}px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: ${({ active }) => (active ? colors.primaryColor : 'rgba(255, 255, 255, 0.5)')};
+  color: ${({ active }) => (active ? colors.colorOnPrimary : colors.color)};
   overflow: hidden;
   line-height: 16px;
   cursor: pointer;
-  ${({ active }) => (active ? 'background-color: rgba(255, 255, 255, 0.8);' : '')};
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
   &:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
   }
 `;
 

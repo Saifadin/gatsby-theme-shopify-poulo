@@ -70,7 +70,7 @@ export const CheckoutPrice = styled.div`
   font-size: 1rem;
   font-weight: 300;
   font-family: 'Roboto Mono', monospace;
-  margin-bottom: ${layout.spacing * 2}px;
+  margin-bottom: ${layout.spacing}px;
   text-align: right;
 `;
 export const CheckoutDisclaimer = styled.span`
@@ -96,4 +96,22 @@ export const CheckoutButton = styled.button`
     cursor: not-allowed;
     opacity: 0.3;
   }
+`;
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+export const EmptyImage = styled.img`
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: ${layout.spacing * 4}px;
+`;
+export const EmptyText = styled.div`
+  font-size: 0.75rem;
+  line-height: 16px;
+  font-weight: 300;
 `;

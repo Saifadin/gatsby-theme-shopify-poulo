@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { IoIosCart, IoIosClose, IoIosMenu } from 'react-icons/io';
 
 import layout from '../tokens/layout';
+import { colors } from '../tokens';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -43,7 +44,7 @@ export const CartCount = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 0, 0, 0.95);
+  background-color: ${colors.primaryColor};
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -52,7 +53,7 @@ export const CartCount = styled.div`
   right: -4px;
   font-size: 0.66rem;
   text-align: center;
-  color: white;
+  color: ${colors.colorOnPrimary};
 `;
 export const CloseIcon = styled(IoIosClose)`
   cursor: pointer;
