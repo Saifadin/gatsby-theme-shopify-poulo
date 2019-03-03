@@ -43,6 +43,7 @@ export const Main = styled.main`
 
 export const Content = styled.div`
   overflow: scroll;
+  scroll-behavior: smooth;
 `;
 
 export const Overlay = styled.div`
