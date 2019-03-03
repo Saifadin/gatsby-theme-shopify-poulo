@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import Cart from '../../components/Cart';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
+import { ShopifyProvider } from '../../context/ShopifyContext';
 import Menu from './Menu';
 import { Wrapper, Main, Content, Overlay, RightCloseIcon, LeftCloseIcon } from './styles';
 
@@ -23,17 +26,36 @@ const PageLayout: React.FunctionComponent = ({ children }) => {
           <Footer />
         </Content>
       </Main>
-      <div>Cart</div>
+      <Cart />
       {activeScreen === 'right' ? <RightCloseIcon size={40} onClick={() => setScreen('main')} /> : null}
     </Wrapper>
   );
 };
 
 const ConnectedLayout: React.FunctionComponent = props => {
+  const {
+    site: {
+      siteMetadata: { shopifyOptions },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          shopifyOptions {
+            shopName
+            accessToken
+          }
+        }
+      }
+    }
+  `);
+
   return (
-    <LayoutProvider>
-      <PageLayout {...props} />
-    </LayoutProvider>
+    <ShopifyProvider {...shopifyOptions}>
+      <LayoutProvider>
+        <PageLayout {...props} />
+      </LayoutProvider>
+    </ShopifyProvider>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { layout } from '../../components/tokens';
+import { layout, colors } from '../../components/tokens';
 
 export const Product = styled.div``;
 
@@ -47,7 +47,7 @@ export const DetailsWrapper = styled.div`
   }
 `;
 export const ProductTitle = styled.h1`
-  font-size: 2em;
+  font-size: 2rem;
   line-height: 1.25;
   font-weight: 900;
   margin: 0;
@@ -57,7 +57,7 @@ export const ProductTitle = styled.h1`
   }
 `;
 export const ProductPrice = styled.div`
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 300;
   font-family: 'Roboto Mono', monospace;
   margin-bottom: ${layout.spacing * 4}px;
@@ -66,11 +66,11 @@ export const ProductOptions = styled.div`
   margin-bottom: ${layout.spacing * 4}px;
 `;
 export const ProductName = styled.h3`
-  font-size: 0.7em;
+  font-size: 0.7rem;
   font-weight: 700;
+  line-height: 24px;
   letter-spacing: 0.5px;
   margin: 0;
-  margin-bottom: ${layout.spacing}px;
   text-transform: uppercase;
 `;
 export const ProductValues = styled.div`
@@ -91,6 +91,39 @@ export const ProductValue = styled.div`
   ${({ active }) => (active ? 'background-color: rgba(255, 255, 255, 0.8);' : '')};
   &:hover {
     background-color: rgba(255, 255, 255, 0.8);
+  }
+`;
+
+export const ProductQuantity = styled.div`
+  margin-bottom: ${layout.spacing * 4}px;
+`;
+export const ProductQuantityLabel = styled.label`
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-transform: uppercase;
+`;
+export const ProductQuantitySelect = styled.select``;
+
+export const AddToCart = styled.button`
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: ${layout.spacing}px ${layout.spacing * 4}px;
+  font-size: 0.8rem;
+  line-height: 24px;
+  text-transform: uppercase;
+  background-color: ${colors.primaryColor};
+  color: ${colors.colorOnPrimary};
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
   }
 `;
 

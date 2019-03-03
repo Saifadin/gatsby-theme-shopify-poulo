@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import find from 'lodash/find';
+import isEqual from 'lodash/isEqual';
 
-import { DetailsWrapper, ProductTitle, ProductPrice, ProductOptions, ProductName, ProductValues, ProductValue } from './styles';
+import ShopifyContext from '../../context/ShopifyContext';
+import {
+  DetailsWrapper,
+  ProductTitle,
+  ProductPrice,
+  ProductOptions,
+  ProductName,
+  ProductValues,
+  ProductValue,
+  ProductQuantity,
+  ProductQuantitySelect,
+  ProductQuantityLabel,
+  AddToCart,
+} from './styles';
 
 const ProductDetails = ({ product }) => {
   const {
     options,
     variants,
+    variants: [initialVariant],
     priceRange: { minVariantPrice, maxVariantPrice },
   } = product;
-  const [variant, setVariant] = useState({ ...variants[0] });
+  const [variant, setVariant] = useState({ ...initialVariant });
+  const [quantity, setQuantity] = useState(1);
+  const { addVariantToCart } = useContext(ShopifyContext);
 
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
   const price = Intl.NumberFormat(undefined, {
@@ -19,14 +36,23 @@ const ProductDetails = ({ product }) => {
   }).format(parseFloat(minVariantPrice.amount));
 
   const handleClick = (optionIndex, value) => {
-    let currentOptions = variant.selectedOptions;
+    let currentOptions = [...variant.selectedOptions];
     currentOptions[optionIndex] = {
       ...currentOptions[optionIndex],
       value,
     };
-    const selectedVariant = find(variants, ({ selectedOptions }) => currentOptions === selectedOptions);
+
+    const selectedVariant = find(variants, ({ selectedOptions }) => isEqual(currentOptions, selectedOptions));
 
     setVariant({ ...selectedVariant });
+  };
+
+  const handleQuantityChange = event => {
+    setQuantity(event.target.value);
+  };
+
+  const addToCart = async () => {
+    await addVariantToCart(variant.shopifyId, quantity);
   };
 
   return (
@@ -50,6 +76,17 @@ const ProductDetails = ({ product }) => {
           </ProductOptions>
         );
       })}
+      <ProductQuantity>
+        <ProductQuantityLabel htmlFor="quantity">Quantity</ProductQuantityLabel>
+        <ProductQuantitySelect id="quantity" name="quantity" value={quantity} onChange={handleQuantityChange}>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+        </ProductQuantitySelect>
+      </ProductQuantity>
+      <AddToCart type="button" onClick={addToCart}>
+        Add to Cart
+      </AddToCart>
     </DetailsWrapper>
   );
 };

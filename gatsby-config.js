@@ -35,6 +35,7 @@ module.exports = ({ shopifyOptions, navigation }) => ({
       pinterest: 'saifadin',
       snapchat: 'aldoaiss',
     },
+    shopifyOptions,
     paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
   },
   plugins: [

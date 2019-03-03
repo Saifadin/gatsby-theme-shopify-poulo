@@ -25,6 +25,7 @@
     "@types/react": "^16.8.4",
     "@types/react-dom": "^16.8.2",
     "@types/react-helmet": "^5.0.8",
+    "@types/shopify-buy": "^1.4.2",
     "gatsby": "^2.1.17",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -37,6 +38,7 @@
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
     "@reach/router": "^1.2.1",
+    "@types/local-storage": "^1.4.0",
     "algoliasearch": "^3.32.0",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
@@ -50,10 +52,12 @@
     "gatsby-plugin-typescript": "^2.0.9",
     "gatsby-source-shopify": "^2.0.16",
     "gatsby-transformer-sharp": "^2.1.5",
+    "local-storage": "^1.4.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.7.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.4.0",
+    "shopify-buy": "^2.1.0",
     "url-search-params-polyfill": "^5.0.0",
     "whatwg-fetch": "^3.0.0"
   }

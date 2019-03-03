@@ -15,15 +15,31 @@ export const FooterWrapper = styled.div`
   margin: 0 auto;
   padding: 0 ${layout.spacing * 4}px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: ${layout.spacing * 4}px;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  @media (min-width: 600px) {
+    text-align: left;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
-export const DisclaimerPayment = styled.div``;
+export const DisclaimerPayment = styled.div`
+  order: 2;
+  @media (min-width: 600px) {
+    order: 1;
+  }
+`;
 export const PaymentMethods = styled.div`
   display: flex;
-  margin-bottom: ${layout.spacing}px;
+  justify-content: center;
+  margin-bottom: ${layout.spacing * 2}px;
+  @media (min-width: 600px) {
+    justify-content: flex-start;
+    margin-bottom: ${layout.spacing}px;
+  }
   > * {
     padding-right: ${layout.spacing * 0.5}px;
   }
@@ -39,13 +55,18 @@ export const Disclaimer = styled.div`
   }
 `;
 export const SocialIcons = styled.div`
+  order: 1;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: center;
+  @media (min-width: 600px) {
+    order: 2;
+    justify-content: flex-end;
+  }
 `;
 export const SocialIcon = styled.a`
   height: 32px;
-  padding-left: ${layout.spacing * 2}px;
+  padding: 0 ${layout.spacing}px;
   color: rgba(255, 255, 255, 0.7);
   transition: color 0.3s ease;
   &:hover {

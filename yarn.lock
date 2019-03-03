@@ -986,6 +986,11 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
   integrity sha512-ui3WwXmjTaY73fOQ3/m3nnajU/Orhi6cEu5rzX+BrAAJxa3eITXZ5ch9suPqtM03OWhAHhPSyBGCN4UKoxO20Q==
 
+"@types/local-storage@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/local-storage/-/local-storage-1.4.0.tgz#2838b4c2556b79edf87af75d13a10b25de7a8041"
+  integrity sha512-a1lcfo+7Cao6ROLcj/OAuMXbfFi8H4wB0T0ROcmxs0BJVGtNkfSqTc5VY9Hbql5wL9FrsefeIOGnjSHrBZTeCQ==
+
 "@types/lodash@^4.14.121":
   version "4.14.121"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.121.tgz#9327e20d49b95fc2bf983fc2f045b2c6effc80b9"
@@ -1050,6 +1055,11 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/shopify-buy@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@types/shopify-buy/-/shopify-buy-1.4.2.tgz#ac0b3cefca2a45c27ba1af29bda5589c7f37bc15"
+  integrity sha512-df/cg8alwU0QPQVB/plnKdnWy+tSJ+XJvz+U5FIVZKH3EcXP3h6gwgczatIdv1ZFuWXzr7Fq7MAcrc269CT5iw==
 
 "@types/tmp@^0.0.32":
   version "0.0.32"
@@ -6675,6 +6685,11 @@ loader-utils@^1.0.2, loader-utils@^1.1.0:
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
+local-storage@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/local-storage/-/local-storage-1.4.2.tgz#7ec2d3fb7f1ea91a85b160d3a785058f87bfbfa5"
+  integrity sha1-fsLT+38eqRqFsWDTp4UFj4e/v6U=
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -9563,6 +9578,11 @@ shell-quote@1.6.1:
     array-map "~0.0.0"
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
+
+shopify-buy@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.1.0.tgz#7fd4459660c1b7c269dbdc5fd8a54d2ca8158e6f"
+  integrity sha512-Z1vcCbW+lZIyaGWfFPSrPJ1DYYiUsI73U+j5MTMU51bi1FUxOYwEGc8UsbAobEPcfuoXGfyTzhdF7n6FqexsCQ==
 
 sift@^5.1.0:
   version "5.1.0"
