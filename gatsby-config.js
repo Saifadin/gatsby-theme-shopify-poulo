@@ -16,7 +16,6 @@ module.exports = ({ shopifyOptions, navigation }) => ({
       logo: path.join(__dirname, 'src', 'images', 'gatsby-icon.png'),
     },
     navigation: {
-      navStyle: 'stacked',
       menu: [
         {
           link: '/products',
@@ -52,12 +51,6 @@ module.exports = ({ shopifyOptions, navigation }) => ({
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-page-creator',
-      options: {
-        path: path.join(__dirname, 'src', 'pages'),
       },
     },
     'gatsby-plugin-react-helmet',

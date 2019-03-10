@@ -4,9 +4,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
+import Menu from '../../components/Menu';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
 import { ShopifyProvider } from '../../context/ShopifyContext';
-import Menu from './Menu';
 import { Wrapper, Main, Content, Overlay, RightCloseIcon, LeftCloseIcon } from './styles';
 
 import './index.css';
@@ -22,7 +22,7 @@ const PageLayout: React.FunctionComponent = ({ children }) => {
       <Main active={activeScreen}>
         <Navigation />
         <Content>
-          {children}
+          <div>{children}</div>
           <Footer />
         </Content>
       </Main>

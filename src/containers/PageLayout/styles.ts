@@ -6,9 +6,9 @@ import { layout } from '../../components/tokens';
 const sidebarWidth = 280;
 const sidebarDesktopWidth = 400;
 
-type ScreenProps = {
+interface ScreenProps {
   active: string;
-};
+}
 
 export const Wrapper = styled.div`
   display: grid;
@@ -42,6 +42,8 @@ export const Main = styled.main`
 `;
 
 export const Content = styled.div`
+  display: grid;
+  grid-template-rows: 1fr auto;
   overflow: scroll;
   scroll-behavior: smooth;
 `;
@@ -80,27 +82,5 @@ export const RightCloseIcon = styled(CloseIcon)`
   right: ${sidebarWidth}px;
   @media (min-width: 600px) {
     right: ${sidebarDesktopWidth}px;
-  }
-`;
-
-/**
- * Menu.tsx
- */
-export const MenuWrapper = styled.nav`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const NavItem = styled.div`
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-  padding: ${layout.spacing * 2}px;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.11);
   }
 `;

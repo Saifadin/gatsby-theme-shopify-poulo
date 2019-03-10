@@ -89,6 +89,7 @@ export const ProductValue = styled.div`
   background-color: ${({ active }) => (active ? colors.primaryColor : 'rgba(255, 255, 255, 0.5)')};
   color: ${({ active }) => (active ? colors.colorOnPrimary : colors.color)};
   overflow: hidden;
+  font-size: 0.8rem;
   line-height: 16px;
   cursor: pointer;
   opacity: ${({ active }) => (active ? 1 : 0.8)};
@@ -116,7 +117,7 @@ export const AddToCart = styled.button`
   appearance: none;
   cursor: pointer;
   border: 1px solid #000;
-  border-radius: 5px;
+  border-radius: 21px;
   padding: ${layout.spacing}px ${layout.spacing * 4}px;
   font-size: 0.8rem;
   line-height: 24px;
@@ -169,7 +170,6 @@ export const ActiveImage = styled.img`
 export const AllImages = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow-x: scroll;
 `;
 export const Thumbnail = styled.img`
@@ -182,6 +182,9 @@ export const Thumbnail = styled.img`
   border-color: ${({ active }) => (active ? '#000' : 'transparent')};
   &:hover {
     border-bottom: 1px solid #000;
+  }
+  &:first-of-type {
+    margin-left: 0;
   }
 `;
 export const ImageSliderArrow = styled.div``;

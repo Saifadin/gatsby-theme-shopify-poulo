@@ -1,11 +1,11 @@
 import React from 'react';
 import { SectionWrapper, SectionContent, SectionDescription, SectionSubTitle, SectionTitle } from './styles';
 
-type SectionProps = {
+interface SectionProps {
   fullWidth?: boolean;
   className?: string;
   contentClassName?: string;
-};
+}
 
 const Section: React.FunctionComponent<SectionProps> = ({ children, fullWidth, className, contentClassName }) => {
   return (
