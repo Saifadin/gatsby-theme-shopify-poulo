@@ -40,6 +40,18 @@ module.exports = ({ shopifyOptions, navigation }) => ({
   plugins: [
     'gatsby-plugin-typescript',
     {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: path.join(__dirname, 'src', 'pages'),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-compile-es6-packages',
+      options: {
+        modules: ['gatsby-theme-developer'],
+      },
+    },
+    {
       resolve: 'gatsby-source-shopify',
       options: {
         verbose: true,

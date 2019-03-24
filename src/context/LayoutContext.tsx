@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-type LayoutContextType = {
+interface LayoutContextType {
   activeScreen: 'main' | 'left' | 'right';
   setScreen?: any;
-};
+}
 
 export const defaultLayout: LayoutContextType = {
   activeScreen: 'main',
