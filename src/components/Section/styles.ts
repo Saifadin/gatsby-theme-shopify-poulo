@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { layout } from '../tokens';
 
-type ContentProps = {
+interface ContentProps {
   fullWidth?: boolean;
-};
+}
 
 export const SectionWrapper = styled.section`
   display: block;
@@ -15,12 +15,12 @@ export const SectionWrapper = styled.section`
 export const SectionContent = styled.div`
   display: block;
   width: 100%;
-  padding: 0 ${layout.spacing * 4}px;
   ${({ fullWidth }: ContentProps) => {
-    if (fullWidth) {
+    if (!fullWidth) {
       return `
         max-width: 1200px;
-        margin: 0 auto
+        margin: 0 auto;
+        padding: 0 ${layout.spacing * 4}px;
       `;
     }
     return '';
@@ -33,7 +33,7 @@ export const SectionTitle = styled.h2`
   line-height: 1.33;
   letter-spacing: 1px;
   font-weight: 700;
-  margin-bottom: ${layout.spacing}px;
+  margin-bottom: ${({ noDescription }: any) => (noDescription ? layout.spacing * 8 : layout.spacing)}px;
 `;
 
 export const SectionSubTitle = styled.h3`
