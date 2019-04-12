@@ -19,9 +19,9 @@ import ProductItem from './Product';
 const Cart = () => {
   const { checkout, removeFromCart } = useContext(ShopifyContext);
   const price = Intl.NumberFormat(undefined, {
-    style: 'currency',
     currency: checkout ? checkout.currencyCode : 'EUR',
     minimumFractionDigits: 2,
+    style: 'currency',
   }).format(parseFloat(checkout ? checkout.paymentDue : 0));
 
   const openCheckout = () => {

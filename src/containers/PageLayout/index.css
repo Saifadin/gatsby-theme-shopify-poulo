@@ -1,16 +1,14 @@
-* {
-  scroll-behavior: smooth;
-}
-
 body {
   overflow: hidden;
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }

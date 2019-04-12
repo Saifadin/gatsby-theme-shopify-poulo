@@ -9,8 +9,30 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 24px 1fr 24px;
   align-items: center;
-  padding: ${layout.spacing * 2}px;
+  padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;
   box-shadow: inset 0 -1px 0 #eee;
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const MenuItem = styled(Link)`
+  margin: 0 ${layout.spacing * 3}px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${colors.color};
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:first-of-type {
+    margin-left: 0;
+  }
 `;
 
 export const BrandContainer = styled.div`

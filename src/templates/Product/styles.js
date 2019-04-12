@@ -61,7 +61,6 @@ export const ProductTitle = styled.h1`
 export const ProductPrice = styled.div`
   font-size: 1rem;
   font-weight: 300;
-  font-family: 'Roboto Mono', monospace;
   margin-bottom: ${layout.spacing * 4}px;
 `;
 export const ProductOptions = styled.div`

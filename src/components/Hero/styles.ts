@@ -1,24 +1,46 @@
 import styled from '@emotion/styled';
+import { layout } from '../tokens';
 
-type WrapperProps = {
-  height: number | string;
+interface WrapperProps {
+  height?: string;
   fullWidth?: boolean;
-};
+  contentPosition:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'center-left'
+    | 'center-center'
+    | 'center-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right';
+}
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   position: relative;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  ${({ fullWidth }: WrapperProps) => {
+  padding: ${layout.spacing * 10}px;
+  ${({ fullWidth }) => {
     if (!fullWidth)
       return `
       max-width: 1200px;
       margin: 0 auto;
     `;
   }};
-  height: ${({ height }: WrapperProps) => height};
+  height: ${({ height }) => height};
+  ${({ contentPosition }) => {
+    const positions = contentPosition.split('-');
+    if (positions[0] === 'top') return `align-items: flex-start;`;
+    if (positions[0] === 'bottom') return `align-items: flex-end;`;
+    return `align-items: center;`;
+  }};
+  ${({ contentPosition }) => {
+    const positions = contentPosition.split('-');
+    if (positions[1] === 'left') return `justify-content: flex-start;`;
+    if (positions[1] === 'right') return `justify-content: flex-end;`;
+    return `justify-content: center;`;
+  }};
 `;
 
 export const Background = styled.div`
@@ -31,12 +53,32 @@ export const Background = styled.div`
   overflow: hidden;
 `;
 
-export const HeroContent = styled.div`
-  text-align: center;
-  width: 100%;
+interface ContentProps {
+  contentPosition:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'center-left'
+    | 'center-center'
+    | 'center-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right';
+}
+
+export const HeroContent = styled.div<ContentProps>`
+  /* width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
   color: white;
+  ${({ contentPosition }) => {
+    const positions = contentPosition.split('-');
+    if (positions[1] === 'left') return `text-align: left; align-items: flex-start;`;
+    if (positions[1] === 'right') return `text-align: right; align-items: flex-end;`;
+    return `text-align: center; align-items: center;`;
+  }};
 `;
 export const Title = styled.h2`
   margin: 0;

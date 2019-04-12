@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
+import { colors } from '../tokens';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  gap?: string;
+  rowHeight?: number;
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 100vw);
@@ -24,13 +32,35 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const LargeChildWrapper = styled.div`
-  background: ${({ background }: any) => background};
+export interface ChildProps {
+  background: string;
+  className?: string;
+  children: React.ReactNode;
+}
+export interface HoverWrapperProps {
+  className?: string;
+  hasHover?: boolean;
+  hoverColor?: string;
+  children: React.ReactNode;
+}
+
+export const LargeChildWrapper = styled.div<ChildProps>`
+  background: ${({ background }) => background};
 `;
 
-export const SmallChildWrapper = styled.div`
-  background: ${({ background }: any) => background};
+export const SmallChildWrapper = styled.div<ChildProps>`
+  background: ${({ background }) => background};
   @media (max-width: 767px) {
     display: none;
+  }
+`;
+
+export const HoverWrapper = styled.div<HoverWrapperProps>`
+  width: 100%;
+  height: 100%;
+  transition: all 0.33s ease;
+  &:hover {
+    ${({ hasHover }) => (hasHover ? 'cursor: pointer;' : '')};
+    background-color: ${({ hasHover, hoverColor }) => (hasHover ? hoverColor || `${colors.primaryColor}55` : 'transparent')};
   }
 `;

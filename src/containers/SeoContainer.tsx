@@ -13,15 +13,15 @@ interface MetaWithProperty {
   content: string;
 }
 
-type SEOProps = {
+interface SEOProps {
   description?: string;
   lang?: string;
   title?: string;
   meta?: Array<MetaWithName | MetaWithProperty>;
-  keywords?: Array<string>;
-};
+  keywords?: string[];
+}
 
-const SEO = ({ description = '', lang = 'en', meta = [], keywords = [], title = '' }) => {
+const SEO: React.FC<SEOProps> = ({ description = '', lang = 'en', meta = [], keywords = [], title = '' }) => {
   const { site } = useStaticQuery(graphql`
     query ShopifySEO {
       site {
@@ -47,7 +47,7 @@ const SEO = ({ description = '', lang = 'en', meta = [], keywords = [], title = 
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
         {
-          href: 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Roboto:300,400,700,900',
+          href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700',
           rel: 'stylesheet',
         },
       ]}

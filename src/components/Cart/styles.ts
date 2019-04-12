@@ -51,7 +51,6 @@ export const ItemPrice = styled.div`
   grid-area: price;
   font-size: 0.75rem;
   font-weight: 300;
-  font-family: 'Roboto Mono', monospace;
   text-align: right;
   align-self: flex-end;
   line-height: 16px;
@@ -69,7 +68,6 @@ export const ItemRemove = styled.div`
 export const CheckoutPrice = styled.div`
   font-size: 1rem;
   font-weight: 300;
-  font-family: 'Roboto Mono', monospace;
   margin-bottom: ${layout.spacing}px;
   text-align: right;
 `;

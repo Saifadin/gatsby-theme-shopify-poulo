@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
-import { Wrapper, BrandContainer, HomeLink, Brand, MenuIcon, CartIcon, CartWrapper, CartCount } from './styles';
+import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem, CartIcon, CartWrapper, CartCount } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;
@@ -27,6 +27,16 @@ const Navigation: React.FunctionComponent = () => {
     query {
       site {
         siteMetadata {
+          navigation {
+            menu {
+              link
+              displayName
+              subMenu {
+                link
+                displayName
+              }
+            }
+          }
           shop {
             logo
           }
@@ -37,12 +47,21 @@ const Navigation: React.FunctionComponent = () => {
   const {
     siteMetadata: {
       shop: { logo },
+      navigation: { menu },
     },
   } = site;
 
   return (
     <Wrapper>
-      {activeScreen === 'left' ? <div /> : <MenuIcon size={24} onClick={() => setScreen('left')} />}
+      <Menu>
+        {menu.map(({ displayName, link, subMenu = [] }: any) => {
+          return (
+            <MenuItem key={link} to={link}>
+              {displayName}
+            </MenuItem>
+          );
+        })}
+      </Menu>
       <BrandContainer>
         <HomeLink to="/">
           <Brand src={logo} />
