@@ -5,6 +5,7 @@ export { default as Button } from './src/components/Button';
 export { default as ImageGridTwoLargeFourSmall, LargeChild, SmallChild } from './src/components/ImageGridTwoLargeFourSmall';
 
 export { default as Seo } from './src/containers/SeoContainer';
+export { default as PageLayout } from './src/containers/PageLayout';
 export { default as ErrorPage } from './src/containers/404';
 
 export { colors, layout } from './src/components/tokens';

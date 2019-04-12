@@ -48,7 +48,7 @@ interface HeaderProps {
 
 export const Header = styled.header<HeaderProps>`
   display: block;
-  position: absolute;
+  position: ${({ transparentHeader }) => (transparentHeader ? 'absolute' : 'relative')};
   width: 100vw;
   top: 0;
   left: 0;

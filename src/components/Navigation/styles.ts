@@ -15,7 +15,7 @@ export const Wrapper = styled.div<WrapperProps>`
   grid-template-columns: 24px 1fr 24px;
   align-items: center;
   padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;
-  background-color: ${({ isScrolling }) => (isScrolling ? 'white' : 'transparent')};
+  background-color: ${({ transparentHeader, isScrolling }) => (isScrolling || !transparentHeader ? 'white' : 'transparent')};
   a {
     color: ${({ transparentHeader, isScrolling }) => (transparentHeader && !isScrolling ? 'white' : colors.color)};
   }

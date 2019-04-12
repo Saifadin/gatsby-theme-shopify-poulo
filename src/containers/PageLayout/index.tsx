@@ -57,7 +57,7 @@ const ConnectedLayout: React.FunctionComponent = props => {
   return (
     <ShopifyProvider {...shopifyOptions}>
       <LayoutProvider>
-        <PageLayout transparentHeader={true} {...props} />
+        <PageLayout {...props} />
       </LayoutProvider>
     </ShopifyProvider>
   );

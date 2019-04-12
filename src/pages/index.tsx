@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import ProductCardList from '../components/ProductCardList';
 import Section, { SectionTitle, SectionDescription, SectionSubTitle } from '../components/Section';
 import Seo from '../containers/SeoContainer';
+import PageLayout from '../containers/PageLayout';
 import { Promotion } from '../hero-bgs/Promotion';
 import { ColoredSection } from '../styles';
 
@@ -12,7 +13,7 @@ export default ({ data: { allShopifyProduct } }: any) => {
   const [products] = React.useState(allShopifyProduct.edges);
 
   return (
-    <div>
+    <PageLayout>
       <Seo title="Welcome" />
       <Hero fullWidth={true} height="50vh" background={<Promotion />}>
         <h1>Homepage</h1>
@@ -32,7 +33,7 @@ export default ({ data: { allShopifyProduct } }: any) => {
         <SectionSubTitle>Look stylish all the time, believe us! We tried not to look good, but it just doesn't work!</SectionSubTitle>
         <ProductCardList products={products} handles={['rise-crew', 'posie-crew', 'hanra-shirt', 'henning-ss-crew']} />
       </ColoredSection>
-    </div>
+    </PageLayout>
   );
 };
 
