@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useLayoutEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
@@ -14,10 +14,26 @@ const getCount = ({ lineItems = [] }: any) => {
   return count;
 };
 
-const Navigation: React.FunctionComponent = () => {
+interface NavigationProps {
+  transparentHeader?: boolean;
+}
+
+const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
   const { checkout = {} } = useContext(ShopifyContext);
   const [count, setCount] = useState(getCount(checkout));
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useLayoutEffect(() => {
+    const element = document.getElementById('main-content');
+
+    const handleScroll = (event: any) => {
+      setIsScrolling(event.target.scrollTop > 0);
+    };
+
+    element!.addEventListener('scroll', handleScroll);
+    return () => element!.removeEventListener('scroll', handleScroll);
+  });
 
   useEffect(() => {
     setCount(getCount(checkout));
@@ -52,7 +68,7 @@ const Navigation: React.FunctionComponent = () => {
   } = site;
 
   return (
-    <Wrapper>
+    <Wrapper transparentHeader={transparentHeader} isScrolling={isScrolling}>
       <Menu>
         {menu.map(({ displayName, link, subMenu = [] }: any) => {
           return (
@@ -71,7 +87,7 @@ const Navigation: React.FunctionComponent = () => {
         <div />
       ) : (
         <CartWrapper>
-          <CartIcon size={24} onClick={() => setScreen('right')} />
+          <CartIcon size={24} onClick={() => setScreen('right')} color={isScrolling ? 'black' : 'white'} />
           {count ? <CartCount>{count}</CartCount> : null}
         </CartWrapper>
       )}

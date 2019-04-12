@@ -6,11 +6,15 @@ import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
 import { ShopifyProvider } from '../../context/ShopifyContext';
-import { Wrapper, Main, Content, Overlay, RightCloseIcon, LeftCloseIcon } from './styles';
+import { Wrapper, Main, Content, Overlay, RightCloseIcon, Header } from './styles';
 
 import './index.css';
 
-const PageLayout: React.FunctionComponent = ({ children }) => {
+interface PageLayoutProps {
+  transparentHeader?: boolean;
+}
+
+const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transparentHeader }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
 
   return (
@@ -18,8 +22,10 @@ const PageLayout: React.FunctionComponent = ({ children }) => {
       <Overlay active={activeScreen} onClick={() => setScreen('main')} />
       <div />
       <Main active={activeScreen}>
-        <Navigation />
-        <Content>
+        <Header transparentHeader={transparentHeader}>
+          <Navigation transparentHeader={transparentHeader} />
+        </Header>
+        <Content id="main-content">
           <div>{children}</div>
           <Footer />
         </Content>
@@ -51,7 +57,7 @@ const ConnectedLayout: React.FunctionComponent = props => {
   return (
     <ShopifyProvider {...shopifyOptions}>
       <LayoutProvider>
-        <PageLayout {...props} />
+        <PageLayout transparentHeader={true} {...props} />
       </LayoutProvider>
     </ShopifyProvider>
   );

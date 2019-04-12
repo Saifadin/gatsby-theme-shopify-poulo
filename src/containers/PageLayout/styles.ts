@@ -10,14 +10,14 @@ interface ScreenProps {
   active: string;
 }
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<ScreenProps>`
   display: grid;
   grid-template-columns: ${sidebarWidth}px 1fr ${sidebarWidth}px;
   height: 100vh;
   position: relative;
   overflow-x: hidden;
   width: calc(100vw + ${sidebarWidth * 2}px);
-  ${({ active }: ScreenProps) => {
+  ${({ active }) => {
     if (active === 'left') return 'left: 0;';
     if (active === 'right') return `left: -${sidebarWidth * 2}px;`;
     return `left: -${sidebarWidth}px;`;
@@ -34,11 +34,25 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Main = styled.main`
-  overflow: ${({ active }: ScreenProps) => (active === 'main' ? 'auto' : 'hidden')};
+export const Main = styled.main<ScreenProps>`
+  overflow: ${({ active }) => (active === 'main' ? 'auto' : 'hidden')};
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
+  position: relative;
+`;
+
+interface HeaderProps {
+  transparentHeader?: boolean;
+}
+
+export const Header = styled.header<HeaderProps>`
+  display: block;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
 `;
 
 export const Content = styled.div`
@@ -48,16 +62,16 @@ export const Content = styled.div`
   scroll-behavior: smooth;
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.div<ScreenProps>`
   position: absolute;
   cursor: pointer;
   left: ${sidebarWidth}px;
   top: 0;
-  width: ${({ active }: ScreenProps) => (active === 'main' ? '0' : '100vw')};
-  height: ${({ active }: ScreenProps) => (active === 'main' ? '0' : '100vh')};
+  width: ${({ active }) => (active === 'main' ? '0' : '100vw')};
+  height: ${({ active }) => (active === 'main' ? '0' : '100vh')};
   background-color: ${({ active }: ScreenProps) => (active === 'main' ? 'transparent' : 'rgba(0, 0, 0, 0.35)')};
   transition: background-color 0.3s ease-in;
-  z-index: 1;
+  z-index: 2;
   @media (min-width: 600px) {
     left: ${sidebarDesktopWidth}px;
   }

@@ -5,12 +5,20 @@ import { IoIosCart, IoIosClose, IoIosMenu } from 'react-icons/io';
 import layout from '../tokens/layout';
 import { colors } from '../tokens';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  transparentHeader?: boolean;
+  isScrolling?: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   display: grid;
   grid-template-columns: 24px 1fr 24px;
   align-items: center;
   padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;
-  box-shadow: inset 0 -1px 0 #eee;
+  background-color: ${({ isScrolling }) => (isScrolling ? 'white' : 'transparent')};
+  a {
+    color: ${({ transparentHeader, isScrolling }) => (transparentHeader && !isScrolling ? 'white' : colors.color)};
+  }
 `;
 
 export const Menu = styled.div`
@@ -22,7 +30,6 @@ export const MenuItem = styled(Link)`
   margin: 0 ${layout.spacing * 3}px;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${colors.color};
   font-size: 15px;
   font-weight: 600;
   line-height: 24px;
