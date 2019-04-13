@@ -5,7 +5,6 @@ import { layout, colors } from '../../components/tokens';
 export const Product = styled.div``;
 
 export const ProductHeader = styled.section`
-  min-height: 50vh;
   padding: ${layout.spacing * 4}px;
   background: #eee;
   @media (min-width: 600px) {

@@ -26,7 +26,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transp
           <Navigation transparentHeader={transparentHeader} />
         </Header>
         <Content id="main-content">
-          <div>{children}</div>
+          {children}
           <Footer />
         </Content>
       </Main>

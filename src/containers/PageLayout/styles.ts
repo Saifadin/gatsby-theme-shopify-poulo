@@ -38,7 +38,6 @@ export const Main = styled.main<ScreenProps>`
   overflow: ${({ active }) => (active === 'main' ? 'auto' : 'hidden')};
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
   position: relative;
 `;
 
@@ -57,8 +56,8 @@ export const Header = styled.div<HeaderProps>`
 
 export const Content = styled.div`
   display: grid;
-  grid-template-rows: 1fr auto;
   overflow: scroll;
+  height: 100vh;
   scroll-behavior: smooth;
 `;
 
