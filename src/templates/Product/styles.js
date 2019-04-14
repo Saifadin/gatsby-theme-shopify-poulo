@@ -134,8 +134,9 @@ export const AddedMessage = styled.div`
   line-height: 16px;
   font-weight: 300;
   transition: all 0.3s ease;
-  z-index: 0;
-  ${({ added }) => (added ? 'transform: translateY(0); opacity: 1;' : 'transform: translateY(-32px); opacity: 0;')};
+  text-align: center;
+  z-index: ${({ added }) => (added ? '0' : '-1')};
+  ${({ added }) => (added ? 'transform: translateY(10px); opacity: 1;' : 'transform: translateY(-50px); opacity: 0;')};
 `;
 
 /**

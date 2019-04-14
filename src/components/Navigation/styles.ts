@@ -16,6 +16,7 @@ export const Wrapper = styled.div<WrapperProps>`
   align-items: center;
   padding: ${layout.spacing * 2}px ${layout.spacing * 1.5}px;
   background-color: ${({ transparentHeader, isScrolling }) => (isScrolling || !transparentHeader ? 'white' : 'transparent')};
+  border-bottom: ${({ isScrolling }) => (isScrolling ? '1px solid #ddd' : 'none')};
   transition: all 0.3s ease;
   @media (min-width: 600px) {
     padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;

@@ -6,6 +6,7 @@ interface WrapperProps {
   rowHeight?: number;
   className?: string;
   children: React.ReactNode;
+  fullWidth: boolean;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -13,12 +14,19 @@ export const Wrapper = styled.div<WrapperProps>`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 100vw);
   grid-gap: ${({ gap }: any) => gap || ''};
+  ${({ fullWidth }) => {
+    if (!fullWidth) {
+      return `
+        max-width: 1200px;
+        margin: 0 auto;
+      `;
+    }
+    return '';
+  }};
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, ${({ rowHeight }: any) => rowHeight || 200}px);
+    grid-template-rows: repeat(3, ${({ rowHeight }: any) => rowHeight || 300}px);
     & .ImageGrid-LargeChild {
       &:nth-of-type(1) {
         grid-column: 1 / span 2;

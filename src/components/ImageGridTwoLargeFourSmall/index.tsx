@@ -5,11 +5,12 @@ interface GridProps {
   className?: string;
   gap?: string;
   rowHeight?: number;
+  fullWidth?: boolean;
 }
 
-const ImageGridTwoLargeFourSmall: React.FC<GridProps> = ({ className = '', gap, rowHeight, children }) => {
+const ImageGridTwoLargeFourSmall: React.FC<GridProps> = ({ className = '', fullWidth = false, gap, rowHeight, children }) => {
   return (
-    <Wrapper className={className} gap={gap} rowHeight={rowHeight}>
+    <Wrapper className={className} gap={gap} rowHeight={rowHeight} fullWidth={fullWidth}>
       {children}
     </Wrapper>
   );
