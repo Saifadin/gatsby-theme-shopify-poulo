@@ -5,7 +5,7 @@ import SeoContainer from '../../containers/SeoContainer';
 import PageLayout from '../../containers/PageLayout';
 import ImageSlider from './ProductImages';
 import ProductDetails from './ProductDetails';
-import { ProductHeader, ProductHeaderContainer, ProductDescription } from './styles';
+import { ProductHeader, ProductHeaderContainer } from './styles';
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct;
@@ -19,9 +19,6 @@ const ProductPage = ({ data }) => {
           <ProductDetails product={product} />
         </ProductHeaderContainer>
       </ProductHeader>
-      <ProductDescription>
-        <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
-      </ProductDescription>
     </PageLayout>
   );
 };

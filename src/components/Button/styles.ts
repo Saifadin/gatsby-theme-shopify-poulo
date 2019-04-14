@@ -3,6 +3,7 @@ import { button } from '../tokens';
 
 export interface ButtonProps {
   appearance: string;
+  fullWidth: boolean;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -11,6 +12,7 @@ export const Button = styled.button<ButtonProps>`
   background: transparent;
   border: none;
   cursor: pointer;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'unset')};
   // @ts-ignore
   background: ${({ appearance }) => button[appearance].background};
   // @ts-ignore

@@ -8,9 +8,6 @@ const ProductImages = ({ images }) => {
 
   return (
     <ImageWrapper>
-      <ActiveImageContainer>
-        <ActiveImage src={images[activeImage].localFile.childImageSharp.fluid.src} />
-      </ActiveImageContainer>
       <AllImages>
         {images.map(({ id, localFile }, index) => {
           return (
@@ -23,6 +20,9 @@ const ProductImages = ({ images }) => {
           );
         })}
       </AllImages>
+      <ActiveImageContainer>
+        <ActiveImage src={images[activeImage].localFile.childImageSharp.fluid.src} />
+      </ActiveImageContainer>
     </ImageWrapper>
   );
 };

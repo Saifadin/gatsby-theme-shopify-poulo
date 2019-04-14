@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { layout, colors } from '../../components/tokens';
 
 export const FooterBackdrop = styled.div`
-  width: 100%;
+  width: 100vw;
   padding: ${layout.spacing * 4}px 0;
   background-color: ${colors.secondaryFooterBackground};
   color: ${colors.footerColor};
@@ -13,7 +13,7 @@ export const FooterWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 ${layout.spacing * 4}px;
+  padding: 0 ${layout.spacing * 2}px;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: ${layout.spacing * 4}px;
@@ -21,6 +21,7 @@ export const FooterWrapper = styled.div`
   justify-content: center;
   text-align: center;
   @media (min-width: 600px) {
+    padding: 0 ${layout.spacing * 4}px;
     text-align: left;
     grid-template-columns: 1fr 1fr;
   }
@@ -36,6 +37,7 @@ export const PaymentMethods = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: ${layout.spacing * 2}px;
+  flex-wrap: wrap;
   @media (min-width: 600px) {
     justify-content: flex-start;
     margin-bottom: ${layout.spacing}px;

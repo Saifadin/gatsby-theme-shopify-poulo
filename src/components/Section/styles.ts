@@ -20,7 +20,10 @@ export const SectionContent = styled.div<ContentProps>`
       return `
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 ${layout.spacing * 4}px;
+        padding: 0 ${layout.spacing * 2}px;
+        @media (min-width: 600px) {
+          padding: 0 ${layout.spacing * 4}px;
+        }
       `;
     }
     return '';

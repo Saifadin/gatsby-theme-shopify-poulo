@@ -4,6 +4,6 @@ export default {
   colorOnPrimary: '#fff',
   footerBackground: '#1f292f',
   footerColor: '#fff',
-  primaryColor: '#1f4940',
+  primaryColor: '#1f2a30',
   secondaryFooterBackground: '#192126',
 };

@@ -3,18 +3,19 @@ import find from 'lodash/find';
 import isEqual from 'lodash/isEqual';
 
 import ShopifyContext from '../../context/ShopifyContext';
+import Button from '../../components/Button';
 import {
   DetailsWrapper,
   ProductTitle,
+  ProductDescription,
   ProductPrice,
   ProductOptions,
   ProductName,
   ProductValues,
   ProductValue,
   ProductQuantity,
-  ProductQuantitySelect,
+  ProductQuantityInput,
   ProductQuantityLabel,
-  AddToCart,
   AddedMessage,
 } from './styles';
 
@@ -64,11 +65,14 @@ const ProductDetails = ({ product }) => {
   return (
     <DetailsWrapper>
       <ProductTitle>{product.title}</ProductTitle>
+      <ProductDescription>
+        <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+      </ProductDescription>
       <ProductPrice>{`${isMinimum ? 'from ' : ''}${price}`}</ProductPrice>
       {options.map(({ id, name, values }, optionIndex) => {
         return (
           <ProductOptions key={id}>
-            <ProductName>{name}</ProductName>
+            <ProductName>Select {name}</ProductName>
             <ProductValues>
               {values.map(value => (
                 <ProductValue
@@ -84,15 +88,19 @@ const ProductDetails = ({ product }) => {
       })}
       <ProductQuantity>
         <ProductQuantityLabel htmlFor="quantity">Quantity</ProductQuantityLabel>
-        <ProductQuantitySelect id="quantity" name="quantity" value={quantity} onChange={handleQuantityChange}>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-        </ProductQuantitySelect>
+        <ProductQuantityInput
+          id="quantity"
+          name="quantity"
+          type="number"
+          min="1"
+          max="10"
+          value={quantity}
+          onChange={handleQuantityChange}
+        />
       </ProductQuantity>
-      <AddToCart type="button" onClick={addToCart}>
+      <Button appearance="dark" fullWidth type="button" onClick={addToCart}>
         Add to Cart
-      </AddToCart>
+      </Button>
       <AddedMessage added={added}>The item has been added to your Cart</AddedMessage>
     </DetailsWrapper>
   );
