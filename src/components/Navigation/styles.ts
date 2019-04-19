@@ -30,6 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
 export const Menu = styled.div`
   display: flex;
+  display: none;
   align-items: center;
 `;
 

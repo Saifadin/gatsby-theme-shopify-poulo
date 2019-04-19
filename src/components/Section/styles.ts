@@ -8,6 +8,7 @@ interface ContentProps {
 export const SectionWrapper = styled.section`
   display: block;
   width: 100%;
+  max-width: 100vw;
   padding: ${layout.spacing * 7}px 0;
   text-align: center;
 `;

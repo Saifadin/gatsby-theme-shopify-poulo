@@ -6,13 +6,19 @@ import { layout } from '../tokens';
 export const Card = styled(Link)`
   overflow: hidden;
   display: block;
-  width: 100%;
+  width: 144px;
   text-align: left;
   /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1); */
   background-color: #fff;
   color: #000;
   text-decoration: none;
   transition: transform 0.3s ease;
+  @media (min-width: 400px) {
+    width: 312px;
+  }
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
   /* &:hover {
     transform: translateY(-12px);
   } */
