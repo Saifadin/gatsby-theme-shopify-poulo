@@ -12,7 +12,8 @@ interface WrapperProps {
 
 export const Wrapper = styled.div<WrapperProps>`
   display: grid;
-  grid-template-columns: 24px 1fr 24px;
+  grid-template-columns: auto 1fr 24px;
+  grid-gap: ${layout.spacing * 3}px;
   align-items: center;
   padding: ${layout.spacing * 2}px ${layout.spacing * 1.5}px;
   background-color: ${({ transparentHeader, isScrolling }) => (isScrolling || !transparentHeader ? 'white' : 'transparent')};
@@ -33,7 +34,7 @@ export const Menu = styled.div`
 `;
 
 export const MenuItem = styled(Link)`
-  margin: 0 ${layout.spacing * 3}px;
+  margin: 0 ${layout.spacing * 1.5}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -61,7 +62,6 @@ export const Brand = styled.img`
   margin: 0;
   height: 32px;
   width: auto;
-  margin-right: ${layout.spacing}px;
 `;
 
 export const MenuIcon = styled(IoIosMenu)`

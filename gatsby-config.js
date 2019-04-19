@@ -13,13 +13,13 @@ module.exports = ({ shopifyOptions, navigation }) => ({
     shop: {
       name: 'Poulo, Inc.',
       url: 'https://example.com',
-      logo: path.join(__dirname, 'src', 'images', 'gatsby-icon.png'),
     },
     navigation: {
       menu: [
         {
           link: '/products',
           displayName: 'Products',
+          subMenu: [],
         },
       ],
       ...navigation,

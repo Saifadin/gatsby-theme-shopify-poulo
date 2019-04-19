@@ -86,7 +86,12 @@ export const ProductValues = styled.div`
     justify-content: flex-start;
   }
 `;
-export const ProductValue = styled.div`
+
+interface ValueProps {
+  active: boolean;
+}
+
+export const ProductValue = styled.div<ValueProps>`
   min-width: 42px;
   text-align: center;
   border: 2px solid ${colors.primaryColor};
@@ -128,7 +133,11 @@ export const ProductQuantityInput = styled.input`
   padding: 0 ${layout.spacing * 5}px;
 `;
 
-export const AddedMessage = styled.div`
+interface AddedMessageProps {
+  added: boolean;
+}
+
+export const AddedMessage = styled.div<AddedMessageProps>`
   position: relative;
   font-size: 0.75rem;
   line-height: 16px;
@@ -170,14 +179,19 @@ export const AllImages = styled.div`
     overflow-x: scroll;
   }
 `;
-export const Thumbnail = styled.img`
+
+interface ThumbnailProps {
+  active: boolean;
+}
+
+export const Thumbnail = styled.img<ThumbnailProps>`
   width: 100%;
   margin-bottom: ${layout.spacing * 2.5}px;
   cursor: pointer;
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
   border-color: ${({ active }) => (active ? '#000' : 'transparent')};
   &:hover {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #000;
   }
   &:first-of-type {
     margin-left: 0;

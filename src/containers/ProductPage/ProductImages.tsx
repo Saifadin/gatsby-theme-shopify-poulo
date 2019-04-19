@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
 import { ImageWrapper, ActiveImage, ActiveImageContainer, AllImages, Thumbnail } from './styles';
+import { Image } from '.';
 
-const ProductImages = ({ images }) => {
+interface ImagesProps {
+  images: Image[];
+}
+
+const ProductImages: React.FC<ImagesProps> = ({ images }) => {
   const [activeImage, setActiveImage] = useState(0);
   if (images.length === 0) return null;
 

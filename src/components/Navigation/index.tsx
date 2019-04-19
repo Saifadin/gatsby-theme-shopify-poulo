@@ -69,6 +69,11 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
 
   return (
     <Wrapper transparentHeader={transparentHeader} isScrolling={isScrolling}>
+      <BrandContainer>
+        <HomeLink to="/">
+          <Brand src={logo} />
+        </HomeLink>
+      </BrandContainer>
       <Menu>
         {menu.map(({ displayName, link, subMenu = [] }: any) => {
           return (
@@ -78,11 +83,6 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
           );
         })}
       </Menu>
-      <BrandContainer>
-        <HomeLink to="/">
-          <Brand src={logo} />
-        </HomeLink>
-      </BrandContainer>
       {activeScreen === 'right' ? (
         <div />
       ) : (

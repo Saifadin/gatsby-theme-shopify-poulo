@@ -18,8 +18,13 @@ import {
   ProductQuantityLabel,
   AddedMessage,
 } from './styles';
+import { ShopifyProduct } from '.';
 
-const ProductDetails = ({ product }) => {
+interface Props {
+  product: ShopifyProduct;
+}
+
+const ProductDetails: React.FC<Props> = ({ product }) => {
   const {
     options,
     variants,
@@ -33,13 +38,14 @@ const ProductDetails = ({ product }) => {
 
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
   const price = Intl.NumberFormat(undefined, {
-    style: 'currency',
     currency: minVariantPrice.currencyCode,
     minimumFractionDigits: 2,
+    style: 'currency',
   }).format(parseFloat(minVariantPrice.amount));
 
-  const handleClick = (optionIndex, value) => {
-    let currentOptions = [...variant.selectedOptions];
+  const handleClick = (optionIndex: any, value: any) => {
+    const currentOptions = [...variant.selectedOptions];
+
     currentOptions[optionIndex] = {
       ...currentOptions[optionIndex],
       value,
@@ -47,10 +53,11 @@ const ProductDetails = ({ product }) => {
 
     const selectedVariant = find(variants, ({ selectedOptions }) => isEqual(currentOptions, selectedOptions));
 
+    // @ts-ignore
     setVariant({ ...selectedVariant });
   };
 
-  const handleQuantityChange = event => {
+  const handleQuantityChange = (event: any) => {
     setQuantity(event.target.value);
   };
 
@@ -98,7 +105,7 @@ const ProductDetails = ({ product }) => {
           onChange={handleQuantityChange}
         />
       </ProductQuantity>
-      <Button appearance="dark" fullWidth type="button" onClick={addToCart}>
+      <Button appearance="dark" fullWidth={true} type="button" onClick={addToCart}>
         Add to Cart
       </Button>
       <AddedMessage added={added}>The item has been added to your Cart</AddedMessage>
