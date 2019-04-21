@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Navigation from '../../components/Navigation';
+import MobileNavigation from '../../components/MobileNavigation';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
 import { ShopifyProvider } from '../../context/ShopifyContext';
-import { Wrapper, Main, Content, Overlay, RightCloseIcon, Header } from './styles';
+import { Wrapper, Main, Content, Overlay, LeftCloseIcon, RightCloseIcon, Header } from './styles';
 
 import './index.css';
 
@@ -19,8 +20,9 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transp
 
   return (
     <Wrapper active={activeScreen}>
+      {activeScreen === 'left' ? <LeftCloseIcon size={40} onClick={() => setScreen('main')} /> : null}
       <Overlay active={activeScreen} onClick={() => setScreen('main')} />
-      <div />
+      <MobileNavigation />
       <Main active={activeScreen}>
         <Header transparentHeader={transparentHeader}>
           <Navigation transparentHeader={transparentHeader} />

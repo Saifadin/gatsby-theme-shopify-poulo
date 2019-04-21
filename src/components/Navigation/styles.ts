@@ -29,9 +29,11 @@ export const Wrapper = styled.div<WrapperProps>`
 `;
 
 export const Menu = styled.div`
-  display: flex;
   display: none;
-  align-items: center;
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const MenuItem = styled(Link)`
@@ -67,6 +69,9 @@ export const Brand = styled.img`
 
 export const MenuIcon = styled(IoIosMenu)`
   cursor: pointer;
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `;
 export const CartWrapper = styled.div`
   position: relative;

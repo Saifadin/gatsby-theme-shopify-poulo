@@ -37,4 +37,8 @@ export const Button = styled.button<ButtonProps>`
   &:hover {
     transform: translateY(-2px);
   }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
 `;

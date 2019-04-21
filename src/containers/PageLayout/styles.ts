@@ -4,7 +4,7 @@ import { IoIosClose } from 'react-icons/io';
 import { layout } from '../../components/tokens';
 
 const sidebarWidth = 280;
-const sidebarDesktopWidth = 400;
+const sidebarDesktopWidth = 490;
 
 interface ScreenProps {
   active: string;
@@ -87,13 +87,13 @@ const CloseIcon = styled(IoIosClose)`
 export const LeftCloseIcon = styled(CloseIcon)`
   left: ${sidebarWidth}px;
   @media (min-width: 600px) {
-    left: ${sidebarDesktopWidth}px;
+    left: ${sidebarDesktopWidth + 36}px;
   }
 `;
 
 export const RightCloseIcon = styled(CloseIcon)`
   right: ${sidebarWidth}px;
   @media (min-width: 600px) {
-    right: ${sidebarDesktopWidth}px;
+    right: ${sidebarDesktopWidth + 36}px;
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 // @ts-ignore
 import Empty from '../../images/empty-cart.svg';
@@ -7,17 +7,34 @@ import {
   Wrapper,
   Title,
   LineItems,
+  CheckoutTotal,
+  CheckoutTotalTitle,
   CheckoutPrice,
-  CheckoutButton,
-  CheckoutDisclaimer,
   EmptyContainer,
   EmptyText,
   EmptyImage,
 } from './styles';
 import ProductItem from './Product';
+import Button from '../Button';
+
+const countQuantity = (lineItems = []): number => {
+  let quantity = 0;
+
+  lineItems.forEach((item: any) => {
+    quantity = quantity + item.quantity;
+  });
+
+  return quantity;
+};
 
 const Cart = () => {
   const { checkout, removeFromCart } = useContext(ShopifyContext);
+  const [quantity, setQuantity] = useState(countQuantity(checkout ? checkout.lineItems : []));
+
+  useEffect(() => {
+    setQuantity(countQuantity(checkout ? checkout.lineItems : []));
+  }, [checkout]);
+
   const price = Intl.NumberFormat(undefined, {
     currency: checkout ? checkout.currencyCode : 'EUR',
     minimumFractionDigits: 2,
@@ -30,7 +47,7 @@ const Cart = () => {
 
   return (
     <Wrapper>
-      <Title>Your Cart</Title>
+      <Title>My Cart ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (
         <LineItems>
           {checkout.lineItems.map((lineItem: any) => {
@@ -43,11 +60,14 @@ const Cart = () => {
           <EmptyText>You didn't add anything to your cart yet.</EmptyText>
         </EmptyContainer>
       )}
-      <CheckoutPrice>Total Price: {price}</CheckoutPrice>
-      <CheckoutDisclaimer>You will be redirected to the Checkout Page to complete the Purchase</CheckoutDisclaimer>
-      <CheckoutButton onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)}>
+      <CheckoutTotal>
+        <CheckoutTotalTitle>Order Total</CheckoutTotalTitle>
+        <CheckoutPrice>{price}</CheckoutPrice>
+      </CheckoutTotal>
+      {/* <CheckoutDisclaimer>You will be redirected to the Checkout Page to complete the Purchase</CheckoutDisclaimer> */}
+      <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
         Checkout
-      </CheckoutButton>
+      </Button>
     </Wrapper>
   );
 };

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
-import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem, CartIcon, CartWrapper, CartCount } from './styles';
+import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuIcon, MenuItem, CartIcon, CartWrapper, CartCount } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;
@@ -69,6 +69,11 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
 
   return (
     <Wrapper transparentHeader={transparentHeader} isScrolling={isScrolling}>
+      {activeScreen === 'left' ? (
+        <div />
+      ) : (
+        <MenuIcon size={24} onClick={() => setScreen('left')} color={isScrolling || !transparentHeader ? 'black' : 'white'} />
+      )}
       <BrandContainer>
         <HomeLink to="/">
           <Brand src={logo} />
