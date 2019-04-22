@@ -20,7 +20,6 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transp
 
   return (
     <Wrapper active={activeScreen}>
-      {activeScreen === 'left' ? <LeftCloseIcon size={40} onClick={() => setScreen('main')} /> : null}
       <Overlay active={activeScreen} onClick={() => setScreen('main')} />
       <MobileNavigation />
       <Main active={activeScreen}>
@@ -33,7 +32,6 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transp
         </Content>
       </Main>
       <Cart />
-      {activeScreen === 'right' ? <RightCloseIcon size={40} onClick={() => setScreen('main')} /> : null}
     </Wrapper>
   );
 };

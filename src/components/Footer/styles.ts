@@ -21,7 +21,7 @@ export const FooterWrapper = styled.div`
   justify-content: center;
   text-align: center;
   @media (min-width: 600px) {
-    padding: 0 ${layout.spacing * 4}px;
+    padding: 0 ${layout.spacing * 6}px;
     text-align: left;
     grid-template-columns: 1fr 1fr;
   }

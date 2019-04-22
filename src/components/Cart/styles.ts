@@ -1,13 +1,31 @@
 import styled from '@emotion/styled';
+import { IoIosClose } from 'react-icons/io';
 
 import { layout, colors } from '../../components/tokens';
 
 export const Wrapper = styled.div`
   display: grid;
+  position: relative;
   grid-template-rows: auto 1fr auto auto;
   height: 100%;
-  padding: ${layout.spacing * 6}px;
+  padding: ${layout.spacing * 2}px;
+  @media (min-width: 600px) {
+    padding: ${layout.spacing * 6}px;
+  }
 `;
+
+export const CloseIcon = styled(IoIosClose)`
+  position: absolute;
+  cursor: pointer;
+  top: ${layout.spacing * 1.5}px;
+  z-index: 10;
+  color: #000;
+  @media (min-width: 600px) {
+    top: ${layout.spacing * 3}px;
+    left: ${layout.spacing * 3}px;
+  }
+`;
+
 export const Title = styled.h2`
   margin: 0;
   font-size: 40px;

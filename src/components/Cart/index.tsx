@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from 'react';
 // @ts-ignore
 import Empty from '../../images/empty-cart.svg';
 import ShopifyContext from '../../context/ShopifyContext';
+import LayoutContext from '../../context/LayoutContext';
 import {
   Wrapper,
   Title,
@@ -13,6 +14,7 @@ import {
   EmptyContainer,
   EmptyText,
   EmptyImage,
+  CloseIcon,
 } from './styles';
 import ProductItem from './Product';
 import Button from '../Button';
@@ -29,6 +31,7 @@ const countQuantity = (lineItems = []): number => {
 
 const Cart = () => {
   const { checkout, removeFromCart } = useContext(ShopifyContext);
+  const { setScreen } = useContext(LayoutContext);
   const [quantity, setQuantity] = useState(countQuantity(checkout ? checkout.lineItems : []));
 
   useEffect(() => {
@@ -47,6 +50,7 @@ const Cart = () => {
 
   return (
     <Wrapper>
+      <CloseIcon size={48} onClick={() => setScreen('main')} />
       <Title>My Cart ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (
         <LineItems>

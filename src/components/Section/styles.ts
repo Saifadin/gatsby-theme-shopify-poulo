@@ -23,7 +23,7 @@ export const SectionContent = styled.div<ContentProps>`
         margin: 0 auto;
         padding: 0 ${layout.spacing * 2}px;
         @media (min-width: 600px) {
-          padding: 0 ${layout.spacing * 4}px;
+          padding: 0 ${layout.spacing * 6}px;
         }
       `;
     }

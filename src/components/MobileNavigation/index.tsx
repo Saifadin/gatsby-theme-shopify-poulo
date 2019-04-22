@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { MobileNav, MenuItem } from './styles';
+import LayoutContext from '../../context/LayoutContext';
+import { MobileNav, CloseIcon, MenuItem } from './styles';
 
 const MobileNavigation: React.FC = () => {
   const { site } = useStaticQuery(graphql`
@@ -22,6 +23,8 @@ const MobileNavigation: React.FC = () => {
       }
     }
   `);
+  const { setScreen } = useContext(LayoutContext);
+
   const {
     siteMetadata: {
       navigation: { menu },
@@ -30,6 +33,7 @@ const MobileNavigation: React.FC = () => {
 
   return (
     <MobileNav>
+      <CloseIcon size={48} onClick={() => setScreen('main')} />
       {menu.map(({ displayName, link, subMenu = [] }: any) => {
         return (
           <MenuItem key={link} to={link}>

@@ -1,12 +1,30 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import { IoIosClose } from 'react-icons/io';
 
 import { colors, layout } from '../tokens';
 
 export const MobileNav = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
+  z-index: 2;
+  background: white;
+  padding-top: ${layout.spacing * 9}px;
+`;
+
+export const CloseIcon = styled(IoIosClose)`
+  position: absolute;
+  cursor: pointer;
+  top: ${layout.spacing * 1.5}px;
+  right: 0;
+  z-index: 10;
+  color: #000;
+  @media (min-width: 600px) {
+    top: ${layout.spacing * 3}px;
+    right: ${layout.spacing * 3}px;
+  }
 `;
 
 export const MenuItem = styled(Link)`

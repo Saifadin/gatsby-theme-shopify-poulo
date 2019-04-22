@@ -12,18 +12,18 @@ interface ScreenProps {
 
 export const Wrapper = styled.div<ScreenProps>`
   display: grid;
-  grid-template-columns: ${sidebarWidth}px 1fr ${sidebarWidth}px;
+  grid-template-columns: 100vw 100vw 100vw;
   height: 100vh;
   position: relative;
   overflow-x: hidden;
-  width: calc(100vw + ${sidebarWidth * 2}px);
+  width: calc(100vw * 3);
   ${({ active }) => {
     if (active === 'left') return 'left: 0;';
-    if (active === 'right') return `left: -${sidebarWidth * 2}px;`;
-    return `left: -${sidebarWidth}px;`;
+    if (active === 'right') return `left: -200vw;`;
+    return `left: -100vw;`;
   }};
   transition: left 0.33s ease;
-  @media (min-width: 600px) {
+  @media (min-width: 490px) {
     grid-template-columns: ${sidebarDesktopWidth}px 1fr ${sidebarDesktopWidth}px;
     width: calc(100vw + ${sidebarDesktopWidth * 2}px);
     ${({ active }: ScreenProps) => {
