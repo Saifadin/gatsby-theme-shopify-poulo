@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect, useLayoutEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+// @ts-ignore
+import Logo from '../../images/logo.png';
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
 import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuIcon, MenuItem, CartIcon, CartWrapper, CartCount } from './styles';
@@ -16,9 +18,11 @@ const getCount = ({ lineItems = [] }: any) => {
 
 interface NavigationProps {
   transparentHeader?: boolean;
+  transparentLogo?: string;
+  transparentColor?: string;
 }
 
-const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader }) => {
+const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader, transparentLogo, transparentColor }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
   const { checkout = {} } = useContext(ShopifyContext);
   const [count, setCount] = useState(getCount(checkout));
@@ -53,32 +57,27 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
               }
             }
           }
-          shop {
-            logo
-          }
         }
       }
     }
   `);
   const {
     siteMetadata: {
-      shop: { logo },
       navigation: { menu },
     },
   } = site;
 
   return (
-    <Wrapper transparentHeader={transparentHeader} isScrolling={isScrolling}>
+    <Wrapper transparentHeader={transparentHeader} transparentColor={transparentColor} isScrolling={isScrolling}>
       {activeScreen === 'left' ? (
         <div />
       ) : (
-        <MenuIcon size={24} onClick={() => setScreen('left')} color={isScrolling || !transparentHeader ? 'black' : 'white'} />
+        <MenuIcon
+          size={24}
+          onClick={() => setScreen('left')}
+          color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
+        />
       )}
-      <BrandContainer>
-        <HomeLink to="/">
-          <Brand src={logo} />
-        </HomeLink>
-      </BrandContainer>
       <Menu>
         {menu.map(({ displayName, link, subMenu = [] }: any) => {
           return (
@@ -88,11 +87,20 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
           );
         })}
       </Menu>
+      <BrandContainer>
+        <HomeLink to="/">
+          <Brand src={!isScrolling && transparentHeader && transparentLogo ? transparentLogo : Logo} />
+        </HomeLink>
+      </BrandContainer>
       {activeScreen === 'right' ? (
         <div />
       ) : (
         <CartWrapper>
-          <CartIcon size={24} onClick={() => setScreen('right')} color={isScrolling || !transparentHeader ? 'black' : 'white'} />
+          <CartIcon
+            size={24}
+            onClick={() => setScreen('right')}
+            color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
+          />
           {count ? <CartCount>{count}</CartCount> : null}
         </CartWrapper>
       )}

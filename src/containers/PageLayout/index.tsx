@@ -13,9 +13,11 @@ import './index.css';
 
 interface PageLayoutProps {
   transparentHeader?: boolean;
+  transparentLogo?: string;
+  transparentColor?: string;
 }
 
-const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transparentHeader }) => {
+const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transparentHeader, transparentLogo, transparentColor }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
 
   return (
@@ -24,7 +26,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({ children, transp
       <MobileNavigation />
       <Main active={activeScreen}>
         <Header transparentHeader={transparentHeader}>
-          <Navigation transparentHeader={transparentHeader} />
+          <Navigation transparentHeader={transparentHeader} transparentLogo={transparentLogo} transparentColor={transparentColor} />
         </Header>
         <Content id="main-content">
           {children}

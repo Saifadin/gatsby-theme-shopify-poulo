@@ -7,12 +7,13 @@ import { colors } from '../tokens';
 
 interface WrapperProps {
   transparentHeader?: boolean;
+  transparentColor?: string;
   isScrolling?: boolean;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
   display: grid;
-  grid-template-columns: auto 1fr 24px;
+  grid-template-columns: 1fr auto 1fr;
   grid-gap: ${layout.spacing * 3}px;
   align-items: center;
   padding: ${layout.spacing * 2}px ${layout.spacing * 1.5}px;
@@ -23,7 +24,8 @@ export const Wrapper = styled.div<WrapperProps>`
     padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;
   }
   a {
-    color: ${({ transparentHeader, isScrolling }) => (transparentHeader && !isScrolling ? 'white' : colors.color)};
+    color: ${({ transparentHeader, transparentColor, isScrolling }) =>
+      transparentHeader && !isScrolling ? transparentColor || 'white' : colors.color};
     transition: all 0.3s ease;
   }
 `;
@@ -74,6 +76,7 @@ export const MenuIcon = styled(IoIosMenu)`
   }
 `;
 export const CartWrapper = styled.div`
+  justify-self: flex-end;
   position: relative;
   height: 24px;
   width: 24px;

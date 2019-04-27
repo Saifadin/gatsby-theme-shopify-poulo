@@ -123,10 +123,11 @@ export const EmptyContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: scroll;
 `;
 export const EmptyImage = styled.img`
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   margin: 0 auto;
   margin-bottom: ${layout.spacing * 4}px;
 `;
