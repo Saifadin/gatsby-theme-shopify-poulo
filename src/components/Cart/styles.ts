@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   display: grid;
   position: relative;
   grid-template-rows: auto 1fr auto auto;
-  height: 100%;
+  height: 100vh;
   padding: ${layout.spacing * 2}px;
   @media (min-width: 600px) {
     padding: ${layout.spacing * 6}px;
@@ -35,6 +35,7 @@ export const Title = styled.h2`
   text-align: right;
 `;
 export const LineItems = styled.div`
+  overflow: scroll;
   margin-bottom: ${layout.spacing * 2}px;
 `;
 export const LineItem = styled.div`

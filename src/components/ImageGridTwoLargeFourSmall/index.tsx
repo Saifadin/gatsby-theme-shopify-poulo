@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Wrapper, LargeChildWrapper, SmallChildWrapper, HoverWrapper } from './styles';
 
 interface GridProps {

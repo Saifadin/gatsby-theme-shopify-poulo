@@ -14,7 +14,7 @@ export default {
   light: {
     background: '#fff',
     borderRadius: '0',
-    boxShadow: '0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1)',
+    boxShadow: '',
     color: '#000',
     fontSize: '15px',
     fontWeight: '600',

@@ -9,6 +9,8 @@ export const MobileNav = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
+  height: 100vh;
+  overflow: scroll;
   z-index: 2;
   background: white;
   padding-top: ${layout.spacing * 9}px;

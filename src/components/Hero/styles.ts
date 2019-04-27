@@ -20,7 +20,7 @@ export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   position: relative;
   width: 100%;
-  padding: ${layout.spacing * 10}px;
+  padding: ${layout.spacing * 5}px;
   ${({ fullWidth }) => {
     if (!fullWidth)
       return `
@@ -41,6 +41,9 @@ export const Wrapper = styled.div<WrapperProps>`
     if (positions[1] === 'right') return `justify-content: flex-end;`;
     return `justify-content: center;`;
   }};
+  @media (min-width: 768px) {
+    padding: ${layout.spacing * 10}px;
+  }
 `;
 
 export const Background = styled.div`
