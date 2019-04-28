@@ -2,33 +2,33 @@ import React, { createContext, useState, useEffect } from 'react';
 import localStorage from 'local-storage';
 import Client from 'shopify-buy';
 
-type ShopifyContextType = {
+interface ShopifyContextType {
   checkout?: any;
   client?: Client.Client;
   addVariantToCart?: any;
   removeFromCart?: any;
-};
+}
 
 export const defaultContext: ShopifyContextType = {};
 
 const ShopifyContext = createContext(defaultContext);
 
-type ProviderProps = {
+interface ProviderProps {
   accessToken: string;
   shopName: string;
-};
+}
 
 export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopName, accessToken, children }) => {
   const [client, setClient] = useState();
   const [checkout, setCheckout] = useState();
 
   useEffect(() => {
-    const client = Client.buildClient({
-      storefrontAccessToken: accessToken,
+    const newClient = Client.buildClient({
       domain: `${shopName}.myshopify.com`,
+      storefrontAccessToken: accessToken,
     });
 
-    setClient(client);
+    setClient(newClient);
   }, [shopName, accessToken]);
 
   useEffect(() => {
