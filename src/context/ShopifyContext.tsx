@@ -36,7 +36,14 @@ export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopNa
     if (client && client.checkout) {
       if (checkoutId) {
         client.checkout.fetch(checkoutId).then((res: Client.CheckoutResource) => {
-          setCheckout(res);
+          if (res) {
+            setCheckout(res);
+          } else {
+            client.checkout.create().then((resp: any) => {
+              localStorage('checkoutId', resp.id);
+              setCheckout(resp);
+            });
+          }
         });
       } else {
         client.checkout.create().then((res: any) => {
