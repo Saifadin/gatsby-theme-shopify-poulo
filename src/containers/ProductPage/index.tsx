@@ -60,13 +60,21 @@ interface Props {
   data: {
     shopifyProduct: ShopifyProduct;
   };
+  transparentHeader?: boolean;
+  transparentColor?: string;
+  transparentLogo?: string;
+  scrollingLogo?: string;
 }
 
-const ProductPage: React.FC<Props> = ({ data, children }) => {
+const ProductPage: React.FC<Props> = ({ data, children, transparentHeader, transparentLogo, scrollingLogo, transparentColor }) => {
   const product = data.shopifyProduct;
 
   return (
-    <PageLayout>
+    <PageLayout
+      transparentHeader={transparentHeader}
+      transparentLogo={transparentLogo}
+      scrollingLogo={scrollingLogo}
+      transparentColor={transparentColor}>
       <SeoContainer title={product.title} description={product.description} />
       <ProductHeader>
         <ProductHeaderContainer>

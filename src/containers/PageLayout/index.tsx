@@ -51,7 +51,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
   );
 };
 
-const ConnectedLayout: React.FunctionComponent = props => {
+const ConnectedLayout: React.FunctionComponent<PageLayoutProps> = props => {
   const {
     site: {
       siteMetadata: { shopifyOptions },
