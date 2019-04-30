@@ -7,8 +7,9 @@ import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
 import LayoutContext, { LayoutProvider } from '../../context/LayoutContext';
 import { ShopifyProvider } from '../../context/ShopifyContext';
-import { Wrapper, Main, Content, Overlay, LeftCloseIcon, RightCloseIcon, Header } from './styles';
+import { Wrapper, Main, Content, Overlay, Header } from './styles';
 
+import '../../index.css';
 import './index.css';
 
 interface PageLayoutProps {

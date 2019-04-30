@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 
-import { layout, colors } from '../../components/tokens';
+import { layout, colors, typo } from '../../components/tokens';
 
 export const Product = styled.div``;
 
@@ -20,11 +21,11 @@ export const ProductHeaderContainer = styled.div`
   grid-gap: ${layout.spacing * 2}px;
   @media (min-width: 768px) {
     grid-gap: ${layout.spacing * 6}px;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 300px;
   }
   @media (min-width: 1024px) {
     grid-gap: ${layout.spacing * 10}px;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 3fr 2fr;
   }
 `;
 
@@ -42,41 +43,42 @@ export const DetailsWrapper = styled.div`
   }
 `;
 export const ProductTitle = styled.h1`
-  font-size: 30px;
-  line-height: 48px;
+  font-size: ${typo.large};
+  line-height: 32px;
   letter-spacing: 0.9px;
   font-weight: 900;
   margin: 0;
   margin-bottom: ${layout.spacing * 1.5}px;
-  @media (min-width: 768px) {
-    font-size: 2em;
-  }
-`;
-
-export const ProductDescription = styled.div`
-  font-size: 15px;
-  line-height: 20px;
-  max-width: 512px;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: ${layout.spacing * 3}px;
 `;
 
 export const ProductPrice = styled.div`
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  margin-bottom: ${layout.spacing * 3}px;
+  font-size: ${typo.regular};
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  margin-bottom: ${layout.spacing * 1.5}px;
 `;
+
+export const ProductDescription = styled.div`
+  font-size: ${typo.small};
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  max-width: 512px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: ${layout.spacing * 6}px;
+`;
+
 export const ProductOptions = styled.div`
   margin-bottom: ${layout.spacing * 2}px;
 `;
 export const ProductName = styled.h3`
-  font-size: 15px;
+  font-size: ${typo.small};
   font-weight: 600;
   line-height: 24px;
   margin: 0;
   text-transform: uppercase;
-  margin-bottom: ${layout.spacing * 1.5}px;
+  margin-bottom: ${layout.spacing * 2}px;
 `;
 export const ProductValues = styled.div`
   display: flex;
@@ -89,22 +91,41 @@ export const ProductValues = styled.div`
 
 interface ValueProps {
   active: boolean;
+  color?: string;
 }
 
 export const ProductValue = styled.div<ValueProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 42px;
+  min-height: 42px;
   text-align: center;
   border: 2px solid ${colors.primaryColor};
-  padding: ${layout.spacing * 1.5}px;
+  padding: 0 ${layout.spacing}px;
   margin-right: ${layout.spacing}px;
   margin-bottom: ${layout.spacing}px;
   background-color: ${({ active }) => (active ? colors.primaryColor : 'transparent')};
   color: ${({ active }) => (active ? colors.colorOnPrimary : colors.color)};
   overflow: hidden;
-  font-size: 15px;
+  font-size: ${typo.small};
   font-weight: 600;
-  line-height: 16px;
   cursor: pointer;
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const ProductColorValue = styled.div<ValueProps>`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 2px solid ${({ active }) => (active ? 'rgb(169, 169, 169)' : 'white')};
+  border-radius: 50%;
+  background-color: ${({ color }) => color};
+  margin-right: ${layout.spacing * 2}px;
+  box-shadow: ${({ active }) => (active ? 'inset 0 0 0 2px white' : 'none')};
   opacity: ${({ active }) => (active ? 1 : 0.8)};
   &:hover {
     opacity: 1;
@@ -113,10 +134,11 @@ export const ProductValue = styled.div<ValueProps>`
 
 export const ProductQuantity = styled.div`
   margin-bottom: ${layout.spacing * 4}px;
+  position: relative;
 `;
 export const ProductQuantityLabel = styled.label`
   display: block;
-  font-size: 15px;
+  font-size: ${typo.small};
   font-weight: 600;
   line-height: 24px;
   margin: 0;
@@ -126,12 +148,20 @@ export const ProductQuantityLabel = styled.label`
 export const ProductQuantityInput = styled.input`
   border: 2px solid ${colors.primaryColor};
   text-align: center;
-  font-size: 15px;
+  font-size: ${typo.small};
   font-weight: 600;
   line-height: 36px;
   letter-spacing: 0.5px;
   padding: 0 ${layout.spacing * 5}px;
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
+
+export const ProductQuantityMinus = styled(IoIosRemove)``;
+export const ProductQuantityPlus = styled(IoIosAdd)``;
 
 interface AddedMessageProps {
   added: boolean;

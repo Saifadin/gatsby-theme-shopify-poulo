@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 
-module.exports = ({ shopifyOptions, navigation }) => ({
+module.exports = ({ shopifyOptions, navigation, colorMap }) => ({
   siteMetadata: {
     title: 'Poulo | Shopify&Gatsby Theme',
     description: `
@@ -34,6 +34,7 @@ module.exports = ({ shopifyOptions, navigation }) => ({
       pinterest: 'saifadin',
       snapchat: 'aldoaiss',
     },
+    colorMap: [...colorMap, { key: 'Black', value: '#000' }, { key: 'White', value: '#eee' }],
     shopifyOptions,
     paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
   },
