@@ -18,6 +18,10 @@ import {
   ProductQuantity,
   ProductQuantityInput,
   ProductQuantityLabel,
+  ProductQuantityMinus,
+  ProductQuantityPlus,
+  IconWrapperMinus,
+  IconWrapperPlus,
   AddedMessage,
 } from './styles';
 import { ShopifyProduct } from '.';
@@ -53,7 +57,6 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
       }
     }
   `);
-  console.log(colorMap);
 
   const isMinimum = minVariantPrice.amount !== maxVariantPrice.amount;
   const price = Intl.NumberFormat(undefined, {
@@ -78,6 +81,14 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
 
   const handleQuantityChange = (event: any) => {
     setQuantity(event.target.value);
+  };
+
+  const handleQuantityPlus = () => {
+    setQuantity(quantity + 1 === 11 ? quantity : quantity + 1);
+  };
+
+  const handleQuantityMinus = () => {
+    setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
   };
 
   const addToCart = async () => {
@@ -130,6 +141,9 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
       })}
       <ProductQuantity>
         <ProductQuantityLabel htmlFor="quantity">Quantity</ProductQuantityLabel>
+        <IconWrapperMinus onClick={handleQuantityMinus}>
+          <ProductQuantityMinus size={30} />
+        </IconWrapperMinus>
         <ProductQuantityInput
           id="quantity"
           name="quantity"
@@ -139,6 +153,9 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
           value={quantity}
           onChange={handleQuantityChange}
         />
+        <IconWrapperPlus onClick={handleQuantityPlus}>
+          <ProductQuantityPlus size={30} />
+        </IconWrapperPlus>
       </ProductQuantity>
       <Button appearance="dark" fullWidth={true} type="button" onClick={addToCart}>
         Add to Cart

@@ -135,6 +135,7 @@ export const ProductColorValue = styled.div<ValueProps>`
 export const ProductQuantity = styled.div`
   margin-bottom: ${layout.spacing * 4}px;
   position: relative;
+  display: inline-block;
 `;
 export const ProductQuantityLabel = styled.label`
   display: block;
@@ -158,6 +159,20 @@ export const ProductQuantityInput = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  bottom: 5px;
+  z-index: 5;
+  height: 30px;
+  cursor: pointer;
+`;
+export const IconWrapperMinus = styled(IconWrapper)`
+  left: 6px;
+`;
+export const IconWrapperPlus = styled(IconWrapper)`
+  right: 6px;
 `;
 
 export const ProductQuantityMinus = styled(IoIosRemove)``;
