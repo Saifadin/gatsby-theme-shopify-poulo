@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 
+import NumberInput from '../../components/NumberInput';
 import { layout, colors, typo } from '../../components/tokens';
 
 export const Product = styled.div``;
@@ -44,7 +44,7 @@ export const DetailsWrapper = styled.div`
 `;
 export const ProductTitle = styled.h1`
   font-size: ${typo.large};
-  line-height: 32px;
+  line-height: ${typo.lineLarge};
   letter-spacing: 0.9px;
   font-weight: 900;
   margin: 0;
@@ -52,21 +52,29 @@ export const ProductTitle = styled.h1`
 `;
 
 export const ProductPrice = styled.div`
-  font-size: ${typo.regular};
-  font-weight: 600;
+  font-size: ${typo.small};
+  line-height: ${typo.lineRegular};
+  font-weight: 400;
   letter-spacing: 0.6px;
   margin-bottom: ${layout.spacing * 1.5}px;
+  @media (min-width: 768px) {
+    font-size: ${typo.regular};
+    font-weight: 600;
+  }
 `;
 
 export const ProductDescription = styled.div`
   font-size: ${typo.small};
-  line-height: 24px;
-  font-weight: 600;
+  line-height: ${typo.lineRegular};
+  font-weight: 400;
   letter-spacing: 0.5px;
   max-width: 512px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: ${layout.spacing * 6}px;
+  @media (min-width: 768px) {
+    font-weight: 600;
+  }
 `;
 
 export const ProductOptions = styled.div`
@@ -74,8 +82,8 @@ export const ProductOptions = styled.div`
 `;
 export const ProductName = styled.h3`
   font-size: ${typo.small};
+  line-height: ${typo.lineRegular};
   font-weight: 600;
-  line-height: 24px;
   margin: 0;
   text-transform: uppercase;
   margin-bottom: ${layout.spacing * 2}px;
@@ -121,62 +129,23 @@ export const ProductColorValue = styled.div<ValueProps>`
   width: 30px;
   height: 30px;
   cursor: pointer;
-  border: 2px solid ${({ active }) => (active ? 'rgb(169, 169, 169)' : '#fafafa')};
+  border: ${({ active }) => (active ? '2px solid rgb(169, 169, 169)' : '1px solid #dedede')};
   border-radius: 50%;
   background-color: ${({ color }) => color};
   margin-right: ${layout.spacing * 2}px;
   box-shadow: ${({ active }) => (active ? 'inset 0 0 0 2px white' : 'none')};
-  opacity: ${({ active }) => (active ? 1 : 0.8)};
   &:hover {
-    opacity: 1;
+    border: 2px solid rgb(169, 169, 169);
+  }
+  &:last-of-type {
+    margin-right: 0;
   }
 `;
 
-export const ProductQuantity = styled.div`
+export const ProductQuantity = styled(NumberInput)`
   margin-bottom: ${layout.spacing * 4}px;
-  position: relative;
   display: inline-block;
 `;
-export const ProductQuantityLabel = styled.label`
-  display: block;
-  font-size: ${typo.small};
-  font-weight: 600;
-  line-height: 24px;
-  margin: 0;
-  margin-bottom: ${layout.spacing * 1.5}px;
-  text-transform: uppercase;
-`;
-export const ProductQuantityInput = styled.input`
-  border: 2px solid ${colors.primaryColor};
-  text-align: center;
-  font-size: ${typo.small};
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 0.5px;
-  padding: 0 ${layout.spacing * 5}px;
-  &[type='number']::-webkit-inner-spin-button,
-  &[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`;
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  bottom: 5px;
-  z-index: 5;
-  height: 30px;
-  cursor: pointer;
-`;
-export const IconWrapperMinus = styled(IconWrapper)`
-  left: 6px;
-`;
-export const IconWrapperPlus = styled(IconWrapper)`
-  right: 6px;
-`;
-
-export const ProductQuantityMinus = styled(IoIosRemove)``;
-export const ProductQuantityPlus = styled(IoIosAdd)``;
 
 interface AddedMessageProps {
   added: boolean;
@@ -184,8 +153,8 @@ interface AddedMessageProps {
 
 export const AddedMessage = styled.div<AddedMessageProps>`
   position: relative;
-  font-size: 0.75rem;
-  line-height: 16px;
+  font-size: ${typo.small};
+  line-height: ${typo.lineSmall};
   font-weight: 300;
   transition: all 0.3s ease;
   text-align: center;

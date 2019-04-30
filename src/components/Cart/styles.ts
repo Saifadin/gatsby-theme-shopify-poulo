@@ -53,43 +53,27 @@ export const ItemImage = styled.img`
   object-fit: cover;
   object-position: center center;
 `;
+
 export const ItemDetails = styled.div`
-  display: grid;
-  grid-template-areas: 'title remove' 'variant nothing' 'quantity price';
-  grid-template-columns: 1fr auto;
-  grid-column-gap: ${layout.spacing}px;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   margin-bottom: ${layout.spacing * 2.5}px;
 `;
+
+export const ItemTitleRemove = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 export const ItemTitle = styled.h3`
-  grid-area: title;
   margin: 0;
+  margin-right: ${layout.spacing}px;
   font-size: 20px;
   line-height: 1;
   font-weight: 600;
 `;
-export const ItemVariant = styled.h4`
-  grid-area: variant;
-  font-weight: 300;
-  margin: 0;
-  font-size: 0.75rem;
-  line-height: 1.33;
-`;
-export const ItemQuantity = styled.div`
-  grid-area: quantity;
-  line-height: 16px;
-`;
-export const ItemPrice = styled.div`
-  grid-area: price;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 700;
-  text-align: right;
-  align-self: flex-end;
-`;
 export const ItemRemove = styled.div`
   cursor: pointer;
-  grid-area: remove;
   text-align: right;
   align-self: flex-start;
   height: 24px;
@@ -98,6 +82,28 @@ export const ItemRemove = styled.div`
     color: red;
     opacity: 1;
   }
+`;
+
+export const ItemVariant = styled.h4`
+  font-weight: 300;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.33;
+`;
+
+export const ItemQuantityPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+`;
+export const ItemPrice = styled.div`
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: right;
+  align-self: flex-end;
 `;
 
 export const CheckoutTotal = styled.div`

@@ -30,7 +30,7 @@ const countQuantity = (lineItems = []): number => {
 };
 
 const Cart = () => {
-  const { checkout, removeFromCart } = useContext(ShopifyContext);
+  const { checkout, updateQuantityInCart, removeFromCart } = useContext(ShopifyContext);
   const { setScreen } = useContext(LayoutContext);
   const [quantity, setQuantity] = useState(countQuantity(checkout ? checkout.lineItems : []));
 
@@ -55,7 +55,15 @@ const Cart = () => {
       {checkout && checkout!.lineItems.length > 0 ? (
         <LineItems>
           {checkout.lineItems.map((lineItem: any) => {
-            return <ProductItem key={lineItem.id} {...lineItem} currencyCode={checkout.currencyCode} removeFromCart={removeFromCart} />;
+            return (
+              <ProductItem
+                key={lineItem.id}
+                {...lineItem}
+                currencyCode={checkout.currencyCode}
+                removeFromCart={removeFromCart}
+                updateQuantityInCart={updateQuantityInCart}
+              />
+            );
           })}
         </LineItems>
       ) : (
@@ -68,7 +76,6 @@ const Cart = () => {
         <CheckoutTotalTitle>Order Total</CheckoutTotalTitle>
         <CheckoutPrice>{price}</CheckoutPrice>
       </CheckoutTotal>
-      {/* <CheckoutDisclaimer>You will be redirected to the Checkout Page to complete the Purchase</CheckoutDisclaimer> */}
       <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
         Checkout
       </Button>

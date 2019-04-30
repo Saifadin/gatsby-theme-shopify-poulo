@@ -1,7 +1,19 @@
 import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 
-import { LineItem, ItemDetails, ItemTitle, ItemVariant, ItemPrice, ItemRemove, ItemQuantity, ItemImageWrapper, ItemImage } from './styles';
+import {
+  LineItem,
+  ItemDetails,
+  ItemTitleRemove,
+  ItemTitle,
+  ItemRemove,
+  ItemVariant,
+  ItemPrice,
+  ItemQuantityPrice,
+  ItemImageWrapper,
+  ItemImage,
+} from './styles';
+import NumberInput from '../NumberInput/index';
 
 const ProductItem: React.FunctionComponent = ({
   id,
@@ -13,6 +25,7 @@ const ProductItem: React.FunctionComponent = ({
     image: { src },
   },
   removeFromCart,
+  updateQuantityInCart,
   currencyCode,
 }: any) => {
   const itemPrice = Intl.NumberFormat(undefined, {
@@ -21,19 +34,27 @@ const ProductItem: React.FunctionComponent = ({
     style: 'currency',
   }).format(parseFloat(price));
 
+  const handleOnChange = (value: number) => {
+    updateQuantityInCart(id, value);
+  };
+
   return (
     <LineItem>
       <ItemImageWrapper>
         <ItemImage src={src} />
       </ItemImageWrapper>
       <ItemDetails>
-        <ItemTitle>{title}</ItemTitle>
+        <ItemTitleRemove>
+          <ItemTitle>{title}</ItemTitle>
+          <ItemRemove onClick={() => removeFromCart(id)}>
+            <IoMdClose size={20} />
+          </ItemRemove>
+        </ItemTitleRemove>
         <ItemVariant>{variantTitle}</ItemVariant>
-        <ItemQuantity>x{quantity}</ItemQuantity>
-        <ItemPrice>{itemPrice}</ItemPrice>
-        <ItemRemove onClick={() => removeFromCart(id)}>
-          <IoMdClose size={20} />
-        </ItemRemove>
+        <ItemQuantityPrice>
+          <NumberInput name={`quantity-${id}`} min={1} max={10} value={quantity} onChange={handleOnChange} isLight={true} />
+          <ItemPrice>{itemPrice}</ItemPrice>
+        </ItemQuantityPrice>
       </ItemDetails>
     </LineItem>
   );

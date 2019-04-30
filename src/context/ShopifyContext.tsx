@@ -5,8 +5,9 @@ import Client from 'shopify-buy';
 interface ShopifyContextType {
   checkout?: any;
   client?: Client.Client;
-  addVariantToCart?: any;
-  removeFromCart?: any;
+  addVariantToCart?(variantId: string, quantity: string): void;
+  removeFromCart?(lineItemId: string): void;
+  updateQuantityInCart?(lineItemId: string, quantity: number): void;
 }
 
 export const defaultContext: ShopifyContextType = {};
@@ -65,6 +66,18 @@ export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopNa
     return res;
   };
 
+  const updateQuantityInCart = async (lineItemId: string, quantity: number) => {
+    const checkoutId = checkout.id;
+    const lineItemsToUpdate = [{ id: lineItemId, quantity }];
+
+    // Update the line item on the checkout (change the quantity or variant)
+    const res = await client.checkout.updateLineItems(checkoutId, lineItemsToUpdate);
+
+    await setCheckout(res);
+
+    return res;
+  };
+
   const removeFromCart = async (lineItemId: string) => {
     const checkoutId = checkout.id;
 
@@ -82,7 +95,11 @@ export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopNa
     console.groupEnd();
   }
 
-  return <ShopifyContext.Provider value={{ checkout, client, addVariantToCart, removeFromCart }}>{children}</ShopifyContext.Provider>;
+  return (
+    <ShopifyContext.Provider value={{ checkout, client, addVariantToCart, updateQuantityInCart, removeFromCart }}>
+      {children}
+    </ShopifyContext.Provider>
+  );
 };
 
 export default ShopifyContext;

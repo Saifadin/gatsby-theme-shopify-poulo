@@ -5,6 +5,7 @@ import isEqual from 'lodash/isEqual';
 
 import ShopifyContext from '../../context/ShopifyContext';
 import Button from '../../components/Button';
+import NumberInput from '../../components/NumberInput';
 import {
   DetailsWrapper,
   ProductTitle,
@@ -16,12 +17,6 @@ import {
   ProductValue,
   ProductColorValue,
   ProductQuantity,
-  ProductQuantityInput,
-  ProductQuantityLabel,
-  ProductQuantityMinus,
-  ProductQuantityPlus,
-  IconWrapperMinus,
-  IconWrapperPlus,
   AddedMessage,
 } from './styles';
 import { ShopifyProduct } from '.';
@@ -79,20 +74,20 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
     setVariant({ ...selectedVariant });
   };
 
-  const handleQuantityChange = (event: any) => {
-    setQuantity(event.target.value);
+  const handleQuantityChange = (value: number) => {
+    setQuantity(value);
   };
 
-  const handleQuantityPlus = () => {
-    setQuantity(quantity + 1 === 11 ? quantity : quantity + 1);
-  };
+  // const handleQuantityPlus = () => {
+  //   setQuantity(quantity + 1 === 11 ? quantity : quantity + 1);
+  // };
 
-  const handleQuantityMinus = () => {
-    setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
-  };
+  // const handleQuantityMinus = () => {
+  //   setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
+  // };
 
   const addToCart = async () => {
-    await addVariantToCart(variant.shopifyId, quantity);
+    await addVariantToCart!(variant.shopifyId, quantity.toString());
     setAdded(true);
     setTimeout(() => {
       setAdded(false);
@@ -139,24 +134,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
           </ProductOptions>
         );
       })}
-      <ProductQuantity>
-        <ProductQuantityLabel htmlFor="quantity">Quantity</ProductQuantityLabel>
-        <IconWrapperMinus onClick={handleQuantityMinus}>
-          <ProductQuantityMinus size={30} />
-        </IconWrapperMinus>
-        <ProductQuantityInput
-          id="quantity"
-          name="quantity"
-          type="number"
-          min="1"
-          max="10"
-          value={quantity}
-          onChange={handleQuantityChange}
-        />
-        <IconWrapperPlus onClick={handleQuantityPlus}>
-          <ProductQuantityPlus size={30} />
-        </IconWrapperPlus>
-      </ProductQuantity>
+      <ProductQuantity label="Quantity" id="quantity" name="quantity" min={1} max={10} value={quantity} onChange={handleQuantityChange} />
       <Button appearance="dark" fullWidth={true} type="button" onClick={addToCart}>
         Add to Cart
       </Button>

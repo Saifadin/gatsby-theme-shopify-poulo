@@ -3,7 +3,8 @@ export default {
   large: '30px',
   regular: '20px',
   small: '15px',
-  lineLarge: '48px',
+  lineXLarge: '48px',
+  lineLarge: '32px',
   lineRegular: '24px',
-  lineSmall: '20px',
+  lineSmall: '16px',
 };

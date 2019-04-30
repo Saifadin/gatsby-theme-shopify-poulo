@@ -71,7 +71,7 @@ export const Overlay = styled.div<ScreenProps>`
   height: ${({ active }) => (active === 'main' ? '0' : '100vh')};
   background-color: ${({ active }: ScreenProps) => (active === 'main' ? 'transparent' : 'rgba(0, 0, 0, 0.35)')};
   transition: background-color 0.3s ease-in;
-  z-index: 2;
+  z-index: 10;
   @media (min-width: 600px) {
     left: ${sidebarDesktopWidth}px;
   }
