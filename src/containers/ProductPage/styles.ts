@@ -121,7 +121,7 @@ export const ProductColorValue = styled.div<ValueProps>`
   width: 30px;
   height: 30px;
   cursor: pointer;
-  border: 2px solid ${({ active }) => (active ? 'rgb(169, 169, 169)' : 'white')};
+  border: 2px solid ${({ active }) => (active ? 'rgb(169, 169, 169)' : '#fafafa')};
   border-radius: 50%;
   background-color: ${({ color }) => color};
   margin-right: ${layout.spacing * 2}px;

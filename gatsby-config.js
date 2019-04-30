@@ -34,7 +34,7 @@ module.exports = ({ shopifyOptions, navigation, colorMap }) => ({
       pinterest: 'saifadin',
       snapchat: 'aldoaiss',
     },
-    colorMap: [...colorMap, { key: 'Black', value: '#000' }, { key: 'White', value: '#eee' }],
+    colorMap: [...colorMap, { key: 'Black', value: '#000' }, { key: 'White', value: '#fff' }],
     shopifyOptions,
     paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
   },
