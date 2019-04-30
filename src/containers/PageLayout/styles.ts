@@ -51,7 +51,7 @@ export const Header = styled.div<HeaderProps>`
   width: 100vw;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const Content = styled.div`
@@ -59,6 +59,7 @@ export const Content = styled.div`
   overflow: scroll;
   height: 100vh;
   scroll-behavior: smooth;
+  background-color: #fafafa;
 `;
 
 export const Overlay = styled.div<ScreenProps>`

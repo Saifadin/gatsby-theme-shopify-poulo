@@ -2,7 +2,7 @@ export default {
   dark: {
     background: '#1f2a30',
     borderRadius: '0',
-    boxShadow: '0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1)',
+    // boxShadow: '0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1)',
     color: '#fff',
     fontSize: '13px',
     fontWeight: '600',

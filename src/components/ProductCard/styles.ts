@@ -9,7 +9,6 @@ export const Card = styled(Link)`
   width: 144px;
   text-align: left;
   /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.03), 0 20px 30px rgba(0, 0, 0, 0.1); */
-  background-color: #fff;
   color: #000;
   text-decoration: none;
   transition: transform 0.3s ease;

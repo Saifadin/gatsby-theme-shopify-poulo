@@ -16,12 +16,15 @@ export const Wrapper = styled.div<WrapperProps>`
   grid-template-columns: 1fr auto 1fr;
   grid-gap: ${layout.spacing * 3}px;
   align-items: center;
-  padding: ${layout.spacing * 2}px ${layout.spacing * 1.5}px;
+  padding: ${layout.spacing * 2.5}px ${layout.spacing * 1.5}px;
   background-color: ${({ transparentHeader, isScrolling }) => (isScrolling || !transparentHeader ? 'white' : 'transparent')};
   border-bottom: ${({ isScrolling }) => (isScrolling ? '1px solid #ddd' : 'none')};
   transition: all 0.3s ease;
   @media (min-width: 600px) {
     padding: ${layout.spacing * 2}px ${layout.spacing * 6}px;
+  }
+  @media (min-width: 1024px) {
+    padding: ${({ isScrolling }) => (isScrolling ? layout.spacing * 2 : layout.spacing * 6)}px ${layout.spacing * 6}px;
   }
   a {
     color: ${({ transparentHeader, transparentColor, isScrolling }) =>
@@ -61,7 +64,10 @@ export const BrandContainer = styled.div`
   justify-content: center;
 `;
 
-export const HomeLink = styled(Link)``;
+export const HomeLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
 
 export const Brand = styled.img`
   margin: 0;

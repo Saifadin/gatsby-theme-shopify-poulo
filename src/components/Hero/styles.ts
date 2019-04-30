@@ -21,6 +21,7 @@ export const Wrapper = styled.div<WrapperProps>`
   position: relative;
   width: 100%;
   padding: ${layout.spacing * 5}px;
+  z-index: 2;
   ${({ fullWidth }) => {
     if (!fullWidth)
       return `

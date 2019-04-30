@@ -18,11 +18,12 @@ const getCount = ({ lineItems = [] }: any) => {
 
 interface NavigationProps {
   transparentHeader?: boolean;
-  transparentLogo?: string;
   transparentColor?: string;
+  transparentLogo?: string;
+  scrollingLogo?: string;
 }
 
-const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader, transparentLogo, transparentColor }) => {
+const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader, scrollingLogo, transparentLogo, transparentColor }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
   const { checkout = {} } = useContext(ShopifyContext);
   const [count, setCount] = useState(getCount(checkout));
@@ -89,7 +90,10 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
       </Menu>
       <BrandContainer>
         <HomeLink to="/">
-          <Brand src={!isScrolling && transparentHeader && transparentLogo ? transparentLogo : Logo} />
+          {!isScrolling && transparentHeader && transparentLogo ? <Brand src={transparentLogo} /> : null}
+          {isScrolling && scrollingLogo ? <Brand src={scrollingLogo} /> : null}
+          {isScrolling && !scrollingLogo ? <Brand src={Logo} /> : null}
+          {!isScrolling && !transparentHeader ? <Brand src={Logo} /> : null}
         </HomeLink>
       </BrandContainer>
       {activeScreen === 'right' ? (
