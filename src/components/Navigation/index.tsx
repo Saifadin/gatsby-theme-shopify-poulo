@@ -101,7 +101,12 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
         <div />
       ) : (
         <>
-          <CartIcon size={32} onClick={() => setScreen('right')} count={count} />
+          <CartIcon
+            size={32}
+            onClick={() => setScreen('right')}
+            count={count}
+            color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
+          />
         </>
       )}
     </Wrapper>

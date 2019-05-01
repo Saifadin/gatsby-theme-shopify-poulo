@@ -5,12 +5,13 @@ import { CartWrapper, CartCount } from './styles';
 interface IconProps {
   size?: number;
   count?: number;
+  color?: string;
   onClick?(event: any): void;
 }
 
-const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0 }) => {
+const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0, color }) => {
   return (
-    <CartWrapper onClick={onClick}>
+    <CartWrapper onClick={onClick} style={{ color }}>
       <svg width={size} height={size} viewBox="0 0 49 35" version="1.1">
         <g id="Cart-Icon" stroke="none" fill="none" strokeWidth="1" fillRule="evenodd">
           <path
@@ -32,12 +33,11 @@ const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0 }) => {
           ) : null}
         </g>
         {count && count > 0 ? (
-          <text fill="red" x="24.5" y="28" textAnchor="middle" fontSize="18" fontFamily="'Metropolis'">
+          <text fill="currentColor" x="24.5" y="28" textAnchor="middle" fontSize="18" fontFamily="'Metropolis'">
             {count}
           </text>
         ) : null}
       </svg>
-      {/* {count ? <CartCount>{count}</CartCount> : null} */}
     </CartWrapper>
   );
 };

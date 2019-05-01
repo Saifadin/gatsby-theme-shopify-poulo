@@ -81,14 +81,15 @@ export const MenuIcon = styled(IoIosMenu)`
     display: none;
   }
 `;
-export const CartWrapper = styled.div`
+
+export const CartWrapper = styled.div<WrapperProps>`
   justify-self: flex-end;
   position: relative;
   height: 32px;
   width: 32px;
   cursor: pointer;
 `;
-export const CartIcon = styled(IoIosCart)``;
+
 export const CartCount = styled.div`
   display: flex;
   justify-content: center;
