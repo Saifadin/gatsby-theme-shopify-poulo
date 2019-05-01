@@ -55,7 +55,7 @@ export const Header = styled.div<HeaderProps>`
 `;
 
 export const Content = styled.div`
-  display: grid;
+  display: block;
   overflow: scroll;
   height: 100%;
   scroll-behavior: smooth;

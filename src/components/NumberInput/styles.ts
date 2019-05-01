@@ -33,6 +33,7 @@ export const Input = styled.input<InputProps>`
   font-weight: 600;
   letter-spacing: 0.5px;
   max-width: 100px;
+  width: 100px;
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
