@@ -55,9 +55,9 @@ export const Header = styled.div<HeaderProps>`
 `;
 
 export const Content = styled.div`
-  display: block;
+  display: grid;
   overflow: scroll;
-  height: 100%;
+  height: 100vh;
   scroll-behavior: smooth;
   background-color: #fafafa;
 `;

@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     padding: ${layout.spacing * 6}px;
   }
   @supports (-webkit-overflow-scrolling: touch) {
-    padding-bottom: 60px;
+    padding-bottom: 128px;
   }
 `;
 
