@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
   @media (min-width: 600px) {
     padding: ${layout.spacing * 6}px;
   }
+  @supports (-webkit-overflow-scrolling: touch) {
+    padding-bottom: 60px;
+  }
 `;
 
 export const CloseIcon = styled(IoIosClose)`

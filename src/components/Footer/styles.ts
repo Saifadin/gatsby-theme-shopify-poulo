@@ -7,6 +7,9 @@ export const FooterBackdrop = styled.div`
   padding: ${layout.spacing * 4}px 0;
   background-color: ${colors.secondaryFooterBackground};
   color: ${colors.footerColor};
+  @supports (-webkit-overflow-scrolling: touch) {
+    padding-bottom: 80px;
+  }
 `;
 
 export const FooterWrapper = styled.div`

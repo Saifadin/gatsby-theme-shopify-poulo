@@ -11,7 +11,7 @@ export const MobileNav = styled.div`
   width: 100%;
   height: 100vh;
   overflow: scroll;
-  z-index: 2;
+  z-index: 10;
   background: white;
   padding-top: ${layout.spacing * 9}px;
 `;

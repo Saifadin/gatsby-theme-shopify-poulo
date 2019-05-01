@@ -51,7 +51,7 @@ const Cart = () => {
   return (
     <Wrapper>
       <CloseIcon size={48} onClick={() => setScreen('main')} />
-      <Title>My Cart ({quantity})</Title>
+      <Title>My Bag ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (
         <LineItems>
           {checkout.lineItems.map((lineItem: any) => {
