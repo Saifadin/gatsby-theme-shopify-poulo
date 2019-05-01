@@ -26,7 +26,7 @@ module.exports = ({ shopifyOptions, navigation, colorMap }) => ({
     },
     // productCategories: [...shopifyOptions.productCategories],
     footerDisclaimer:
-      '© 2019 | Made with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and <a href="https://github.com/Saifadin/test-shopify-gatsby" target="_blank">Poulo</a>',
+      '© 2019 | Made with <a href="https://www.gatsbyjs.org/" rel="noopener,noreferrer" target="_blank">Gatsby</a> and <a href="https://github.com/Saifadin/test-shopify-gatsby" rel="noopener,noreferrer"  target="_blank">Poulo</a>',
     social: {
       twitter: 'saifadin',
       instagram: 'saifadin',

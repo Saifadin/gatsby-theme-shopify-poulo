@@ -37,7 +37,7 @@ const ProductCard: React.FunctionComponent<ProductCard> = ({ product }) => {
 
   return (
     <Card to={`/product/${handle}`}>
-      <CardImage images={product.images} />
+      <CardImage images={product.images} title={product.title} />
       <ProductDetails>
         <ProductTitle>{product.title}</ProductTitle>
         <ProductPrice>{`${isMinimum ? 'from ' : ''}${price}`}</ProductPrice>

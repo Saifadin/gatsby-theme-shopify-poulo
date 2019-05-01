@@ -68,7 +68,7 @@ const Cart = () => {
         </LineItems>
       ) : (
         <EmptyContainer>
-          <EmptyImage src={Empty} />
+          <EmptyImage src={Empty} alt="Women looking at empty Cart" />
           <EmptyText>You didn't add anything to your cart yet.</EmptyText>
         </EmptyContainer>
       )}

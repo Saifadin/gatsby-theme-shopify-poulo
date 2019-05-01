@@ -51,7 +51,7 @@ const getIcon = (iconName: string): React.ReactNode | null => {
     case 'snapchat':
       return <FaSnapchat key={iconName} size={32} />;
     default:
-      null;
+      return null;
   }
 };
 
@@ -85,11 +85,11 @@ const Footer = () => {
     }
   `);
 
-  let socialMedia: Array<React.ReactNode> = [];
+  const socialMedia: React.ReactNode[] = [];
   forEach(siteMetadata.social, (value: string, key: string) => {
     if (!value) return;
     socialMedia.push(
-      <SocialIcon href={getURl(key, value)} target="_blank" key={key}>
+      <SocialIcon href={getURl(key, value)} target="_blank" rel="noopener,noreferrer" key={key}>
         {getIcon(key)}
       </SocialIcon>
     );

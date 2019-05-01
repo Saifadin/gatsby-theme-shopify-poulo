@@ -90,10 +90,10 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
       </Menu>
       <BrandContainer>
         <HomeLink to="/">
-          {!isScrolling && transparentHeader && transparentLogo ? <Brand src={transparentLogo} /> : null}
-          {isScrolling && scrollingLogo ? <Brand src={scrollingLogo} /> : null}
-          {isScrolling && !scrollingLogo ? <Brand src={Logo} /> : null}
-          {!isScrolling && !transparentHeader ? <Brand src={Logo} /> : null}
+          {!isScrolling && transparentHeader && transparentLogo ? <Brand src={transparentLogo} alt="logo" /> : null}
+          {isScrolling && scrollingLogo ? <Brand src={scrollingLogo} alt="logo" /> : null}
+          {isScrolling && !scrollingLogo ? <Brand src={Logo} alt="logo" /> : null}
+          {!isScrolling && !transparentHeader ? <Brand src={Logo} alt="logo" /> : null}
         </HomeLink>
       </BrandContainer>
       {activeScreen === 'right' ? (
