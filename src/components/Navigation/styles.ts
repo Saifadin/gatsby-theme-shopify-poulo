@@ -96,12 +96,12 @@ export const CartCount = styled.div`
   align-items: center;
   background-color: ${colors.primaryColor};
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: -4px;
   right: -4px;
-  font-size: 0.66rem;
+  font-size: 10px;
   text-align: center;
   color: ${colors.colorOnPrimary};
 `;

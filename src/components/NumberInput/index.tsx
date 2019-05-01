@@ -21,21 +21,19 @@ const NumberInput: React.FC<InputProps> = ({ className, label, id, name, min, ma
   }, [value]);
 
   const handleChange = (event: any) => {
-    setValue(event.target.value);
-    onChange(event.target.value);
+    setValue(parseInt(event.target.value, 10));
+    onChange(parseInt(event.target.value, 10));
   };
 
   const handlePlusChange = () => {
-    const newValue = internalValue + 1 === 11 ? internalValue : internalValue + 1;
+    const newValue = max && internalValue + 1 > max ? internalValue : internalValue + 1;
 
-    setValue(newValue);
     onChange(newValue);
   };
 
   const handleMinusChange = () => {
-    const newValue = internalValue - 1 === 0 ? internalValue : internalValue - 1;
+    const newValue = (min && internalValue - 1 < min) || internalValue - 1 === 0 ? internalValue : internalValue - 1;
 
-    setValue(newValue);
     onChange(newValue);
   };
 
@@ -46,7 +44,17 @@ const NumberInput: React.FC<InputProps> = ({ className, label, id, name, min, ma
         <IconWrapperMinus onClick={handleMinusChange}>
           <MinusIcon size={30} />
         </IconWrapperMinus>
-        <Input id={id || name} name={name} type="number" min={min} max={max} value={internalValue} onChange={handleChange} isLight={isLight} />
+        <Input
+          id={id || name}
+          name={name}
+          type="number"
+          pattern="\d*"
+          min={min}
+          max={max}
+          value={internalValue}
+          onChange={handleChange}
+          isLight={isLight}
+        />
         <IconWrapperPlus onClick={handlePlusChange}>
           <PlusIcon size={30} />
         </IconWrapperPlus>

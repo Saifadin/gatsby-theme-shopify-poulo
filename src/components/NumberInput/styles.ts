@@ -22,17 +22,17 @@ export const InputWrapper = styled.div`
 `;
 
 interface InputProps {
-  isLight?: boolean
+  isLight?: boolean;
 }
 
 export const Input = styled.input<InputProps>`
-  border: 2px solid ${({ isLight }) => isLight ? '#DEDEDE' : colors.primaryColor};
+  border: 2px solid ${({ isLight }) => (isLight ? '#DEDEDE' : colors.primaryColor)};
   text-align: center;
   font-size: ${typo.small};
   line-height: 36px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  padding: 0 ${layout.spacing * 5}px;
+  max-width: 100px;
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -42,7 +42,7 @@ export const Input = styled.input<InputProps>`
 
 export const IconWrapper = styled.div`
   position: absolute;
-  bottom: 5px;
+  bottom: 6px;
   z-index: 5;
   height: 30px;
   cursor: pointer;

@@ -52,7 +52,7 @@ const ProductItem: React.FunctionComponent = ({
         </ItemTitleRemove>
         <ItemVariant>{variantTitle}</ItemVariant>
         <ItemQuantityPrice>
-          <NumberInput name={`quantity-${id}`} min={1} max={10} value={quantity} onChange={handleOnChange} isLight={true} />
+          <NumberInput name={`quantity-${id}`} min={1} value={quantity} onChange={handleOnChange} isLight={true} />
           <ItemPrice>{itemPrice}</ItemPrice>
         </ItemQuantityPrice>
       </ItemDetails>

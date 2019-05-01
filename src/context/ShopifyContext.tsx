@@ -22,6 +22,7 @@ interface ProviderProps {
 export const ShopifyProvider: React.FunctionComponent<ProviderProps> = ({ shopName, accessToken, children }) => {
   const [client, setClient] = useState();
   const [checkout, setCheckout] = useState();
+  const [random, setRandom] = useState();
 
   useEffect(() => {
     const newClient = Client.buildClient({
