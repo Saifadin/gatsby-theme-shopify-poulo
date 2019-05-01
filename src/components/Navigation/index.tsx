@@ -6,7 +6,8 @@ import Logo from '../../images/logo.png';
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
 import CartIcon from './CartIcon';
-import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuIcon, MenuItem, CartWrapper, CartCount } from './styles';
+import MenuIcon from './MenuIcon';
+import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem, CartWrapper, CartCount } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;

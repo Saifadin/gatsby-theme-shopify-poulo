@@ -75,14 +75,16 @@ export const Brand = styled.img`
   width: auto;
 `;
 
-export const MenuIcon = styled(IoIosMenu)`
+export const MenuIconWrapper = styled.div`
   cursor: pointer;
+  height: 24px;
+  width: 24px;
   @media (min-width: 1024px) {
     display: none;
   }
 `;
 
-export const CartWrapper = styled.div<WrapperProps>`
+export const CartWrapper = styled.div`
   justify-self: flex-end;
   position: relative;
   height: 32px;
