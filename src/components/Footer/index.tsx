@@ -89,7 +89,7 @@ const Footer = () => {
   forEach(siteMetadata.social, (value: string, key: string) => {
     if (!value) return;
     socialMedia.push(
-      <SocialIcon href={getURl(key, value)} target="_blank" rel="noopener,noreferrer" key={key}>
+      <SocialIcon href={getURl(key, value)} target="_blank" rel="noopener,noreferrer" key={key} title={key}>
         {getIcon(key)}
       </SocialIcon>
     );

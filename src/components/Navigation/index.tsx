@@ -5,7 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Logo from '../../images/logo.png';
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
-import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuIcon, MenuItem, CartIcon, CartWrapper, CartCount } from './styles';
+import CartIcon from './CartIcon';
+import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuIcon, MenuItem, CartWrapper, CartCount } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;
@@ -99,14 +100,9 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
       {activeScreen === 'right' ? (
         <div />
       ) : (
-        <CartWrapper>
-          <CartIcon
-            size={24}
-            onClick={() => setScreen('right')}
-            color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
-          />
-          {count ? <CartCount>{count}</CartCount> : null}
-        </CartWrapper>
+        <>
+          <CartIcon size={32} onClick={() => setScreen('right')} count={count} />
+        </>
       )}
     </Wrapper>
   );

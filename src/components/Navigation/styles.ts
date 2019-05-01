@@ -84,12 +84,11 @@ export const MenuIcon = styled(IoIosMenu)`
 export const CartWrapper = styled.div`
   justify-self: flex-end;
   position: relative;
-  height: 24px;
-  width: 24px;
-`;
-export const CartIcon = styled(IoIosCart)`
+  height: 32px;
+  width: 32px;
   cursor: pointer;
 `;
+export const CartIcon = styled(IoIosCart)``;
 export const CartCount = styled.div`
   display: flex;
   justify-content: center;
@@ -99,8 +98,8 @@ export const CartCount = styled.div`
   width: 20px;
   height: 20px;
   position: absolute;
-  top: -4px;
-  right: -4px;
+  bottom: -4px;
+  left: -4px;
   font-size: 10px;
   text-align: center;
   color: ${colors.colorOnPrimary};
