@@ -19,6 +19,7 @@ const ProductImages: React.FC<ImagesProps> = ({ images }) => {
             <Thumbnail
               key={id}
               src={localFile.childImageSharp.fluid.src}
+              alt={`Product-Image-${index}`}
               active={activeImage === index}
               onClick={() => setActiveImage(index)}
             />
