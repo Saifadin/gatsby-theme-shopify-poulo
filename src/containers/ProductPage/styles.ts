@@ -133,12 +133,13 @@ export const ActiveWrapper = styled.div<ValueProps>`
   height: 36px;
   border-radius: 50%;
   cursor: pointer;
-  border: ${({ active }) => (active ? '1px solid #000' : '1px solid transparent')};
+  border: 1px solid;
+  border-color: ${({ active }) => (active ? '#000' : 'transparent')};
   background-color: transparent;
   margin-right: ${layout.spacing}px;
   transition: all 0.3s ease;
   &:hover {
-    border: 1px solid #000;
+    border-color: ${({ active }) => (active ? '#000' : '#dedede')};
   }
   &:last-of-type {
     margin-right: 0;
