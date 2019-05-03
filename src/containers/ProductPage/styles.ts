@@ -125,21 +125,32 @@ export const ProductValue = styled.div<ValueProps>`
   }
 `;
 
-export const ProductColorValue = styled.div<ValueProps>`
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  border: ${({ active }) => (active ? '2px solid rgb(169, 169, 169)' : '1px solid #dedede')};
+export const ActiveWrapper = styled.div<ValueProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: ${({ color }) => color};
-  margin-right: ${layout.spacing * 2}px;
-  box-shadow: ${({ active }) => (active ? 'inset 0 0 0 2px white' : 'none')};
+  cursor: pointer;
+  border: ${({ active }) => (active ? '1px solid #000' : '1px solid transparent')};
+  background-color: transparent;
+  margin-right: ${layout.spacing}px;
+  transition: all 0.3s ease;
   &:hover {
-    border: 2px solid rgb(169, 169, 169);
+    border: 1px solid #000;
   }
   &:last-of-type {
     margin-right: 0;
   }
+`;
+
+export const ProductColorValue = styled.div<ValueProps>`
+  width: 30px;
+  height: 30px;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  background-color: ${({ color }) => color};
 `;
 
 export const ProductQuantity = styled(NumberInput)`

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 
-module.exports = ({ shopifyOptions, navigation, colorMap }) => ({
+module.exports = ({ shopifyOptions, navigation, colorMap, paymentMethods }) => ({
   siteMetadata: {
     title: 'Poulo | Shopify&Gatsby Theme',
     description: `
@@ -28,24 +28,19 @@ module.exports = ({ shopifyOptions, navigation, colorMap }) => ({
     footerDisclaimer:
       '© 2019 | Made with <a href="https://www.gatsbyjs.org/" rel="noopener,noreferrer" target="_blank">Gatsby</a> and <a href="https://github.com/Saifadin/test-shopify-gatsby" rel="noopener,noreferrer"  target="_blank">Poulo</a>',
     social: {
-      twitter: 'saifadin',
-      instagram: 'saifadin',
-      facebook: 'osamah.aldoaiss',
-      pinterest: 'saifadin',
-      snapchat: 'aldoaiss',
+      twitter: '',
+      instagram: '',
+      facebook: '',
+      pinterest: '',
+      snapchat: '',
     },
     colorMap: [...colorMap, { key: 'Black', value: '#000' }, { key: 'White', value: '#fff' }],
     shopifyOptions,
-    paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
+    paymentMethods: paymentMethods.length === 0 ? [''] : paymentMethods,
+    // paymentMethods: ['AmazonPay', 'Amex', 'ApplePay', 'DinersClub', 'Discover', 'Jcb', 'Mastercard', 'Paypal', 'Visa'],
   },
   plugins: [
     'gatsby-plugin-typescript',
-    {
-      resolve: 'gatsby-plugin-page-creator',
-      options: {
-        path: path.join(__dirname, 'src', 'pages'),
-      },
-    },
     {
       resolve: 'gatsby-plugin-compile-es6-packages',
       options: {

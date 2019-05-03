@@ -15,6 +15,7 @@ import {
   ProductName,
   ProductValues,
   ProductValue,
+  ActiveWrapper,
   ProductColorValue,
   ProductQuantity,
   AddedMessage,
@@ -78,14 +79,6 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
     setQuantity(value);
   };
 
-  // const handleQuantityPlus = () => {
-  //   setQuantity(quantity + 1 === 11 ? quantity : quantity + 1);
-  // };
-
-  // const handleQuantityMinus = () => {
-  //   setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
-  // };
-
   const addToCart = async () => {
     await addVariantToCart!(variant.shopifyId, quantity.toString());
     setAdded(true);
@@ -112,13 +105,13 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
 
                   if (!color) return;
                   return (
-                    <ProductColorValue
+                    <ActiveWrapper
                       key={`${id}-${value}`}
                       active={variant.selectedOptions[optionIndex].value === value}
-                      color={color.value}
                       title={value}
-                      onClick={() => handleClick(optionIndex, value)}
-                    />
+                      onClick={() => handleClick(optionIndex, value)}>
+                      <ProductColorValue active={variant.selectedOptions[optionIndex].value === value} color={color.value} />
+                    </ActiveWrapper>
                   );
                 }
                 return (
