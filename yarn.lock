@@ -5589,6 +5589,11 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
+detect-browser@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/detect-browser/-/detect-browser-4.5.0.tgz#6a726bd21e9dd77b4e18676515d48c88b4156ee3"
+  integrity sha512-uwyZNBwMhvRIOBIBTuDu+h4/a2bfFE/elUIvAOuKuBZcuy6yAJ/9dOe4r3wyWO/ZW2PcsP0dhEwiVwTPTTJp2Q==
+
 detect-indent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
@@ -7360,6 +7365,27 @@ gatsby-source-filesystem@^2.0.28:
   version "2.0.28"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.28.tgz#5fc91ce6f72b642a27838e421c05eb4b5ee44d63"
   integrity sha512-eOj91auqUHgH46h6hkkqAa4W5g0X6q4b0EDzTF2/aLpIx2gB8g/70MSQG3i00IRv/tekXjKEWHZNW8AJDkommQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    better-queue "^3.8.7"
+    bluebird "^3.5.0"
+    chokidar "2.1.2"
+    file-type "^10.2.0"
+    fs-extra "^5.0.0"
+    got "^7.1.0"
+    md5-file "^3.1.1"
+    mime "^2.2.0"
+    pretty-bytes "^4.0.2"
+    progress "^1.1.8"
+    read-chunk "^3.0.0"
+    slash "^1.0.0"
+    valid-url "^1.0.9"
+    xstate "^3.1.0"
+
+gatsby-source-filesystem@^2.0.33:
+  version "2.0.33"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.33.tgz#c8b4ed9a231a325ca356f739bab77ea8fad5824d"
+  integrity sha512-GH/Y8dJ/+EKie3ckMrcHn1MsYcLVNbglCKNoTaDuY31rFCh3gq6310bdi8u//J+dcgcz7ggHXTN0W7FXxWF9FQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"

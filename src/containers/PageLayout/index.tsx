@@ -33,7 +33,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
       <Overlay active={activeScreen} onClick={() => setScreen('main')} />
       <MobileNavigation />
       <Main active={activeScreen}>
-        <Header transparentHeader={transparentHeader}>
+        <Header active={activeScreen}>
           <Navigation
             transparentHeader={transparentHeader}
             scrollingLogo={scrollingLogo}
@@ -41,7 +41,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
             transparentColor={transparentColor}
           />
         </Header>
-        <Content id="main-content">
+        <Content id="main-content" transparentHeader={transparentHeader}>
           {children}
           <Footer />
         </Content>

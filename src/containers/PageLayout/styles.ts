@@ -42,24 +42,45 @@ export const Main = styled.main<ScreenProps>`
 `;
 
 interface HeaderProps {
-  transparentHeader?: boolean;
+  active?: string;
 }
 
 export const Header = styled.div<HeaderProps>`
   display: block;
-  position: ${({ transparentHeader }) => (transparentHeader ? 'absolute' : 'relative')};
+  position: fixed;
   width: 100vw;
   top: 0;
   left: 0;
   z-index: 3;
+  ${({ active }) => {
+    if (active === 'left') return 'left: 100vw;';
+    if (active === 'right') return `left: -100vw;`;
+    return 'left: 0';
+  }};
+  transition: left 0.33s ease;
+  @media (min-width: 490px) {
+    ${({ active }) => {
+      if (active === 'left') return `left: ${sidebarDesktopWidth}px;`;
+      if (active === 'right') return `left: -${sidebarDesktopWidth}px;`;
+      return 'left: 0';
+    }};
+  }
 `;
 
-export const Content = styled.div`
+interface ContentProps {
+  transparentHeader?: boolean;
+}
+
+export const Content = styled.div<ContentProps>`
   display: grid;
   overflow: scroll;
   height: 100vh;
   scroll-behavior: smooth;
   background-color: #fafafa;
+  padding-top: ${({ transparentHeader }) => (transparentHeader ? 0 : layout.spacing * 9)}px;
+  @media (min-width: 1024px) {
+    padding-top: ${({ transparentHeader }) => (transparentHeader ? 0 : layout.spacing * 16)}px;
+  }
 `;
 
 export const Overlay = styled.div<ScreenProps>`

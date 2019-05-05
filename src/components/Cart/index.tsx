@@ -53,32 +53,34 @@ const Cart = () => {
       <CloseIcon size={48} onClick={() => setScreen('main')} />
       <Title>My Bag ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (
-        <LineItems>
-          {checkout.lineItems.map((lineItem: any) => {
-            return (
-              <ProductItem
-                key={lineItem.id}
-                {...lineItem}
-                currencyCode={checkout.currencyCode}
-                removeFromCart={removeFromCart}
-                updateQuantityInCart={updateQuantityInCart}
-              />
-            );
-          })}
-        </LineItems>
+        <>
+          <LineItems>
+            {checkout.lineItems.map((lineItem: any) => {
+              return (
+                <ProductItem
+                  key={lineItem.id}
+                  {...lineItem}
+                  currencyCode={checkout.currencyCode}
+                  removeFromCart={removeFromCart}
+                  updateQuantityInCart={updateQuantityInCart}
+                />
+              );
+            })}
+          </LineItems>
+          <CheckoutTotal>
+            <CheckoutTotalTitle>Order Total</CheckoutTotalTitle>
+            <CheckoutPrice>{price}</CheckoutPrice>
+          </CheckoutTotal>
+          <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
+            Checkout
+          </Button>
+        </>
       ) : (
         <EmptyContainer>
           <EmptyImage src={Empty} alt="Women looking at empty Cart" />
           <EmptyText>You didn't add anything to your cart yet.</EmptyText>
         </EmptyContainer>
       )}
-      <CheckoutTotal>
-        <CheckoutTotalTitle>Order Total</CheckoutTotalTitle>
-        <CheckoutPrice>{price}</CheckoutPrice>
-      </CheckoutTotal>
-      <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
-        Checkout
-      </Button>
     </Wrapper>
   );
 };

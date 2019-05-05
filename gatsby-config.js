@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 
-module.exports = ({ shopifyOptions, navigation, colorMap, paymentMethods }) => ({
+module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethods }) => ({
   siteMetadata: {
     title: 'Poulo | Shopify&Gatsby Theme',
     description: `
@@ -58,7 +58,7 @@ module.exports = ({ shopifyOptions, navigation, colorMap, paymentMethods }) => (
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${dirName}/src/images`,
       },
     },
     'gatsby-plugin-react-helmet',

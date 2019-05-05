@@ -7,7 +7,7 @@ import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
 import CartIcon from './CartIcon';
 import MenuIcon from './MenuIcon';
-import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem, CartWrapper, CartCount } from './styles';
+import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;
@@ -98,18 +98,12 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
           {!isScrolling && !transparentHeader ? <Brand src={Logo} alt="logo" /> : null}
         </HomeLink>
       </BrandContainer>
-      {activeScreen === 'right' ? (
-        <div />
-      ) : (
-        <>
-          <CartIcon
-            size={32}
-            onClick={() => setScreen('right')}
-            count={count}
-            color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
-          />
-        </>
-      )}
+      <CartIcon
+        size={32}
+        onClick={() => setScreen('right')}
+        count={count}
+        color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
+      />
     </Wrapper>
   );
 };

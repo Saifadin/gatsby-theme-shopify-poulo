@@ -4,16 +4,16 @@ import { IoIosClose } from 'react-icons/io';
 import { layout, colors } from '../../components/tokens';
 
 export const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  grid-template-rows: auto 1fr auto auto;
-  height: 100vh;
   padding: ${layout.spacing * 2}px;
   @media (min-width: 600px) {
     padding: ${layout.spacing * 6}px;
   }
-  @supports (-webkit-overflow-scrolling: touch) {
-    padding-bottom: 128px;
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
   }
 `;
 
@@ -38,8 +38,10 @@ export const Title = styled.h2`
   text-align: right;
 `;
 export const LineItems = styled.div`
-  overflow: scroll;
   margin-bottom: ${layout.spacing * 2}px;
+  @media (min-width: 1024px) {
+    overflow: scroll;
+  }
 `;
 export const LineItem = styled.div`
   display: grid;
@@ -133,6 +135,7 @@ export const EmptyContainer = styled.div`
   align-items: center;
   flex-direction: column;
   overflow: scroll;
+  padding-top: ${layout.spacing * 10}px;
 `;
 export const EmptyImage = styled.img`
   width: 100%;
