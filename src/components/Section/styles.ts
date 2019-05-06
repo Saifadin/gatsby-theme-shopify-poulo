@@ -31,29 +31,34 @@ export const SectionContent = styled.div<ContentProps>`
   }};
 `;
 
-export const SectionTitle = styled.h2`
+interface DescriptionProps {
+  noMargin?: boolean;
+  noDescription?: boolean;
+}
+
+export const SectionTitle = styled.h2<DescriptionProps>`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   font-size: 40px;
   line-height: 48px;
   font-weight: 600;
-  margin-bottom: ${({ noDescription }: any) => (noDescription ? layout.spacing * 8 : layout.spacing)}px;
+  margin-bottom: ${({ noDescription, noMargin }) => (noMargin ? 0 : noDescription ? layout.spacing * 8 : layout.spacing)}px;
 `;
 
-export const SectionSubTitle = styled.h3`
+export const SectionSubTitle = styled.h3<DescriptionProps>`
   margin: 0;
   font-size: 30px;
   line-height: 48px;
   font-weight: 300;
-  margin-bottom: ${layout.spacing * 8}px;
+  margin-bottom: ${({ noMargin }) => (noMargin ? 0 : layout.spacing * 8)}px;
 `;
 
-export const SectionDescription = styled.p`
+export const SectionDescription = styled.p<DescriptionProps>`
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
   font-size: 20px;
   line-height: 32px;
-  margin-bottom: ${layout.spacing * 8}px;
+  margin-bottom: ${({ noMargin }) => (noMargin ? 0 : layout.spacing * 8)}px;
 `;
