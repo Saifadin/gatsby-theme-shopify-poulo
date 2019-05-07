@@ -37,12 +37,14 @@ export interface ChildProps {
 }
 
 export const FullwidthChildWrapper = styled.div<ChildProps>`
+  position: relative;
   background: ${({ background }) => background};
   @media (min-width: 768px) {
     grid-column: 1 / span 2;
-    grid-row: 2 / span 2;
+    grid-row: 2 / span 1;
   }
 `;
 export const OneHalfChildWrapper = styled.div<ChildProps>`
+  position: relative;
   background: ${({ background }) => background};
 `;

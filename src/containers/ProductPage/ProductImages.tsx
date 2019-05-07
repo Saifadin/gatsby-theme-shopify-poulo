@@ -27,7 +27,7 @@ const ProductImages: React.FC<ImagesProps> = ({ images }) => {
         })}
       </AllImages>
       <ActiveImageContainer>
-        <ActiveImage src={images[activeImage].localFile.childImageSharp.fluid.src} />
+        <ActiveImage src={images[activeImage].localFile.childImageSharp.fluid.src} alt={`Product-Image-${activeImage}`} />
       </ActiveImageContainer>
     </ImageWrapper>
   );
