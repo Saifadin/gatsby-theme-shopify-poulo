@@ -31,7 +31,7 @@ const countQuantity = (lineItems = []): number => {
 
 const Cart = () => {
   const { checkout, updateQuantityInCart, removeFromCart } = useContext(ShopifyContext);
-  const { setScreen } = useContext(LayoutContext);
+  const { setScreen, activeScreen } = useContext(LayoutContext);
   const [quantity, setQuantity] = useState(countQuantity(checkout ? checkout.lineItems : []));
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const Cart = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper active={activeScreen === 'right'}>
       <CloseIcon size={48} onClick={() => setScreen('main')} />
       <Title>My Bag ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (

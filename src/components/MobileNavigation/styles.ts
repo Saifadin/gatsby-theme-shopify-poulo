@@ -4,16 +4,29 @@ import { IoIosClose } from 'react-icons/io';
 
 import { colors, layout } from '../tokens';
 
-export const MobileNav = styled.div`
+const sidebarDesktopWidth = 490;
+
+interface WrapperProps {
+  active: boolean;
+}
+
+export const MobileNav = styled.div<WrapperProps>`
   display: flex;
-  position: relative;
+  position: absolute;
   flex-direction: column;
   width: 100%;
   height: 100vh;
   overflow: scroll;
   z-index: 10;
+  top: 0;
+  left: ${({ active }) => (active ? 0 : '-100vw')};
   background: white;
   padding-top: ${layout.spacing * 9}px;
+  transition: left 0.33s ease;
+  @media (min-width: 490px) {
+    width: ${sidebarDesktopWidth}px;
+    left: ${({ active }) => (active ? 0 : -sidebarDesktopWidth)}px;
+  }
 `;
 
 export const CloseIcon = styled(IoIosClose)`

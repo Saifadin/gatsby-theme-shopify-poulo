@@ -1,13 +1,30 @@
 import styled from '@emotion/styled';
 import { IoIosClose } from 'react-icons/io';
 
-import { layout, colors } from '../../components/tokens';
+import { layout } from '../../components/tokens';
 
-export const Wrapper = styled.div`
+const sidebarDesktopWidth = 490;
+
+interface WrapperProps {
+  active: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   padding: ${layout.spacing * 2}px;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  right: ${({ active }) => (active ? 0 : '-100vw')};
+  z-index: 111;
+  background: white;
+  transition: right 0.33s ease;
+  @media (min-width: 490px) {
+    width: ${sidebarDesktopWidth}px;
+    right: ${({ active }) => (active ? 0 : -sidebarDesktopWidth)}px;
+  }
   @media (min-width: 600px) {
     padding: ${layout.spacing * 6}px;
   }

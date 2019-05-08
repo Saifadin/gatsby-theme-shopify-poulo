@@ -13,4 +13,6 @@ export { default as PageLayout } from './src/containers/PageLayout';
 export { default as ProductPage } from './src/containers/ProductPage';
 export { default as ErrorPage } from './src/containers/404';
 
+export { useMedia, useMediaLayout } from './src/hooks/useMedia';
+
 export { colors, layout, button, typo } from './src/components/tokens';

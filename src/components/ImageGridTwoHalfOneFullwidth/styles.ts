@@ -12,7 +12,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 100vw);
+  grid-auto-rows: ${({ rowHeight }: any) => `${rowHeight}px` || '50vh'};
   grid-gap: ${({ gap }: any) => gap || ''};
   ${({ fullWidth }) => {
     if (!fullWidth) {
@@ -25,26 +25,33 @@ export const Wrapper = styled.div<WrapperProps>`
   }};
   width: 100%;
   @media (min-width: 768px) {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, ${({ rowHeight }: any) => rowHeight || 300}px);
+    grid-auto-rows: ${({ rowHeight }: any) => rowHeight || 300}px;
   }
 `;
 
 export interface ChildProps {
   background: string;
   className?: string;
-  children: React.ReactNode;
+  hideOnMobile?: boolean;
 }
 
 export const FullwidthChildWrapper = styled.div<ChildProps>`
+  display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
   position: relative;
   background: ${({ background }) => background};
   @media (min-width: 768px) {
+    display: block;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
   }
 `;
 export const OneHalfChildWrapper = styled.div<ChildProps>`
+  display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
   position: relative;
   background: ${({ background }) => background};
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;

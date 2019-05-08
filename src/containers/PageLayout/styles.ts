@@ -11,26 +11,15 @@ interface ScreenProps {
 }
 
 export const Wrapper = styled.div<ScreenProps>`
-  display: grid;
+  display: block;
   grid-template-columns: 100vw 100vw 100vw;
   height: 100vh;
   position: relative;
   overflow-x: hidden;
-  width: calc(100vw * 3);
-  ${({ active }) => {
-    if (active === 'left') return 'left: 0;';
-    if (active === 'right') return `left: -200vw;`;
-    return `left: -100vw;`;
-  }};
+  width: 100vw;
   transition: left 0.33s ease;
   @media (min-width: 490px) {
     grid-template-columns: ${sidebarDesktopWidth}px 1fr ${sidebarDesktopWidth}px;
-    width: calc(100vw + ${sidebarDesktopWidth * 2}px);
-    ${({ active }: ScreenProps) => {
-      if (active === 'left') return 'left: 0;';
-      if (active === 'right') return `left: -${sidebarDesktopWidth * 2}px;`;
-      return `left: -${sidebarDesktopWidth}px;`;
-    }};
   }
 `;
 
@@ -52,19 +41,7 @@ export const Header = styled.div<HeaderProps>`
   top: 0;
   left: 0;
   z-index: 3;
-  ${({ active }) => {
-    if (active === 'left') return 'left: 100vw;';
-    if (active === 'right') return `left: -100vw;`;
-    return 'left: 0';
-  }};
   transition: left 0.33s ease;
-  @media (min-width: 490px) {
-    ${({ active }) => {
-      if (active === 'left') return `left: ${sidebarDesktopWidth}px;`;
-      if (active === 'right') return `left: -${sidebarDesktopWidth}px;`;
-      return 'left: 0';
-    }};
-  }
 `;
 
 interface ContentProps {
@@ -86,16 +63,13 @@ export const Content = styled.div<ContentProps>`
 export const Overlay = styled.div<ScreenProps>`
   position: absolute;
   cursor: pointer;
-  left: ${sidebarWidth}px;
+  left: 0;
   top: 0;
   width: ${({ active }) => (active === 'main' ? '0' : '100vw')};
   height: ${({ active }) => (active === 'main' ? '0' : '100vh')};
   background-color: ${({ active }: ScreenProps) => (active === 'main' ? 'transparent' : 'rgba(0, 0, 0, 0.35)')};
   transition: background-color 0.3s ease-in;
   z-index: 10;
-  @media (min-width: 600px) {
-    left: ${sidebarDesktopWidth}px;
-  }
 `;
 
 const CloseIcon = styled(IoIosClose)`

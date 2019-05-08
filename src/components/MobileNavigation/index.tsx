@@ -23,7 +23,7 @@ const MobileNavigation: React.FC = () => {
       }
     }
   `);
-  const { setScreen } = useContext(LayoutContext);
+  const { setScreen, activeScreen } = useContext(LayoutContext);
 
   const {
     siteMetadata: {
@@ -32,7 +32,7 @@ const MobileNavigation: React.FC = () => {
   } = site;
 
   return (
-    <MobileNav>
+    <MobileNav active={activeScreen === 'left'}>
       <CloseIcon size={48} onClick={() => setScreen('main')} />
       {menu.map(({ displayName, link, subMenu = [] }: any) => {
         return (

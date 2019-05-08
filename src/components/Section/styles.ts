@@ -47,10 +47,12 @@ export const SectionTitle = styled.h2<DescriptionProps>`
 `;
 
 export const SectionSubTitle = styled.h3<DescriptionProps>`
-  margin: 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   font-size: 30px;
   line-height: 48px;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: ${({ noMargin }) => (noMargin ? 0 : layout.spacing * 8)}px;
 `;
 

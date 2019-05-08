@@ -25,6 +25,7 @@ interface ChildProps {
   backgroundAlt?: string;
   background?: string;
   hasHover?: boolean;
+  hideOnMobile?: boolean;
   hoverColor?: string;
   className?: string;
 }
@@ -37,11 +38,12 @@ export const FullwidthChild: React.FC<ChildProps> = ({
   backgroundImgStyle,
   backgroundAlt = 'fullwidth image',
   background = '',
+  hideOnMobile = false,
   hasHover,
   hoverColor,
 }) => {
   return (
-    <FullwidthChildWrapper className={`ImageGrid-FullwidthChild ${className}`} background={background}>
+    <FullwidthChildWrapper className={`ImageGrid-FullwidthChild ${className}`} background={background} hideOnMobile={hideOnMobile}>
       {backgroundFluid ? (
         <BackgroundImage
           fluid={backgroundFluid}
@@ -71,11 +73,12 @@ export const OneHalfChild: React.FC<ChildProps> = ({
   backgroundFluid,
   backgroundImgStyle,
   backgroundAlt = 'onehalf image',
+  hideOnMobile = false,
   hasHover,
   hoverColor,
 }) => {
   return (
-    <OneHalfChildWrapper className={`ImageGrid-OneHalfChild ${className}`} background={background}>
+    <OneHalfChildWrapper className={`ImageGrid-OneHalfChild ${className}`} background={background} hideOnMobile={hideOnMobile}>
       {backgroundFluid ? (
         <BackgroundImage
           fluid={backgroundFluid}
