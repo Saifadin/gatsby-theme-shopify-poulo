@@ -12,15 +12,11 @@ interface ScreenProps {
 
 export const Wrapper = styled.div<ScreenProps>`
   display: block;
-  grid-template-columns: 100vw 100vw 100vw;
   height: 100vh;
   position: relative;
   overflow-x: hidden;
   width: 100vw;
   transition: left 0.33s ease;
-  @media (min-width: 490px) {
-    grid-template-columns: ${sidebarDesktopWidth}px 1fr ${sidebarDesktopWidth}px;
-  }
 `;
 
 export const Main = styled.main<ScreenProps>`
@@ -56,7 +52,7 @@ export const Content = styled.div<ContentProps>`
   background-color: #fafafa;
   padding-top: ${({ transparentHeader }) => (transparentHeader ? 0 : layout.spacing * 9)}px;
   @media (min-width: 1024px) {
-    padding-top: ${({ transparentHeader }) => (transparentHeader ? 0 : layout.spacing * 16)}px;
+    /* padding-top: ${({ transparentHeader }) => (transparentHeader ? 0 : layout.spacing * 16)}px; */
   }
 `;
 

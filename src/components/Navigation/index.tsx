@@ -23,9 +23,16 @@ interface NavigationProps {
   transparentColor?: string;
   transparentLogo?: string;
   scrollingLogo?: string;
+  countColor?: string;
 }
 
-const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeader, scrollingLogo, transparentLogo, transparentColor }) => {
+const Navigation: React.FunctionComponent<NavigationProps> = ({
+  transparentHeader,
+  scrollingLogo,
+  transparentLogo,
+  transparentColor,
+  countColor,
+}) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
   const { checkout = {} } = useContext(ShopifyContext);
   const [count, setCount] = useState(getCount(checkout));
@@ -102,6 +109,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({ transparentHeade
         size={32}
         onClick={() => setScreen('right')}
         count={count}
+        countColor={countColor}
         color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
       />
     </Wrapper>

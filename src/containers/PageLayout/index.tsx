@@ -17,6 +17,7 @@ interface PageLayoutProps {
   transparentColor?: string;
   transparentLogo?: string;
   scrollingLogo?: string;
+  cartCountColor?: string;
 }
 
 const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
@@ -25,6 +26,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
   transparentLogo,
   scrollingLogo,
   transparentColor,
+  cartCountColor,
 }) => {
   const { activeScreen, setScreen } = useContext(LayoutContext);
 
@@ -39,6 +41,7 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
             scrollingLogo={scrollingLogo}
             transparentLogo={transparentLogo}
             transparentColor={transparentColor}
+            countColor={cartCountColor}
           />
         </Header>
         <Content id="main-content" transparentHeader={transparentHeader}>

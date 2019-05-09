@@ -8,7 +8,7 @@ export const Product = styled.div``;
 export const ProductHeader = styled.section`
   padding: 0;
   @media (min-width: 768px) {
-    padding: ${layout.spacing * 8}px ${layout.spacing * 5}px;
+    padding: ${layout.spacing * 8}px ${layout.spacing * 5}px 0;
   }
 `;
 

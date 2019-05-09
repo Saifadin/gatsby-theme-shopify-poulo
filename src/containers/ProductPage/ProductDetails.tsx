@@ -24,9 +24,10 @@ import { ShopifyProduct } from '.';
 
 interface Props {
   product: ShopifyProduct;
+  buttonAppearance?: string;
 }
 
-const ProductDetails: React.FC<Props> = ({ product }) => {
+const ProductDetails: React.FC<Props> = ({ product, buttonAppearance }) => {
   const {
     options,
     variants,
@@ -128,7 +129,7 @@ const ProductDetails: React.FC<Props> = ({ product }) => {
         );
       })}
       <ProductQuantity label="Quantity" id="quantity" name="quantity" min={1} max={10} value={quantity} onChange={handleQuantityChange} />
-      <Button appearance="dark" fullWidth={true} type="button" onClick={addToCart} id="addToCart">
+      <Button appearance={buttonAppearance || 'dark'} fullWidth={true} type="button" onClick={addToCart} id="addToCart">
         Add to Bag
       </Button>
       <AddedMessage added={added}>The item has been added to your Bag</AddedMessage>

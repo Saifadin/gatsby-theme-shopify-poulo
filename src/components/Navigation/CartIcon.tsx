@@ -6,10 +6,11 @@ interface IconProps {
   size?: number;
   count?: number;
   color?: string;
+  countColor?: string;
   onClick?(event: any): void;
 }
 
-const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0, color }) => {
+const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0, countColor = 'currentColor', color }) => {
   return (
     <CartWrapper onClick={onClick} style={{ color }}>
       <svg width={size} height={size} viewBox="0 0 49 35" version="1.1">
@@ -33,7 +34,7 @@ const CartIcon: React.FC<IconProps> = ({ onClick, size = 24, count = 0, color })
           ) : null}
         </g>
         {count && count > 0 ? (
-          <text fill="currentColor" x="24.5" y="28" textAnchor="middle" fontSize="18" fontFamily="'Metropolis'">
+          <text fill={countColor} x="24.5" y="28" textAnchor="middle" fontSize="18" fontFamily="'Metropolis'">
             {count}
           </text>
         ) : null}

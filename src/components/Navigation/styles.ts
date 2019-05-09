@@ -25,7 +25,7 @@ export const Wrapper = styled.div<WrapperProps>`
     padding: 0 ${layout.spacing * 6}px;
   }
   @media (min-width: 1024px) {
-    height: ${({ isScrolling }) => (isScrolling ? 72 : 128)}px;
+    /* height: ${({ isScrolling }) => (isScrolling ? 72 : 128)}px; */
     padding: 0 ${layout.spacing * 6}px;
   }
   a {

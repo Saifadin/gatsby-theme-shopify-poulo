@@ -64,9 +64,20 @@ interface Props {
   transparentColor?: string;
   transparentLogo?: string;
   scrollingLogo?: string;
+  cartCountColor?: string;
+  buttonAppearance?: string;
 }
 
-const ProductPage: React.FC<Props> = ({ data, children, transparentHeader, transparentLogo, scrollingLogo, transparentColor }) => {
+const ProductPage: React.FC<Props> = ({
+  data,
+  children,
+  transparentHeader,
+  transparentLogo,
+  scrollingLogo,
+  cartCountColor,
+  transparentColor,
+  buttonAppearance,
+}) => {
   const product = data.shopifyProduct;
 
   return (
@@ -74,12 +85,13 @@ const ProductPage: React.FC<Props> = ({ data, children, transparentHeader, trans
       transparentHeader={transparentHeader}
       transparentLogo={transparentLogo}
       scrollingLogo={scrollingLogo}
+      cartCountColor={cartCountColor}
       transparentColor={transparentColor}>
       <SeoContainer title={product.title} description={product.description} />
       <ProductHeader>
         <ProductHeaderContainer>
           <ImageSlider images={product.images} />
-          <ProductDetails product={product} />
+          <ProductDetails product={product} buttonAppearance={buttonAppearance} />
         </ProductHeaderContainer>
       </ProductHeader>
       <div>{children}</div>
