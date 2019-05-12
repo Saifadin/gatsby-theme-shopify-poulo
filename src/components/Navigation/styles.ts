@@ -73,7 +73,7 @@ export const HomeLink = styled(Link)`
 
 export const Brand = styled.img`
   margin: 0;
-  height: 32px;
+  height: 40px;
   width: auto;
 `;
 
