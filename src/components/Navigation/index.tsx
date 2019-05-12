@@ -109,8 +109,8 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
         size={32}
         onClick={() => setScreen('right')}
         count={count}
-        countColor={countColor}
         color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
+        countColor={isScrolling || !transparentHeader ? countColor : transparentColor || 'white'}
       />
     </Wrapper>
   );
