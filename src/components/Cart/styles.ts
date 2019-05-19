@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { IoIosClose } from 'react-icons/io';
 
 import { layout } from '../../components/tokens';
+import Button from '../Button';
 
 const sidebarDesktopWidth = 490;
 
@@ -30,7 +31,7 @@ export const Wrapper = styled.div<WrapperProps>`
   }
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto 1fr auto auto auto;
   }
 `;
 

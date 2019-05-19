@@ -4,6 +4,7 @@ import { layout } from '../tokens';
 interface WrapperProps {
   height?: string;
   fullWidth?: boolean;
+  hasMargin?: boolean;
   contentPosition:
     | 'top-left'
     | 'top-center'
@@ -42,6 +43,7 @@ export const Wrapper = styled.div<WrapperProps>`
     if (positions[1] === 'right') return `justify-content: flex-end;`;
     return `justify-content: center;`;
   }};
+  margin-bottom: ${({ hasMargin }) => (hasMargin ? layout.spacing * 6 : 0)}px;
   @media (min-width: 768px) {
     padding: ${layout.spacing * 10}px;
   }

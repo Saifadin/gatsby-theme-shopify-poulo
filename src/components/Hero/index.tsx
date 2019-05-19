@@ -7,6 +7,7 @@ interface HeroType {
   subTitle?: React.ReactNode;
   background?: React.ReactNode;
   fullWidth?: boolean;
+  hasMargin?: boolean;
   height?: string;
   contentPosition?:
     | 'top-left'
@@ -27,10 +28,11 @@ const Hero: React.FunctionComponent<HeroType> = ({
   height = '75vh',
   fullWidth,
   children,
+  hasMargin = false,
   contentPosition = 'center-center',
 }) => {
   return (
-    <Wrapper height={height} fullWidth={fullWidth} contentPosition={contentPosition}>
+    <Wrapper height={height} fullWidth={fullWidth} contentPosition={contentPosition} hasMargin={hasMargin}>
       <Background>{background}</Background>
       <HeroContent contentPosition={contentPosition}>
         {children || (

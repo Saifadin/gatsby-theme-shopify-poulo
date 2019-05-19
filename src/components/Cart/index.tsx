@@ -66,12 +66,17 @@ const Cart = () => {
                 />
               );
             })}
+            {checkout.lineItems.length > 1 ? null : (
+              <Button onClick={() => setScreen('main')} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
+                Continue Shopping
+              </Button>
+            )}
           </LineItems>
           <CheckoutTotal>
             <CheckoutTotalTitle>Order Total</CheckoutTotalTitle>
             <CheckoutPrice>{price}</CheckoutPrice>
           </CheckoutTotal>
-          <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="dark">
+          <Button onClick={openCheckout} disabled={!(checkout && checkout!.lineItems.length > 0)} appearance="primary">
             Checkout
           </Button>
         </>

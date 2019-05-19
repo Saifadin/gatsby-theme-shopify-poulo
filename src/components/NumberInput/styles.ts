@@ -47,6 +47,7 @@ export const IconWrapper = styled.div`
   z-index: 5;
   height: 30px;
   cursor: pointer;
+  user-select: none;
 `;
 export const IconWrapperMinus = styled(IconWrapper)`
   left: 4px;

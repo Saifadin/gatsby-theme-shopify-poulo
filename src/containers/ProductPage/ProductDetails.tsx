@@ -4,8 +4,8 @@ import find from 'lodash/find';
 import isEqual from 'lodash/isEqual';
 
 import ShopifyContext from '../../context/ShopifyContext';
+import LayoutContext from '../../context/LayoutContext';
 import Button from '../../components/Button';
-import NumberInput from '../../components/NumberInput';
 import {
   DetailsWrapper,
   ProductTitle,
@@ -38,6 +38,7 @@ const ProductDetails: React.FC<Props> = ({ product, buttonAppearance }) => {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const { addVariantToCart } = useContext(ShopifyContext);
+  const { setScreen } = useContext(LayoutContext);
   const {
     site: {
       siteMetadata: { colorMap },
@@ -82,6 +83,7 @@ const ProductDetails: React.FC<Props> = ({ product, buttonAppearance }) => {
 
   const addToCart = async () => {
     await addVariantToCart!(variant.shopifyId, quantity.toString());
+    setScreen('right');
     setAdded(true);
     setTimeout(() => {
       setAdded(false);
