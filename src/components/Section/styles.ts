@@ -42,7 +42,8 @@ export const SectionTitle = styled.h2<DescriptionProps>`
   margin: 0 auto;
   font-size: 40px;
   line-height: 48px;
-  font-weight: 600;
+  font-weight: 900;
+  text-align: center;
   margin-bottom: ${({ noDescription, noMargin }) => (noMargin ? 0 : noDescription ? layout.spacing * 8 : layout.spacing)}px;
 `;
 
@@ -50,9 +51,9 @@ export const SectionSubTitle = styled.h3<DescriptionProps>`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  font-size: 30px;
-  line-height: 48px;
-  font-weight: 600;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 500;
   margin-bottom: ${({ noMargin }) => (noMargin ? 0 : layout.spacing * 8)}px;
 `;
 
