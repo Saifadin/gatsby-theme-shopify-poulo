@@ -1,0 +1,48 @@
+import styled from '@emotion/styled';
+
+import { layout } from '../tokens/index';
+
+interface TypoProps {
+  marginMultiplier?: number;
+}
+
+export const PrimaryTitle = styled.span<TypoProps>`
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
+`;
+export const SecondaryTitle = styled.span<TypoProps>`
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 30px;
+  line-height: 48px;
+  font-weight: bold;
+  margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
+`;
+export const SubTitle = styled.span<TypoProps>`
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
+`;
+export const Paragraph = styled.span<TypoProps>`
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
+`;

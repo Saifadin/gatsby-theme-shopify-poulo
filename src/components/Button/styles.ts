@@ -10,7 +10,9 @@ export const Button = styled.button<ButtonProps>`
   position: relative;
   appearance: none;
   background: transparent;
-  border: none;
+  // @ts-ignore
+  border: ${({ appearance }) => button[appearance].border || 'none'};
+  text-decoration: none;
   cursor: pointer;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'unset')};
   // @ts-ignore

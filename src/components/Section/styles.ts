@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { layout } from '../tokens';
 
-interface ContentProps {
-  fullWidth?: boolean;
-}
-
 export const SectionWrapper = styled.section`
   display: block;
   width: 100%;
@@ -12,6 +8,10 @@ export const SectionWrapper = styled.section`
   padding: ${layout.spacing * 7}px 0;
   text-align: center;
 `;
+
+interface ContentProps {
+  fullWidth?: boolean;
+}
 
 export const SectionContent = styled.div<ContentProps>`
   display: block;
