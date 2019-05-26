@@ -82,7 +82,7 @@ export const HeroContent = styled.div<ContentProps>`
   ${({ contentPosition }) => {
     const positions = contentPosition.split('-');
     if (positions[1] === 'left') return `text-align: left; align-items: flex-start;`;
-    if (positions[1] === 'right') return `text-align: right; align-items: flex-end;`;
+    if (positions[1] === 'right') return `text-align: left; align-items: flex-start;`;
     return `text-align: center; align-items: center;`;
   }};
 `;

@@ -13,6 +13,7 @@ export const Wrapper = styled.div<WrapperProps>`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: ${({ gap }: any) => gap || ''};
+  grid-auto-rows: ${({ rowHeight }: any) => (rowHeight ? `${rowHeight}px` : '50vh')};
   ${({ fullWidth }) => {
     if (!fullWidth) {
       return `
@@ -24,7 +25,7 @@ export const Wrapper = styled.div<WrapperProps>`
   }};
   width: 100%;
   @media (min-width: 768px) {
-    display: grid;
+    grid-auto-rows: ${({ rowHeight }: any) => rowHeight || 300}px;
     grid-template-columns: repeat(2, 1fr);
   }
 `;

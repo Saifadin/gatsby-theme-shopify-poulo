@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { button } from '../tokens';
 
 export interface ButtonProps {
@@ -6,7 +7,7 @@ export interface ButtonProps {
   fullWidth: boolean;
 }
 
-export const Button = styled.button<ButtonProps>`
+export const Button = styled('button', { shouldForwardProp: isPropValid })<ButtonProps>`
   position: relative;
   appearance: none;
   background: transparent;

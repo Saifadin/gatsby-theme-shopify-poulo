@@ -12,7 +12,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: ${({ rowHeight }: any) => `${rowHeight}px` || '50vh'};
+  grid-auto-rows: ${({ rowHeight }: any) => (rowHeight ? `${rowHeight}px` : '50vh')};
   grid-gap: ${({ gap }: any) => gap || ''};
   ${({ fullWidth }) => {
     if (!fullWidth) {

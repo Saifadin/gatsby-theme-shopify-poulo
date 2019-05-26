@@ -4,15 +4,16 @@ import find from 'lodash/find';
 import { CardList } from './styles';
 import ProductCard from '../ProductCard';
 
-type ProductCardListType = {
+interface ProductCardListType {
   products: any;
-  handles?: Array<string>;
+  handles?: string[];
   tag?: string;
-};
+  className?: string;
+}
 
-const ProductCardList: React.FunctionComponent<ProductCardListType> = ({ products, handles, tag }) => {
+const ProductCardList: React.FC<ProductCardListType> = ({ products, handles, tag, className }) => {
   return (
-    <CardList>
+    <CardList className={className}>
       {handles
         ? handles.map(handle => {
             const product = find(products, ({ node }) => handle === node.handle);
