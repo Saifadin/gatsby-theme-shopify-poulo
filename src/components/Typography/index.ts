@@ -57,8 +57,4 @@ export const Paragraph = styled.span<TypoProps>`
   font-size: 15px;
   line-height: 24px;
   margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
-  @media (min-width: 768px) {
-    font-size: 12px;
-    line-height: 24px;
-  }
 `;
