@@ -20,7 +20,7 @@ export const Wrapper = styled.div<ScreenProps>`
 `;
 
 export const Main = styled.main<ScreenProps>`
-  overflow: ${({ active }) => (active === 'main' ? 'auto' : 'hidden')};
+  overflow: ${({ active }) => (active === 'main' ? '' : 'hidden')};
   display: flex;
   flex-direction: column;
   position: relative;
