@@ -41,7 +41,7 @@ export const SubTitle = styled.span<TypoProps>`
   max-width: 600px;
   margin: 0 auto;
   font-size: 15px;
-  line-height: 32px;
+  line-height: 24px;
   font-weight: 500;
   margin-bottom: ${({ marginMultiplier }) => (marginMultiplier ? layout.spacing * marginMultiplier : 0)}px;
   @media (min-width: 768px) {
