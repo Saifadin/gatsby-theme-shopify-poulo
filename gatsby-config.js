@@ -42,12 +42,6 @@ module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethod
   plugins: [
     'gatsby-plugin-typescript',
     {
-      resolve: 'gatsby-plugin-compile-es6-packages',
-      options: {
-        modules: ['gatsby-theme-developer'],
-      },
-    },
-    {
       resolve: 'gatsby-source-shopify',
       options: {
         verbose: true,
@@ -66,6 +60,7 @@ module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethod
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-emotion',
+    'gatsby-plugin-sitemap',
     activatePWA && 'gatsby-plugin-offline',
   ].filter(Boolean),
 });
