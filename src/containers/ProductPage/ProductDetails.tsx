@@ -61,7 +61,7 @@ const ProductDetails: React.FC<Props> = ({ product, buttonAppearance }) => {
     currency: minVariantPrice.currencyCode,
     minimumFractionDigits: 2,
     style: 'currency',
-  }).format(parseFloat(minVariantPrice.amount));
+  }).format(variant.price);
 
   const handleClick = (optionIndex: any, value: any) => {
     const currentOptions = [...variant.selectedOptions];
@@ -93,7 +93,7 @@ const ProductDetails: React.FC<Props> = ({ product, buttonAppearance }) => {
   return (
     <DetailsWrapper>
       <ProductTitle>{product.title}</ProductTitle>
-      <ProductPrice>{`${isMinimum ? 'from ' : ''}${price}`}</ProductPrice>
+      <ProductPrice>{price}</ProductPrice>
       <ProductDescription>
         <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
       </ProductDescription>
