@@ -68,7 +68,7 @@
     "gatsby-plugin-sitemap": "^2.1.0",
     "gatsby-plugin-typescript": "^2.0.15",
     "gatsby-source-filesystem": "^2.0.37",
-    "gatsby-source-shopify": "^2.0.33",
+    "gatsby-source-shopify": "2.0.16",
     "gatsby-transformer-sharp": "^2.1.20",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.11",
