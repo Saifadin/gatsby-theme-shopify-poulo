@@ -30,7 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
       margin: 0 auto;
     `;
   }};
-  height: ${({ height }) => height};
+  min-height: ${({ height }) => height};
   ${({ contentPosition }) => {
     const positions = contentPosition.split('-');
     if (positions[0] === 'top') return `align-items: flex-start;`;
@@ -73,9 +73,6 @@ interface ContentProps {
 }
 
 export const HeroContent = styled.div<ContentProps>`
-  /* width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; */
   display: flex;
   flex-direction: column;
   color: white;
