@@ -5,6 +5,7 @@ import { button } from '../tokens';
 export interface ButtonProps {
   appearance: string;
   fullWidth: boolean;
+  as: React.ReactNode;
 }
 
 export const Button = styled('button', { shouldForwardProp: isPropValid })<ButtonProps>`

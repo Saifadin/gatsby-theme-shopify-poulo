@@ -1,66 +1,67 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-import { layout, colors } from '../tokens';
+import { layout } from '../tokens';
 
-export const MenuWrapper = styled.nav`
+export const MenuWrapper = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    > * {
+      height: 100%;
+    }
+  }
+`;
+
+export const MenuItem = styled(Link)`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: ${layout.spacing * 3}px 0;
-`;
-
-export const MenuItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: ${layout.spacing * 3}px;
-`;
-
-export const PrimaryNavItemLink = styled(Link)`
+  margin: 0 ${layout.spacing * 1.5}px;
   text-decoration: none;
-  color: ${colors.color};
-  font-size: 1.5rem;
-  line-height: 1;
-  width: 100%;
-  font-weight: 300;
-  padding: ${layout.spacing * 2}px;
-  cursor: pointer;
-  transition: all 0.35s ease;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.11);
+    text-decoration: underline;
   }
 `;
 
-export const PrimaryNavItem = styled.div`
-  font-size: 1.5rem;
-  color: ${colors.color};
-  line-height: 1;
-  width: 100%;
-  font-weight: 300;
-  padding: ${layout.spacing * 2}px;
-  cursor: pointer;
-  transition: all 0.35s ease;
+export const HoverMenuItem = styled(Link)`
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 ${layout.spacing * 1.5}px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.11);
+    text-decoration: underline;
   }
 `;
 
-export const SubMenu = styled.div`
+export const HoverItem = styled.span`
   display: flex;
-  flex-direction: column;
-`;
-
-export const SecondaryNavItem = styled(Link)`
-  text-decoration: none;
-  color: ${colors.color};
-  text-align: left;
-  width: 100%;
-  padding: ${layout.spacing * 2}px;
-  padding-left: ${layout.spacing * 6}px;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.35s ease;
+  position: relative;
+  margin: 0 ${layout.spacing * 1.5}px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.11);
+    text-decoration: underline;
+  }
+  > * {
+    cursor: initial;
   }
 `;

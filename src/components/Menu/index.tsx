@@ -1,10 +1,11 @@
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { useContext } from 'react';
 
-import { MenuWrapper, PrimaryNavItem, MenuItem, PrimaryNavItemLink, SubMenu, SecondaryNavItem } from './styles';
-import LayoutContext from '../../context/LayoutContext';
+import MegaMenu from '../MegaMenu';
+import { MenuWrapper, MenuItem, HoverItem } from './styles';
 
-const Menu: React.FunctionComponent = () => {
+const Menu: React.FC = () => {
+  const [hovered, setHovered] = useState('');
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -12,6 +13,7 @@ const Menu: React.FunctionComponent = () => {
           navigation {
             menu {
               link
+              type
               displayName
               subMenu {
                 link
@@ -28,29 +30,23 @@ const Menu: React.FunctionComponent = () => {
       navigation: { menu },
     },
   } = site;
-  const { setScreen } = useContext(LayoutContext);
+
+  console.log(hovered);
 
   return (
     <MenuWrapper>
-      {menu.map(({ displayName, link, subMenu = [] }: any) => {
+      {menu.map(({ displayName, link, subMenu = [], type }: any) => {
+        if (type === 'megamenu') {
+          return (
+            <HoverItem onMouseEnter={() => setHovered(displayName)} onMouseLeave={() => setHovered('')}>
+              {displayName}
+              <MegaMenu show={hovered === displayName} activeDisplayName={displayName} />
+            </HoverItem>
+          );
+        }
         return (
-          <MenuItem key={link}>
-            {link ? (
-              <PrimaryNavItemLink to={link} onClick={() => setScreen('main')}>
-                {displayName}
-              </PrimaryNavItemLink>
-            ) : (
-              <PrimaryNavItem>{displayName}</PrimaryNavItem>
-            )}
-            {subMenu.length > 0 ? (
-              <SubMenu>
-                {subMenu.map(({ displayName: dN2, link: l2 }: any) => (
-                  <SecondaryNavItem key={l2} to={l2} onClick={() => setScreen('main')}>
-                    {dN2}
-                  </SecondaryNavItem>
-                ))}
-              </SubMenu>
-            ) : null}
+          <MenuItem key={link} to={link}>
+            {displayName}
           </MenuItem>
         );
       })}

@@ -3,9 +3,9 @@ import React from 'react';
 import { Button } from './styles';
 import { Link } from 'gatsby';
 
-const ButtonWrapper = ({ children, className, onClick, type = 'button', appearance = 'light', fullWidth = false }: any) => {
+const ButtonWrapper = ({ children, type = 'button', appearance = 'light', fullWidth = false, ...rest }: any) => {
   return (
-    <Button className={className} appearance={appearance} onClick={onClick} type={type} fullWidth={fullWidth}>
+    <Button appearance={appearance} type={type} fullWidth={fullWidth} {...rest}>
       {children}
     </Button>
   );
@@ -15,9 +15,9 @@ export default ButtonWrapper;
 
 const ButtonA = Button.withComponent(Link);
 
-export const ButtonLink = ({ children, className, to, appearance = 'light', fullWidth = false }: any) => {
+export const ButtonLink = ({ children, appearance = 'light', fullWidth = false, ...rest }: any) => {
   return (
-    <ButtonA className={className} appearance={appearance} to={to} fullWidth={fullWidth}>
+    <ButtonA appearance={appearance} fullWidth={fullWidth} {...rest}>
       {children}
     </ButtonA>
   );

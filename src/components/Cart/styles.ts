@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { IoIosClose } from 'react-icons/io';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import { layout } from '../../components/tokens';
-import Button from '../Button';
+import { SecondaryTitle, PrimaryTitle } from '../Typography/index';
 
 const sidebarDesktopWidth = 490;
 
@@ -35,24 +35,23 @@ export const Wrapper = styled.div<WrapperProps>`
   }
 `;
 
-export const CloseIcon = styled(IoIosClose)`
+export const CloseIcon = styled(MdKeyboardArrowRight)`
   position: absolute;
   cursor: pointer;
-  top: ${layout.spacing * 1.5}px;
+  top: 16px;
+  left: 8px;
+  cursor: pointer;
   z-index: 10;
   color: #000;
   @media (min-width: 600px) {
-    top: ${layout.spacing * 3}px;
-    left: ${layout.spacing * 3}px;
+    top: 48px;
+    left: 32px;
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled(PrimaryTitle)`
   margin: 0;
-  font-size: 40px;
-  line-height: 1;
   font-weight: 700;
-  margin-bottom: ${layout.spacing * 4}px;
   text-align: right;
 `;
 export const LineItems = styled.div`
@@ -161,8 +160,12 @@ export const EmptyImage = styled.img`
   margin: 0 auto;
   margin-bottom: ${layout.spacing * 4}px;
 `;
-export const EmptyText = styled.div`
-  font-size: 0.75rem;
-  line-height: 16px;
-  font-weight: 300;
+export const EmptyText = styled(SecondaryTitle)`
+  text-align: center;
+  max-width: 240px;
+  @media (min-width: 768px) {
+    font-size: 30px;
+    line-height: 48px;
+    max-width: 320px;
+  }
 `;

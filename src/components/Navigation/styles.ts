@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
-import { IoIosCart, IoIosClose, IoIosMenu } from 'react-icons/io';
+import { IoIosClose } from 'react-icons/io';
 
 import layout from '../tokens/layout';
 import { colors } from '../tokens';
@@ -21,6 +21,9 @@ export const Wrapper = styled.div<WrapperProps>`
   background-color: ${({ transparentHeader, isScrolling }) => (isScrolling || !transparentHeader ? 'white' : 'transparent')};
   border-bottom: ${({ isScrolling }) => (isScrolling ? '1px solid #ddd' : 'none')};
   transition: all 0.3s ease;
+  color: ${({ transparentHeader, transparentColor, isScrolling }) =>
+    transparentHeader && !isScrolling ? transparentColor || 'white' : colors.color};
+  transition: all 0.3s ease;
   @media (min-width: 600px) {
     padding: 0 ${layout.spacing * 6}px;
   }
@@ -32,30 +35,6 @@ export const Wrapper = styled.div<WrapperProps>`
     color: ${({ transparentHeader, transparentColor, isScrolling }) =>
       transparentHeader && !isScrolling ? transparentColor || 'white' : colors.color};
     transition: all 0.3s ease;
-  }
-`;
-
-export const Menu = styled.div`
-  display: none;
-  @media (min-width: 1024px) {
-    display: flex;
-    align-items: center;
-  }
-`;
-
-export const MenuItem = styled(Link)`
-  margin: 0 ${layout.spacing * 1.5}px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:first-of-type {
-    margin-left: 0;
   }
 `;
 

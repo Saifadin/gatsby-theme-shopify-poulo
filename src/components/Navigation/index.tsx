@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect, useLayoutEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import path from 'path';
 
 // @ts-ignore
 import Logo from '../../images/logo.png';
 import LayoutContext from '../../context/LayoutContext';
 import ShopifyContext from '../../context/ShopifyContext';
+import Menu from '../Menu';
 import CartIcon from './CartIcon';
 import MenuIcon from './MenuIcon';
-import { Wrapper, BrandContainer, HomeLink, Brand, Menu, MenuItem } from './styles';
+import { Wrapper, BrandContainer, HomeLink, Brand } from './styles';
 
 const getCount = ({ lineItems = [] }: any) => {
   let count = 0;
@@ -60,6 +62,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
           navigation {
             menu {
               link
+              type
               displayName
               subMenu {
                 link
@@ -88,15 +91,7 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
           color={isScrolling || !transparentHeader ? 'black' : transparentColor || 'white'}
         />
       )}
-      <Menu>
-        {menu.map(({ displayName, link, subMenu = [] }: any) => {
-          return (
-            <MenuItem key={link} to={link}>
-              {displayName}
-            </MenuItem>
-          );
-        })}
-      </Menu>
+      <Menu />
       <BrandContainer>
         <HomeLink to="/">
           {!isScrolling && transparentHeader && transparentLogo ? <Brand src={transparentLogo} alt="logo" /> : null}

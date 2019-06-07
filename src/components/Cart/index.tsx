@@ -13,11 +13,11 @@ import {
   CheckoutPrice,
   EmptyContainer,
   EmptyText,
-  EmptyImage,
   CloseIcon,
 } from './styles';
 import ProductItem from './Product';
 import Button from '../Button';
+import { Link } from 'gatsby';
 
 const countQuantity = (lineItems = []): number => {
   let quantity = 0;
@@ -51,7 +51,7 @@ const Cart = () => {
   return (
     <Wrapper active={activeScreen === 'right'}>
       <CloseIcon size={48} onClick={() => setScreen('main')} />
-      <Title>My Bag ({quantity})</Title>
+      <Title marginMultiplier={4}>My Bag ({quantity})</Title>
       {checkout && checkout!.lineItems.length > 0 ? (
         <>
           <LineItems>
@@ -82,8 +82,16 @@ const Cart = () => {
         </>
       ) : (
         <EmptyContainer>
-          <EmptyImage src={Empty} alt="Women looking at empty Cart" />
-          <EmptyText>You didn't add anything to your cart yet.</EmptyText>
+          {/* <EmptyImage src={Empty} alt="Women looking at empty Cart" /> */}
+          <EmptyText marginMultiplier={4}>YOUR BAG IS CURRENTLY EMPTY.</EmptyText>
+          <Button
+            as={Link}
+            onClick={() => setScreen('main')}
+            to="/"
+            disabled={!(checkout && checkout!.lineItems.length > 0)}
+            appearance="hollow">
+            Continue Shopping
+          </Button>
         </EmptyContainer>
       )}
     </Wrapper>
