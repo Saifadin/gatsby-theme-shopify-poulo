@@ -5,38 +5,27 @@ import LayoutContext from '../../context/LayoutContext';
 import { MobileNav, CloseIcon, MenuItem } from './styles';
 
 const MobileNavigation: React.FC = () => {
-  const { site } = useStaticQuery(graphql`
+  const { siteNavigation } = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          navigation {
-            menu {
-              link
-              displayName
-              subMenu {
-                link
-                displayName
-              }
-            }
-          }
+      siteNavigation {
+        link
+        type
+        displayName
+        subMenu {
+          link
+          displayName
         }
       }
     }
   `);
   const { setScreen, activeScreen } = useContext(LayoutContext);
 
-  const {
-    siteMetadata: {
-      navigation: { menu },
-    },
-  } = site;
-
   return (
     <MobileNav active={activeScreen === 'left'}>
       <CloseIcon size={48} onClick={() => setScreen('main')} />
-      {menu.map(({ displayName, link, subMenu = [] }: any) => {
+      {siteNavigation.map(({ displayName, link, subMenu = [] }: any) => {
         return (
-          <MenuItem key={link} to={link}>
+          <MenuItem key={link} to={link || '/'}>
             {displayName}
           </MenuItem>
         );

@@ -1,19 +1,19 @@
 import styled from '@emotion/styled';
 
-import { layout } from '../tokens/index';
-
 interface WrapperProps {
   showMegaMenu?: boolean;
+  left: number;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
   display: ${({ showMegaMenu }) => (showMegaMenu ? 'block' : 'none')};
-  position: absolute;
+  position: fixed;
   background-color: white;
-  top: 100%;
-  left: 0;
+  top: 71px;
+  left: 48px;
   color: black;
   border: 1px solid #ddd;
   border-top: none;
-  padding: ${layout.spacing * 3}px;
+  transition: left 0.3s ease-in-out;
+  height: min-content;
 `;

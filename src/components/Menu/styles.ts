@@ -8,6 +8,7 @@ export const MenuWrapper = styled.div`
   @media (min-width: 1024px) {
     height: 100%;
     display: flex;
+    position: relative;
     align-items: center;
     > * {
       height: 100%;
@@ -18,7 +19,8 @@ export const MenuWrapper = styled.div`
 export const MenuItem = styled(Link)`
   display: flex;
   align-items: center;
-  margin: 0 ${layout.spacing * 1.5}px;
+  margin: 0;
+  padding: 0 ${layout.spacing * 1.5}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -33,8 +35,8 @@ export const MenuItem = styled(Link)`
 export const HoverMenuItem = styled(Link)`
   display: flex;
   align-items: center;
-  position: relative;
-  margin: 0 ${layout.spacing * 1.5}px;
+  margin: 0;
+  padding: 0 ${layout.spacing * 1.5}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -50,8 +52,8 @@ export const HoverItem = styled.span`
   display: flex;
   align-items: center;
   cursor: pointer;
-  position: relative;
-  margin: 0 ${layout.spacing * 1.5}px;
+  margin: 0;
+  padding: 0 ${layout.spacing * 1.5}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;

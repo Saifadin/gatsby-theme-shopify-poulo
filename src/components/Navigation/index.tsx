@@ -55,31 +55,6 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
     setCount(getCount(checkout));
   }, [checkout]);
 
-  const { site } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          navigation {
-            menu {
-              link
-              type
-              displayName
-              subMenu {
-                link
-                displayName
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const {
-    siteMetadata: {
-      navigation: { menu },
-    },
-  } = site;
-
   return (
     <Wrapper transparentHeader={transparentHeader} transparentColor={transparentColor} isScrolling={isScrolling}>
       {activeScreen === 'left' ? (

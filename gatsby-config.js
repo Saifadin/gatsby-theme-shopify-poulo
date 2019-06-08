@@ -19,7 +19,6 @@ module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethod
         {
           link: '/products',
           displayName: 'Products',
-          subMenu: [],
         },
       ],
       ...navigation,

@@ -1,51 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import MegaMenu from '../MegaMenu';
-import { MenuWrapper, MenuItem, HoverItem } from './styles';
+import { MenuWrapper, MenuItem, HoverMenuItem, HoverItem } from './styles';
 
 const Menu: React.FC = () => {
   const [hovered, setHovered] = useState('');
-  const { site } = useStaticQuery(graphql`
+  const [left, setLeft] = useState(0);
+  const { siteNavigation } = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          navigation {
-            menu {
-              link
-              type
-              displayName
-              subMenu {
-                link
-                displayName
-              }
-            }
-          }
+      siteNavigation {
+        link
+        type
+        displayName
+        subMenu {
+          link
+          displayName
         }
       }
     }
   `);
-  const {
-    siteMetadata: {
-      navigation: { menu },
-    },
-  } = site;
 
-  console.log(hovered);
+  const handleHover = (event: any, displayName: string) => {
+    const rect = event.target.getBoundingClientRect();
+    setHovered(displayName);
+    setLeft(rect.left);
+  };
 
   return (
     <MenuWrapper>
-      {menu.map(({ displayName, link, subMenu = [], type }: any) => {
-        if (type === 'megamenu') {
+      {siteNavigation.map(({ displayName, link, type }: any) => {
+        if (type === 'megamenu' && !link) {
           return (
-            <HoverItem onMouseEnter={() => setHovered(displayName)} onMouseLeave={() => setHovered('')}>
-              {displayName}
-              <MegaMenu show={hovered === displayName} activeDisplayName={displayName} />
-            </HoverItem>
+            <Fragment key={displayName}>
+              <HoverItem onMouseEnter={event => handleHover(event, displayName)} onMouseLeave={() => setHovered('')}>
+                {displayName}
+              </HoverItem>
+              <MegaMenu
+                show={hovered === displayName}
+                left={left}
+                activeDisplayName={hovered}
+                onMouseEnter={() => setHovered(displayName)}
+                onMouseLeave={() => setHovered('')}
+              />
+            </Fragment>
+          );
+        }
+        if (type === 'megamenu' && link) {
+          return (
+            <Fragment key={displayName}>
+              <HoverMenuItem to={link} onMouseEnter={event => handleHover(event, displayName)} onMouseLeave={() => setHovered('')}>
+                {displayName}
+              </HoverMenuItem>
+              <MegaMenu
+                show={hovered === displayName}
+                left={left}
+                activeDisplayName={hovered}
+                onMouseEnter={() => setHovered(displayName)}
+                onMouseLeave={() => setHovered('')}
+              />
+            </Fragment>
           );
         }
         return (
-          <MenuItem key={link} to={link}>
+          <MenuItem key={displayName} to={link}>
             {displayName}
           </MenuItem>
         );
