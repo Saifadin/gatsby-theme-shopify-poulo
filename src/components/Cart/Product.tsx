@@ -13,7 +13,7 @@ import {
   ItemImageWrapper,
   ItemImage,
 } from './styles';
-import NumberInput from '../NumberInput/index';
+import NumberInput from '../NumberInput';
 
 const ProductItem: React.FunctionComponent = ({
   id,

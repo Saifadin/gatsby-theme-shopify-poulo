@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { layout } from '../tokens/index';
+import { layout } from '../tokens';
 
 interface TypoProps {
   marginMultiplier?: number;

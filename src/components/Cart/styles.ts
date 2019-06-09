@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import { layout } from '../../components/tokens';
-import { SecondaryTitle, PrimaryTitle } from '../Typography/index';
+import { SecondaryTitle, PrimaryTitle } from '../Typography';
 
 const sidebarDesktopWidth = 490;
 

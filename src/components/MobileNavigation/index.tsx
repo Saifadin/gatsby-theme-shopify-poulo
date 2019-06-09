@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import LayoutContext from '../../context/LayoutContext';
 import { MobileNav, CloseIcon, MenuItem } from './styles';
-import MobileMegaMenu from '../MobileMegaMenu/index';
+import MobileMegaMenu from '../MobileMegaMenu';
 
 const MobileNavigation: React.FC = () => {
   const { siteNavigation } = useStaticQuery(graphql`
