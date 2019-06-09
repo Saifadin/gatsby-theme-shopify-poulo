@@ -2,7 +2,7 @@
   "name": "gatsby-theme-shopify-poulo",
   "version": "0.8.15",
   "description": "Gatsby Theme for Shopify projects",
-  "main": "export.js",
+  "main": "src/export.js",
   "license": "MIT",
   "author": {
     "name": "Osamah Aldoaiss",
