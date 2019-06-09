@@ -20,7 +20,7 @@ export const MenuItem = styled(Link)`
   display: flex;
   align-items: center;
   margin: 0;
-  padding: 0 ${layout.spacing * 1.5}px;
+  padding: 0 ${layout.spacing * 3}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -36,7 +36,7 @@ export const HoverMenuItem = styled(Link)`
   display: flex;
   align-items: center;
   margin: 0;
-  padding: 0 ${layout.spacing * 1.5}px;
+  padding: 0 ${layout.spacing * 3}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -53,7 +53,7 @@ export const HoverItem = styled.span`
   align-items: center;
   cursor: pointer;
   margin: 0;
-  padding: 0 ${layout.spacing * 1.5}px;
+  padding: 0 ${layout.spacing * 3}px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
