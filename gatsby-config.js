@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 
-module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethods, activatePWA = true }) => ({
+module.exports = ({ shopifyOptions, dirName, navigation, colorMap, paymentMethods, activatePWA = false }) => ({
   siteMetadata: {
     title: 'Poulo | Shopify&Gatsby Theme',
     description: `

@@ -20,7 +20,7 @@ import {
   ProductQuantity,
   AddedMessage,
 } from './styles';
-import { ShopifyProduct } from '.';
+import { ShopifyProduct } from '../ProductPage';
 
 interface Props {
   product: ShopifyProduct;

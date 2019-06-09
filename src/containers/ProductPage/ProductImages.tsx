@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { ImageWrapper, ActiveImage, ActiveImageContainer, AllImages, Thumbnail } from './styles';
-import { Image } from '.';
+import { Image } from '../ProductPage';
 
 interface ImagesProps {
   images: Image[];
