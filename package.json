@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-shopify-poulo",
-  "version": "0.8.12",
+  "version": "0.8.13",
   "description": "Gatsby Theme for Shopify projects",
   "main": "export.js",
   "license": "MIT",
