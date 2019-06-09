@@ -15,7 +15,7 @@ export const MobileNav = styled.div<WrapperProps>`
   position: absolute;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: scroll;
   z-index: 10;
   top: 0;
