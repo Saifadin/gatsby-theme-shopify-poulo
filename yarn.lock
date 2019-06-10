@@ -11061,6 +11061,22 @@ package-json@^4.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
+page-kit@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/page-kit/-/page-kit-0.0.3.tgz#adaa9f025c702730efc342f1e5423031b49dfcda"
+  integrity sha512-QOeIZX+J8McZaE0OHR1bURIKFOzfAwfFm/40h+YDSmhjaOMoSUPUnquwHHUrrMau01EO/64kLelltAGY/D5Row==
+  dependencies:
+    "@emotion/core" "^10.0.10"
+    "@emotion/is-prop-valid" "^0.7.3"
+    "@emotion/styled" "^10.0.11"
+    gatsby "^2.8.6"
+    gatsby-image "^2.1.2"
+    prop-types "^15.7.2"
+    react "16.8.6"
+    react-dom "16.8.6"
+    react-icons "^3.7.0"
+    uniqid "^5.0.3"
+
 pako@~1.0.5:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
@@ -12306,7 +12322,7 @@ react-docgen@^3.0.0:
     node-dir "^0.1.10"
     recast "^0.16.0"
 
-react-dom@^16.8.1, react-dom@^16.8.5:
+react-dom@16.8.6, react-dom@^16.8.1, react-dom@^16.8.5:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -12502,7 +12518,7 @@ react-textarea-autosize@^7.0.4:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
 
-react@^16.8.1, react@^16.8.4, react@^16.8.5:
+react@16.8.6, react@^16.8.1, react@^16.8.4, react@^16.8.5:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
@@ -14693,6 +14709,11 @@ uniq@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/uniq/-/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
   integrity sha1-sxxa6CVIRKOoKBVBzisEuGWnNP8=
+
+uniqid@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/uniqid/-/uniqid-5.0.3.tgz#917968310edc868d50df6c44f783f32c7d80fac1"
+  integrity sha512-R2qx3X/LYWSdGRaluio4dYrPXAJACTqyUjuyXHoJLBUOIfmMcnYOyY2d6Y4clZcIz5lK6ZaI0Zzmm0cPfsIqzQ==
 
 uniqs@^2.0.0:
   version "2.0.0"

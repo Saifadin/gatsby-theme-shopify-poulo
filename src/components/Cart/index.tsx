@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Button } from 'page-kit';
 
 // @ts-ignore
-import Empty from '../../images/empty-cart.svg';
 import ShopifyContext from '../../context/ShopifyContext';
 import LayoutContext from '../../context/LayoutContext';
 import {
@@ -16,7 +16,6 @@ import {
   CloseIcon,
 } from './styles';
 import ProductItem from './Product';
-import Button from '../Button';
 import { Link } from 'gatsby';
 
 const countQuantity = (lineItems = []): number => {

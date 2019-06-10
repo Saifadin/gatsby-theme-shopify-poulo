@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Button } from 'page-kit';
 import find from 'lodash/find';
 import isEqual from 'lodash/isEqual';
 
 import ShopifyContext from '../../context/ShopifyContext';
 import LayoutContext from '../../context/LayoutContext';
-import Button from '../../components/Button';
 import {
   DetailsWrapper,
   ProductTitle,

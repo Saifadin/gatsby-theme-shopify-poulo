@@ -13,10 +13,6 @@ const Menu: React.FC = () => {
         link
         type
         displayName
-        subMenu {
-          link
-          displayName
-        }
       }
     }
   `);
