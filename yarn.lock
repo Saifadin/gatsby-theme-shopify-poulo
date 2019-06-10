@@ -11061,17 +11061,17 @@ package-json@^4.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
-page-kit@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/page-kit/-/page-kit-0.1.1.tgz#cc6f6a5a88076bf946f24a5ad6750617749aae04"
-  integrity sha512-O9BRMjf3bWFgg8DqirjYPOdMk280qxx6t9yYSPJb0y20JmQkIDbfTCmTyhs3sZWwobScJSnzuu0QxCcAaGqOCw==
+page-kit@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/page-kit/-/page-kit-0.1.2.tgz#86845ed22dda2375c36fc1725ca57c0f933987e3"
+  integrity sha512-r62vui0n+sgcpynHkKhNTORogKTBl8+JMjfWNljbwpPQ+UfXRwcQYBZUtgpQhMLSv6hTTJd5S73A9asUAx1bhw==
   dependencies:
     "@emotion/core" "^10.0.10"
     "@emotion/is-prop-valid" "^0.7.3"
     "@emotion/styled" "^10.0.11"
     gatsby "^2.8.6"
     gatsby-image "^2.1.2"
-    lodash "^4.17.11"
+    lodash-es "^4.17.11"
     react-icons "^3.7.0"
 
 pako@~1.0.5:
