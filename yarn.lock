@@ -11061,10 +11061,10 @@ package-json@^4.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
-page-kit@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/page-kit/-/page-kit-0.0.3.tgz#adaa9f025c702730efc342f1e5423031b49dfcda"
-  integrity sha512-QOeIZX+J8McZaE0OHR1bURIKFOzfAwfFm/40h+YDSmhjaOMoSUPUnquwHHUrrMau01EO/64kLelltAGY/D5Row==
+page-kit@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/page-kit/-/page-kit-0.0.4.tgz#0b0b79962785fb8c9daca1d35acfab207af73b72"
+  integrity sha512-uePzqgYb/geI6CSiguztX2f15mk1IsE7blp43urf2pN59efTzhwpGvNOzeq/51U0JOLZGMBaPgyU9V0lauhYPg==
   dependencies:
     "@emotion/core" "^10.0.10"
     "@emotion/is-prop-valid" "^0.7.3"
