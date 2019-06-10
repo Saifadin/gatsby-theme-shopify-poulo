@@ -1,7 +1,7 @@
 import React from 'react';
+import { Section, SectionTitle, SectionDescription } from 'page-kit';
 
 import SeoContainer from './SeoContainer';
-import Section, { SectionTitle, SectionDescription } from '../components/Section';
 
 interface ErrorProps {
   title?: React.ReactNode;
