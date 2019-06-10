@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-shopify-poulo",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Gatsby Theme for Shopify projects",
   "main": "index.js",
   "license": "MIT",
@@ -72,7 +72,7 @@
     "gatsby-transformer-sharp": "^2.1.20",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.11",
-    "page-kit": "^0.1.0",
+    "page-kit": "^0.1.1",
     "prop-types": "^15.7.2",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
